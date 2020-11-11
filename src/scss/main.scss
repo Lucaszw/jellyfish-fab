@@ -1,0 +1,118 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "particles.scss";
+
+@font-face {
+  font-family: "ConcertOne";
+  src: url(../fonts/ConcertOne-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "DamionRegular";
+  src: url(../fonts/Damion-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "NoricanRegular";
+  src: url(../fonts/Norican-Regular.ttf) format("truetype");
+}
+
+$navbar-bleed: 30px;
+$break-small: 538px;
+$break-large: 1200px;
+
+// @media screen and (max-width: $break-small) {}
+// @media screen and (min-width: $break-large) {}
+
+body{
+  background: white;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
+  width: calc(100% - #{$navbar-bleed * 2});
+  left: $navbar-bleed;
+  top: 30px;
+  border-radius: 5px;
+  user-select:none;
+
+  .nav-sub {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 62px;
+    font-size: 23px;
+    display: block;
+    height: auto;
+    @media screen and (min-width: $break-small) {
+        display: none !important;
+    }
+    .navitem {
+        border-bottom: 1px solid #f3f3f3;
+        padding: 8px 0px;
+        color: #a6a7a9;
+        &:last-of-type {border: none}
+        &:hover {
+            color: crimson;
+            cursor: pointer;
+        }
+    }
+  }
+
+  .nav-left {
+    display: inline-block;
+    font-family: NoricanRegular;
+    font-size: 24px;
+    width: auto;
+    color: crimson;
+
+    * {
+      display: inline;
+    }
+  }
+
+  .nav-right {
+    display: inline-block;
+    color: #a6a7a9;
+    width: auto;
+    font-size: 17px;
+    font-family: ConcertOne;
+    .navitem {
+      display: inline;
+      &:hover {
+        color: crimson;
+        cursor: pointer;
+      }
+      &::after {
+        content: " | ";
+      }
+      &:hover::after {
+        color: #a6a7a9;
+      }
+
+      @media screen and (max-width: $break-small) {
+        display: none;
+      }
+      &:last-of-type {
+        &:after {
+          content: "";
+        }
+      }
+    }
+
+    .navcollapse {
+        color: crimson;
+        font-size: 26px;
+        @media screen and (min-width: $break-small) {
+            display: none;
+        }
+        &:hover {
+            cursor: pointer;
+            color: darkred;
+        }
+    }
+  }
+}
