@@ -33,7 +33,7 @@ class Header {
 
         particlesJS("particles-js", {
             particles: {
-              number: { value: 300, density: { enable: true, value_area: 400 } },
+              number: { value: 300, density: { enable: true, value_area: 600 } },
               color: { value: this.particleColors },
               shape: {
                 type: "edge",

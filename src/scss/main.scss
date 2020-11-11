@@ -19,11 +19,41 @@
 
 body{
   background: white;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 $navbar-bleed: 30px;
 
+.big-button {
+  width: fit-content;
+  font-family: "NoricanRegular";
+  font-size: 28px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: #f1a614;
+  position: relative;
+  color: white;
+  &:hover {
+    background: #c98b10;
+    cursor: pointer;
+  }
+}
+
+.vision-container {
+  text-align: center;
+  padding: 270px 100px;
+  background-color: white;
+  h1 {
+    font-family: NoricanRegular;
+    font-size: 47px;
+  }
+
+  h2 {
+    font-family: ConcertOne;
+    font-size: 19px;
+  }
+}
 
 .header-content {
   color: white;
@@ -32,24 +62,83 @@ $navbar-bleed: 30px;
   left: $navbar-bleed;
   h1 {
     font-family: NoricanRegular;
+    font-size: 71px;
     opacity: 0.85;
   }
   h2 {
     font-family: ConcertOne;
     opacity: 0.85;
+    font-size: 22px;
   }
   .big-button {
-    width: fit-content;
-    font-family: "NoricanRegular";
-    font-size: 28px;
-    padding: 10px 20px;
-    border-radius: 4px;
-    background: #f1a614;
     top: 20px;
-    position: relative;
-    &:hover {
-      background: #c98b10;
-      cursor: pointer;
+  }
+}
+
+.contact-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  .contact-left {
+    position: absolute;
+    width: 50%;
+    left: $navbar-bleed;
+    padding-right: $navbar-bleed;
+    top: 0px;
+
+    h1 {
+      font-family: 'ConcertOne';
+      font-size: 60px;
+    }
+
+    h2 {
+      font-size: 19px;
+      text-align: justify;
+      color: black;
+    }
+  }
+
+  .contact-right {
+    top: 0px;
+    left: calc(50% + #{$navbar-bleed});
+    position: absolute;
+    width: calc(50% - #{$navbar-bleed*2});
+    border-top: 15px solid orange;
+    padding: 30px 0px;
+    h3 {
+      font-family: 'ConcertOne';
+      padding-bottom: 9px;
+    }
+
+    input {
+      width: 100%;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.17);
+      border: 1px solid #ebebeb;
+      border-radius: 0px;
+      &:hover {
+        border-bottom: 3px solid #ffa502;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.17);
+      border: 1px solid #ebebeb;
+      border-radius: 0px;
+      &:hover {
+        border-bottom: 3px solid #ffa502;
+      }
+    }
+
+    label {
+      font-size: 17px;
+      padding-bottom: 0px;
+      margin: 0;
+      color: #6d757d;
+    }
+
+    .big-button {
+      float: right;
     }
   }
 }
