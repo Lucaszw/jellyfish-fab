@@ -1,25 +1,44 @@
 import "particles.js";
+import anime from "animejs";
+import headerHTML from '../html/header.html';
 import { el, mount } from "redom";
 
 class Header {
     constructor(parentContainer) {
         this.container = null;
-        this.particleColor = "#fc3242";
+        this.particleColors = ["#fb000f","#fc3242", "#fc4708", "#ffffff", "#fec409", "#ffff0b"];
     }
     draw() {
         if (this.container) this.container.remove();
         this.container = el(".header", {innerHTML: '<div id="particles-js"></div>'});
+        let {height} = document.body.getBoundingClientRect();
+        this.container.style.height = `${height}px`;
+        let headerContent = el(".header-content", {innerHTML: headerHTML});
+        console.log({height});
         mount(document.body, this.container);
+        mount(document.body, headerContent);
+
+        anime.timeline({loop: false})
+        .add({
+          targets: [
+            headerContent.querySelector("h1"),
+            headerContent.querySelector("h2"),
+            headerContent.querySelector(".big-button")
+          ],
+          scale: [0, 1],
+          duration: 1500,
+          elasticity: 600,
+          delay: (el, i) => 45 * (i+1)
+        });
 
         particlesJS("particles-js", {
             particles: {
-              number: { value: 400, density: { enable: true, value_area: 800 } },
-              color: { value: ["#fb000f","#fc3242", "#fc4708", "#ffffff"] },
+              number: { value: 300, density: { enable: true, value_area: 400 } },
+              color: { value: this.particleColors },
               shape: {
                 type: "edge",
                 stroke: { width: 0, color: "#000000" },
-                polygon: { nb_sides: 5 },
-                image: { src: "img/github.svg", width: 100, height: 100 },
+                polygon: { nb_sides: 5 }
               },
               opacity: {
                 value: 0.5,
@@ -27,21 +46,21 @@ class Header {
                 anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
               },
               size: {
-                value: 10,
+                value: 8,
                 random: true,
                 anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
               },
               line_linked: {
-                enable: false,
-                distance: 500,
-                color: this.particleColor,
-                opacity: 0.4,
-                width: 2,
+                enable: true,
+                distance: 70,
+                color: "#fc3242",
+                opacity: 0.3,
+                width: 1,
               },
               move: {
                 enable: true,
-                speed: 6,
-                direction: "none",
+                speed: 2,
+                direction: "top",
                 random: true,
                 straight: false,
                 out_mode: "out",

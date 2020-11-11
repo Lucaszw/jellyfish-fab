@@ -19,14 +19,14 @@ class Navbar {
         const subnav = this.container.querySelector(".nav-sub");
 
         expandBtn.onclick = () => {
+            subnav.style.maxHeight = "450px";
             expandBtn.style.display = "none";
             collapseBtn.style.display = "block";
-            subnav.style.display = "block";
         }
         collapseBtn.onclick = () => {
+            subnav.style.maxHeight = "0px";
             expandBtn.style.display = "block";
             collapseBtn.style.display = "none";
-            subnav.style.display = "none";
         }
     }
 }

@@ -1,0 +1,102 @@
+$navbar-bleed: 30px;
+$break-small: 538px;
+$break-large: 1200px;
+
+// @media screen and (max-width: $break-small) {}
+// @media screen and (min-width: $break-large) {}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background-color: #00000091;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
+    width: calc(100% - #{$navbar-bleed * 2});
+    left: $navbar-bleed;
+    top: 30px;
+    border-radius: 5px;
+    user-select:none;
+  
+    .nav-sub {
+      position: absolute;
+      background-color: black;
+      left: 0px;
+      width: 100%;
+      top: 71px;
+      font-size: 23px;
+      display: block;
+      height: auto;
+      max-height: 450px;
+      transition: max-height 0.3s ease-in-out;
+      overflow: hidden;
+      @media screen and (min-width: $break-small) {
+          display: none !important;
+      }
+      .navitem {
+          border-bottom: 1px solid #ffffff4d;
+          padding: 8px 0px;
+          color: white;
+          font-family: ConcertOne;
+          &:last-of-type {border: none}
+          &:hover {
+              color: #f1a614;
+              cursor: pointer;
+          }
+      }
+    }
+  
+    .nav-left {
+      display: inline-block;
+      font-family: ConcertOne;
+      font-size: 24px;
+      width: auto;
+      color: #f1a614;
+  
+      * {
+        display: inline;
+      }
+    }
+  
+    .nav-right {
+      display: inline-block;
+      color: white;
+      width: auto;
+      font-size: 17px;
+      font-family: ConcertOne;
+      .navitem {
+        display: inline;
+        &:hover {
+          color: #f1a614;
+          cursor: pointer;
+        }
+        &::after {
+          content: " | ";
+        }
+        &:hover::after {
+          color: white;
+        }
+  
+        @media screen and (max-width: $break-small) {
+          display: none;
+        }
+        &:last-of-type {
+          &:after {
+            content: "";
+          }
+        }
+      }
+  
+      .navcollapse {
+          color: #f1a614;
+          font-size: 26px;
+          @media screen and (min-width: $break-small) {
+              display: none;
+          }
+          &:hover {
+              cursor: pointer;
+              color: #c98b10;
+          }
+      }
+    }
+  }
+  

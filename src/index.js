@@ -11,8 +11,10 @@ import Header from './js/header';
 function main() {
     const navbar = new Navbar(document.body);
     const header = new Header(document.body);
-    header.draw();
-    navbar.draw();
+    setImmediate(()=> {
+        header.draw();
+        navbar.draw();
+    })
 }
 
 main();
