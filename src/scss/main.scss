@@ -54,6 +54,7 @@ body{
         border-bottom: 1px solid #f3f3f3;
         padding: 8px 0px;
         color: #a6a7a9;
+        font-family: ConcertOne;
         &:last-of-type {border: none}
         &:hover {
             color: crimson;
@@ -64,7 +65,7 @@ body{
 
   .nav-left {
     display: inline-block;
-    font-family: NoricanRegular;
+    font-family: ConcertOne;
     font-size: 24px;
     width: auto;
     color: crimson;
