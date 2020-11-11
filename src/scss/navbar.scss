@@ -1,4 +1,5 @@
 $navbar-bleed: 30px;
+$navbar-height: 100px;
 $break-small: 538px;
 $break-large: 1200px;
 
@@ -8,7 +9,7 @@ $break-large: 1200px;
 .navbar {
     position: fixed;
     width: 100%;
-    height: 70px;
+    height: $navbar-height;
     background-color: #1f1f2cad;
     z-index: 10;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
@@ -23,8 +24,8 @@ $break-large: 1200px;
       background-color: #242434;
       left: 0px;
       width: 100%;
-      top: 71px;
-      font-size: 23px;
+      top: $navbar-height + 1;
+      font-size: 25px;
       display: block;
       height: auto;
       max-height: 450px;
@@ -49,7 +50,7 @@ $break-large: 1200px;
     .nav-left {
       display: inline-block;
       font-family: ConcertOne;
-      font-size: 24px;
+      font-size: 30px;
       width: auto;
       color: #f1a614;
   
@@ -62,7 +63,7 @@ $break-large: 1200px;
       display: inline-block;
       color: white;
       width: auto;
-      font-size: 17px;
+      font-size: 23px;
       font-family: ConcertOne;
       .navitem {
         display: inline;
@@ -89,7 +90,7 @@ $break-large: 1200px;
   
       .navcollapse {
           color: #f1a614;
-          font-size: 26px;
+          font-size: 30px;
           @media screen and (min-width: $break-small) {
               display: none;
           }
