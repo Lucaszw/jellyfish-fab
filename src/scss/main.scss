@@ -1,6 +1,8 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "particles.scss";
 @import "navbar.scss";
+@import "header.scss";
+@import "vision.scss";
 
 @font-face {
   font-family: "ConcertOne";
@@ -37,41 +39,6 @@ $navbar-bleed: 30px;
   &:hover {
     background: #c98b10;
     cursor: pointer;
-  }
-}
-
-.vision-container {
-  text-align: center;
-  padding: 270px 100px;
-  background-color: white;
-  h1 {
-    font-family: NoricanRegular;
-    font-size: 47px;
-  }
-
-  h2 {
-    font-family: ConcertOne;
-    font-size: 19px;
-  }
-}
-
-.header-content {
-  color: white;
-  top: 350px;
-  position: absolute;
-  left: $navbar-bleed;
-  h1 {
-    font-family: NoricanRegular;
-    font-size: 71px;
-    opacity: 0.85;
-  }
-  h2 {
-    font-family: ConcertOne;
-    opacity: 0.85;
-    font-size: 22px;
-  }
-  .big-button {
-    top: 20px;
   }
 }
 
