@@ -1,6 +1,8 @@
 import { el, mount } from "redom";
 
 import cristinaHTML from "../../html/team/cristina.html";
+import memberHTML from "../../html/team/member.html";
+import memberData from "./member-data";
 
 class Member {
     constructor(parent, memberName) {
@@ -8,14 +10,27 @@ class Member {
         this.memberName = memberName;
         this.mouseDown = false;
         this.defaultX = 0.875;
-        if (memberName == "cristina") this.html = cristinaHTML;
+        // if (memberName == "cristina") this.html = cristinaHTML;
+        this.memberData = memberData[memberName];
 
         document.addEventListener("mousemove", this.mouseMoved.bind(this));
         window.addEventListener("resize", this.renderBackground.bind(this, null));
     }
+    setupData() {
+        this.container.querySelector(".member-background-color").classList.add(`${this.memberName}-background`);
+        this.container.querySelector(".member-background-bw").classList.add(`${this.memberName}-background`);
+        this.container.querySelector(".member-text h1").innerHTML = this.memberData.fullname;
+        this.container.querySelector(".member-text p").innerHTML = this.memberData.description;
+        for (let i=0;i<this.memberData.skills.length;i++) {
+            const skill = this.memberData.skills[i];
+            this.container.querySelector(`.skill-${i} i`).classList.add(`fa-${skill.icon}`);
+            this.container.querySelector(`.skill-${i} span`).innerHTML = skill.text;
+        }
+    }
     draw() {
-        this.container = el(`#${this.memberName}.member`, {innerHTML: this.html});
+        this.container = el(`#${this.memberName}.member`, {innerHTML: memberHTML});
         mount(this.parent, this.container);
+        this.setupData();
         this.slider = this.container.querySelector(".slider");
         this.sliderCircle = this.container.querySelector(".slider-circle");
         this.colorBackground = this.container.querySelector(".member-background-color");
