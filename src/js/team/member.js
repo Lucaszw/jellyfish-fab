@@ -1,8 +1,8 @@
 import { el, mount } from "redom";
 
-import cristinaHTML from "../../html/team/cristina.html";
 import memberHTML from "../../html/team/member.html";
 import memberData from "./member-data";
+// import isMultiline from "../utils/multiline";
 
 class Member {
     constructor(parent, memberName) {
@@ -10,7 +10,6 @@ class Member {
         this.memberName = memberName;
         this.mouseDown = false;
         this.defaultX = 0.875;
-        // if (memberName == "cristina") this.html = cristinaHTML;
         this.memberData = memberData[memberName];
 
         document.addEventListener("mousemove", this.mouseMoved.bind(this));

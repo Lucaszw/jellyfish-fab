@@ -8,7 +8,7 @@ class Sliding {
 
     recreateContainer(start="-100%") {
         if (this.container) this.container.remove();
-        this.container = el(".sliding", {innerHTML: slidingHTML});
+        this.container = el(".sliding");
         this.container.style.left = start;
         mount(document.body, this.container);
     }

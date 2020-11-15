@@ -18,6 +18,9 @@ class Team {
 
         this.cristina = new Member(this.container, "cristina");
         this.cristina.draw();
+
+        this.lucas = new Member(this.container, "lucas");
+        this.lucas.draw();
     }
     remove() {
         if (this.container) this.container.remove();

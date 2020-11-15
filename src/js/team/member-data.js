@@ -8,5 +8,15 @@ export default {
             {icon: "chair", text: "Furniture <br/> Design"},
             {icon: "pencil-alt", text: "Industrial <br/> Design"}
         ]
+    },
+    lucas: {
+        fullname: "Lucas Zeer",
+        description: "Canadian Engineer with a love for making cool things. Love working with these incredible people. ",
+        skills: [
+            {icon: "code", text: "Software<br/>Development"},
+            {icon: "bolt", text: "Electronics"},
+            {icon: "brain", text: "Machine <br/> Learning"},
+            {icon: "microscope", text: "Nanotech <br/> Engineering"}
+        ]
     }
 }
