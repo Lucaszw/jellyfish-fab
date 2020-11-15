@@ -4,13 +4,14 @@ import "appear/dist/appear";
 import anime from "animejs";
 
 class Vision {
-  constructor() {
+  constructor(parent) {
     this.contianer = null;
+    this.parent = parent;
   }
 
   draw() {
     this.container = el(".vision-container", { innerHTML: visionHTML });
-    mount(document.body, this.container);
+    mount(this.parent, this.container);
 
     let h1 = this.container.querySelector("h1");
     let h2 = this.container.querySelector("h2");

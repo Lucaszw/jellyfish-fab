@@ -6,31 +6,42 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import './scss/main.scss';
 import _ from 'lodash';
+
 import Navbar from './js/navbar';
-import Header from './js/header';
-import Vision from './js/vision';
-import Contact from './js/contact';
-import isOverlapping from './js/utils/overlap';
+import Sliding from './js/sliding';
+import Home from './js/home';
+import Team from './js/team';
+ 
+const navbar = new Navbar(document.body);
+const sliding = new Sliding(document.body);
+const home = new Home(navbar);
+const team = new Team(navbar);
+
+const pages = [home, team];
 
 function main() {
-    const navbar = new Navbar(document.body);
-    const header = new Header(document.body);
-    const vision = new Vision(document.body);
-    const contact = new Contact(document.body);
+    navbar.draw();
+    team.draw();
+    navbar.onChangePage = (elem) => {
+        const {page} = elem.dataset;
+        sliding.easeInOut(()=>{
+            console.log({page});
+            for (let page of pages) page.remove();
+            if (page == "home") {
+                home.draw();
+                home.header.drawTextAnimation();
+            }
+            if (page == "team") team.draw();
+        });
+        console.log(home.container);
+    };
+    // sliding.easeOut(()=>{
+    //     home.header.drawTextAnimation();
+    // });
 
-    setImmediate(()=> {
-        header.draw();
-        navbar.draw();
-        vision.draw();
-        contact.draw();
-
-        document.addEventListener("scroll", _.debounce(()=> {
-            let overlapping = isOverlapping(navbar.container, header.container);
-            if (!overlapping) navbar.container.style.backgroundColor = "#1f1f2c";
-            if (overlapping) navbar.container.style.backgroundColor = "#1f1f2cad";
-        },20,{leading: true, trailing: true}));
-
-    })
+    
 }
 
-main();
+document.addEventListener("DOMContentLoaded", function(event) { 
+    main();
+});

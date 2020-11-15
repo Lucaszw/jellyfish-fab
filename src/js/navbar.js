@@ -4,6 +4,7 @@ import navbarHTML from '../html/navbar.html';
 class Navbar {
     constructor(parentContainer) {
         this.container = null;
+        this.onChangePage = () => {console.error("Implement Me")};
     }
     draw() {
         if (this.container) this.container.remove();
@@ -28,6 +29,19 @@ class Navbar {
             expandBtn.style.display = "block";
             collapseBtn.style.display = "none";
         }
+
+        let navItems = this.container.querySelectorAll(".navitem");
+        let logo = this.container.querySelector(".nav-left");
+        let _this = this;
+        for (let item of navItems) {
+            item.onclick = function () {
+                _this.onChangePage(item);
+            }
+        }
+
+        logo.onclick = function () {
+            _this.onChangePage(logo);
+        };
     }
 }
 

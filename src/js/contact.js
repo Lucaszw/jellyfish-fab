@@ -2,12 +2,12 @@ import contactHTML from "../html/contact.html";
 import { el, mount } from "redom";
 
 class Contact {
-    constructor (parentContainer)  {
-
+    constructor (parent)  {
+        this.parent = parent;
     }
     draw() {
         this.container = el(".contact-container", {innerHTML: contactHTML});
-        mount(document.body, this.container);
+        mount(this.parent, this.container);
     }
 }
 
