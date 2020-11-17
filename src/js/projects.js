@@ -2,11 +2,21 @@ import { el, mount } from "redom";
 import _ from "lodash";
 
 import circleSVG from "../html/projects/orbit-circle-1.html";
+import projectsHeader from "../html/projects/header.html";
+
 import randInt from "random-int";
+import isOverlapping from "./utils/overlap";
 
 class Projects {
   constructor(navbar) {
     this.navbar = navbar;
+    document.addEventListener(
+      "scroll",
+      _.debounce(this.onScroll.bind(this), 20, {
+        leading: true,
+        trailing: true,
+      })
+    );
     // window.addEventListener("resize", _.debounce(this.draw.bind(this), 500));
   }
   draw() {
@@ -14,12 +24,17 @@ class Projects {
     this.container = el(".projects");
     mount(document.body, this.container);
 
-    this.crosshairs = el(".crosshairs", {style: `height: ${window.innerHeight}px; width: 100%;`});
-    // this.gallery = el(".gallery", {
-    //   style: `height: ${window.innerHeight}px; width: 100%;`,
-    // });
+    this.crosshairs = el(".crosshairs", {
+      style: `height: ${window.innerHeight}px; width: 100%;`,
+    });
+    this.gallery = el(".gallery", {
+      style: `height: ${window.innerHeight}px; width: 100%;`,
+    });
+
+    this.headerInfo = el(".header", { innerHTML: projectsHeader });
 
     mount(this.container, this.crosshairs);
+    mount(this.crosshairs, this.headerInfo);
 
     this.constructCircle(0.7);
     this.constructCircle(0.3);
@@ -31,29 +46,40 @@ class Projects {
     this.horizontalCrosshair = el(".crosshair.horizontal");
     mount(this.crosshairs, this.horizontalCrosshair);
     this.drawDashes();
-    // mount(this.container, this.gallery);
-    // this.drawGrid(this.gallery);
+    mount(this.container, this.gallery);
+    this.drawGrid(this.gallery);
   }
 
   constructCircle(scale) {
     let circle = el(".circle", {
       innerHTML: circleSVG,
-      style: {transform: `rotateZ(${randInt(0,360)}deg)`}
     });
 
     circle
       .querySelector(".circle-group")
-      .setAttribute("transform", `translate(50,50) scale(${scale})`);
+      .setAttribute("transform", `scale(${scale})`);
+
     mount(this.crosshairs, circle);
 
-    let { width: circleW, height: circleH } = circle
-      .querySelector(".page")
-      .getBBox();
+    let svg = circle.querySelector("svg");
+    let page = circle.querySelector(".page");
 
-    circle.querySelector("svg").style.width = `${circleW + 100}px`;
-    circle.querySelector("svg").style.height = `${circleH + 100}px`;
-    circle.style.left = `calc(50% - ${(circleW + 100) / 2}px)`;
-    circle.style.top = `calc(50% - ${(circleH + 100) / 2}px)`;
+    let { width: circleW, height: circleH } = page.getBBox();
+    let diff =
+      svg.getBoundingClientRect().top - page.getBoundingClientRect().top;
+
+    page.style.transform = `translateY(${diff}px)`;
+
+    const innerCircles = circle.querySelectorAll(".inner-circle");
+    for (let innerCircle of innerCircles) {
+      if (randInt(0, 1)) innerCircle.style.display = "block";
+    }
+
+    circle.querySelector("svg").style.width = `${circleW}px`;
+    circle.querySelector("svg").style.height = `${circleH}px`;
+    circle.style.left = `calc(50% - ${circleW / 2}px)`;
+    circle.style.top = `calc(50% - ${circleH / 2}px)`;
+    circle.style.transform = `rotateZ(${randInt(0, 360)}deg)`;
   }
 
   getGridOptions() {
@@ -72,7 +98,7 @@ class Projects {
     return { verticalHeight, horizontalWidth, dashInterval, h, w };
   }
   drawGrid(container, spread) {
-    spread = spread || 4;
+    spread = spread || 5;
     for (let i = 0; i < spread; i++) {
       const bigOffset = (i * 100) / spread;
       [
@@ -122,7 +148,17 @@ class Projects {
   }
 
   remove() {
-    if (this.container) this.container.remove();
+    if (this.container) {
+      this.container.remove();
+      this.container = null;
+    }
+  }
+  onScroll() {
+    if (!this.container) return;
+    let overlapping = isOverlapping(this.navbar.container, this.gallery);
+    if (!overlapping)
+      this.navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
+    if (overlapping) this.navbar.container.style.backgroundColor = "#2d2d2d";
   }
 }
 export default Projects;

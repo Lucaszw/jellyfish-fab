@@ -31,9 +31,19 @@ $navbar-bleed: 30px;
         margin: 0 auto;
         width: 100%;
         text-align: center;
-        font-family: "ConcertOne";
+        font-family: "Neon";
         font-size: 50px;
         text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+
+        // text-shadow:
+        // .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffe3aa, .4vw 0vw .25vw #ffe3aa, 
+        // .1vw 0vw   0vw  #f1a614, .2vw 0vw   0vw  #f1a614, .4vw 0vw   0vw  #f1a614,
+        // .1vw 0vw  .1vw  #f1a614, .2vw 0vw  .1vw  #f1a614, .4vw 0vw  .1vw  #f1a614,
+        // .1vw 0vw   2vw  #f1a614, .2vw 0vw   2vw  #f1a614, .4vw 0vw   2vw  #f1a614, 
+        // .1vw 0vw   1vw  #ad790f, .2vw 0vw   1vw #ad790f, .4vw 0vw   5vw #ad790f, 
+        // .1vw 0vw   5vw #ad790f, .2vw 0vw  20vw #ad790f, .4vw 0vw  10vw #ad790f,
+        // .1vw 0vw  10vw #ad790f, .2vw 0vw  30vw #ad790f, .4vw 0vw  10vw #ad790f;
+
       }
     }
   
@@ -92,36 +102,36 @@ $navbar-bleed: 30px;
   
       .member-background-color.cristina-background {
         background-image: url(/assets/cristina-bw.jpeg);
-        background-position-y: 95px;
+        // background-position-y: 95px;
         background-position-x: right;
       }
       .member-background-bw.cristina-background {
         background-image: url(/assets/cristina-color.jpeg);
-        background-position-y: 95px;
+        // background-position-y: 95px;
         background-position-x: right;
       }
   
       .member-background-color.lucas-background {
         background-image: url(/assets/lucas-bw.jpeg);
-        background-position-y: 95px;
+        // background-position-y: 95px;
         background-position-x: right;
         // filter: blur(1px);
       }
       .member-background-bw.lucas-background {
         background-image: url(/assets/lucas-color.jpeg);
-        background-position-y: 95px;
+        // background-position-y: 95px;
         background-position-x: right;
         // filter: blur(1px);
       }
   
       .member-background-color.yue-background {
         background-image: url(/assets/yue-bw.jpg);
-        background-position-y: 95px;
+        // background-position-y: 95px;
         background-position-x: right;
       }
       .member-background-bw.yue-background {
         background-image: url(/assets/yue-color.jpg);
-        background-position-y: 95px;
+        // background-position-y: 95px;
         background-position-x: right;
       }
   

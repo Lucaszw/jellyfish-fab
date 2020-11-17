@@ -38,7 +38,7 @@ $break-large: 1200px;
           border-bottom: 1px solid #ffffff4d;
           padding: 8px 0px;
           color: #f1a614;
-          font-family: ConcertOne;
+          font-family: Neon;
           &:last-of-type {border: none}
           &:hover {
               color: #c98b10;
@@ -49,12 +49,11 @@ $break-large: 1200px;
   
     .nav-left {
       display: inline-block;
-      font-family: ConcertOne;
+      font-family: Neon;
       font-size: 30px;
       cursor: pointer;
       width: auto;
-      color: #f1a614;
-  
+      color: #fddea0;
       * {
         display: inline;
       }
@@ -64,8 +63,8 @@ $break-large: 1200px;
       display: inline-block;
       color: white;
       width: auto;
-      font-size: 18px;
-      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-family: Neon;
       .navitem {
         display: inline;
         &:hover {

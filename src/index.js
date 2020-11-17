@@ -24,16 +24,22 @@ const pages = [home, team, projects];
 function main() {
     navbar.draw();
     projects.draw();
+    navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
     navbar.onChangePage = (elem) => {
         const {page} = elem.dataset;
         sliding.easeInOut(()=>{
             for (let page of pages) page.remove();
+            navbar.container.style.backgroundColor = "";
+
             if (page == "home") {
                 home.draw();
                 home.header.drawTextAnimation();
             }
             if (page == "team") team.draw();
-            if (page == "projects") projects.draw();
+            if (page == "projects"){
+                projects.draw();
+                navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
+            }
         });
     };
     // sliding.easeOut(()=>{

@@ -8,11 +8,10 @@ $break-small: 538px;
 $break-large: 1200px;
 $navbar-bleed: 30px;
 :root {
-  --neon-text-color: #f40;
+  --neon-text-color: rgb(209, 6, 118);
   --neon-border-color: rgba(241, 167, 20, 0.9);
   --neon-border-color-alt: rgba(255, 255, 255, 0.6);
 }
-
 
 @font-face {
   font-family: "ConcertOne";
@@ -29,15 +28,27 @@ $navbar-bleed: 30px;
   src: url(../fonts/Norican-Regular.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Neon";
+  src: url(../fonts/neon-soft.otf) format("opentype");
+}
+
 body {
   background: white;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-
-// --neon-text-color: #f40;
-// --neon-border-color: #08f;
+.sliding {
+  position: fixed;
+  background: #f1a614;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  top: 0px;
+  left: 0px;
+  transition: left 1s ease;
+}
 
 .projects {
   background: black;
@@ -46,8 +57,57 @@ body {
     overflow: hidden;
     background: #310808;
     margin: 0 auto;
-    box-shadow:  0 0.5rem rgba(36, 36, 36, 0.6), inset 0 0 0.5rem rgba(0, 0, 0, 0.6), 0 0 2rem rgba(0, 0, 0, 0.9), inset 0 0 2rem rgba(0, 0, 0, 0.9), 0 0 4rem rgba(0, 0, 0, 0.9), inset 0 0 4rem rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0.5rem rgba(36, 36, 36, 0.6),
+      inset 0 0 0.5rem rgba(0, 0, 0, 0.6), 0 0 2rem rgba(0, 0, 0, 0.9),
+      inset 0 0 2rem rgba(0, 0, 0, 0.9), 0 0 4rem rgba(0, 0, 0, 0.9),
+      inset 0 0 4rem rgba(0, 0, 0, 0.9);
 
+    .header {
+      color: #ffe6b4;
+      position: absolute;
+      bottom: 0px;
+      font-family: "Neon";
+      padding-left: 30px;
+      padding-bottom: 100px;
+      width: 80%;
+
+      h1 {
+        font-size: 40px;
+        // text-shadow: 
+        // 0 0 5px var(--neon-border-color-alt), 
+        // 0 0 10px var(--neon-border-color-alt), 
+        // 0 0 20px var(--neon-border-color-alt), 
+        // 0 0 40px var(--neon-text-color),
+        // 0 0 80px var(--neon-text-color), 
+        // 0 0 90px var(--neon-text-color),
+        // 0 0 100px var(--neon-text-color),
+        // 0 0 150px var(--neon-text-color);
+        text-align: center;
+        width: fit-content;
+        text-shadow:
+        .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffe3aa, .4vw 0vw .25vw #ffe3aa, 
+        .1vw 0vw   0vw  #f1a614, .2vw 0vw   0vw  #f1a614, .4vw 0vw   0vw  #f1a614,
+        .1vw 0vw  .1vw  #f1a614, .2vw 0vw  .1vw  #f1a614, .4vw 0vw  .1vw  #f1a614,
+        .1vw 0vw   2vw  #f1a614, .2vw 0vw   2vw  #f1a614, .4vw 0vw   2vw  #f1a614, 
+        .1vw 0vw   1vw  #ad790f, .2vw 0vw   1vw #ad790f, .4vw 0vw   5vw #ad790f, 
+        .1vw 0vw   5vw #ad790f, .2vw 0vw  20vw #ad790f, .4vw 0vw  10vw #ad790f,
+        .1vw 0vw  10vw #ad790f, .2vw 0vw  30vw #ad790f, .4vw 0vw  10vw #ad790f;
+
+        box-shadow:
+        0 0 0.1vw  0.4vw #ffe3aa,   
+        0 0 0.4vw  0.6vw  #f1a614, 
+        0 0   4vw  0.4vw #ad790f,
+        inset 0 0 1.5vw  0.4vw #ad790f,
+        inset 0 0 0.4vw  0.2vw  #f1a614,
+        inset 0 0 0.5vw  0.2vw #ffe3aa;
+        border-radius: 1.5rem;
+        padding: 40px 9px;
+      }
+      h2 {
+        font-family: "ConcertOne";
+        font-size: 20px;
+      }
+    }
     .circle {
       position: absolute;
       height: max-content;
@@ -55,17 +115,28 @@ body {
       top: 0px;
       text-align: center;
       z-index: 5;
-      animation:spin 20s linear infinite;
-      filter: url(#red-glow);
+      animation: spin 20s linear infinite;
+      filter: url(#glow);
+      // filter: url(#filter-2);
       transform-origin: center center;
       pointer-events: none;
-    }
 
+      .inner-circle {
+        display: none;
+      }
+
+      svg {
+        overflow: visible;
+        // background: red;
+      }
+
+      .page {
+        // transform-origin: center center;
+      }
+    }
   }
+  .crosshairs,
   .gallery {
-    background: #00427d;
-  }
-  .crosshairs, .gallery {
     min-height: 500px;
 
     position: relative;
@@ -73,28 +144,39 @@ body {
     overflow: hidden;
     .crosshair {
       // background: #57d959;
-      box-shadow: 0 0 .5rem var(--neon-border-color-alt), inset 0 0 .5rem var(--neon-border-color-alt), 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);  
+      box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
+        inset 0 0 0.5rem var(--neon-border-color-alt),
+        0 0 2rem var(--neon-border-color),
+        inset 0 0 2rem var(--neon-border-color),
+        0 0 4rem var(--neon-border-color),
+        inset 0 0 4rem var(--neon-border-color);
+      
       position: absolute;
-  
+
       &.vertical {
         width: 1.5px;
         top: 0px;
         left: 50%;
         height: 100%;
       }
-  
+
       &.horizontal {
         width: 100%;
         top: 50%;
         left: 0px;
-        height: 1.5PX;
+        height: 1.5px;
       }
     }
     .small-dash {
       position: absolute;
       background: rgb(246 213 152);
-      box-shadow: 0 0 .5rem var(--neon-border-color-alt), inset 0 0 .5rem var(--neon-border-color-alt), 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);  
-  
+      box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
+        inset 0 0 0.5rem var(--neon-border-color-alt),
+        0 0 2rem var(--neon-border-color),
+        inset 0 0 2rem var(--neon-border-color),
+        0 0 4rem var(--neon-border-color),
+        inset 0 0 4rem var(--neon-border-color);
+
       &.vertical {
         width: 0.5px;
         height: 12px;
@@ -102,12 +184,11 @@ body {
       &.horizontal {
         width: 12px;
         height: 0.5px;
-      }      
+      }
     }
     .big-dash {
       position: absolute;
-      background: rgb(246 213 152);
-      box-shadow: 0 0 .5rem var(--neon-border-color-alt), inset 0 0 .5rem var(--neon-border-color-alt), 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);  
+
       &.vertical {
         width: 1.5px;
         height: 30px;
@@ -128,4 +209,23 @@ body {
       }
     }
   }
+
+  .crosshairs {
+    .big-dash {
+      background: rgb(246 213 152);
+      box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
+        inset 0 0 0.5rem var(--neon-border-color-alt),
+        0 0 2rem var(--neon-border-color),
+        inset 0 0 2rem var(--neon-border-color),
+        0 0 4rem var(--neon-border-color),
+        inset 0 0 4rem var(--neon-border-color);
+    }
+  }
+  .gallery {
+    background: #4f4f4f;
+    .big-dash {
+      background: rgb(46, 46, 46);
+    }
+  }
+
 }
