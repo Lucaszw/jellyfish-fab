@@ -1,8 +1,8 @@
 import { el, mount } from "redom";
 import _ from "lodash";
 
-import circleSVG from '../html/projects/orbit-circle-1.html';
-import randInt from 'random-int';
+import circleSVG from "../html/projects/orbit-circle-1.html";
+import randInt from "random-int";
 
 class Projects {
   constructor(navbar) {
@@ -14,18 +14,16 @@ class Projects {
     this.container = el(".projects");
     mount(document.body, this.container);
 
-    this.crosshairs = el(".crosshairs", {
-      style: `height: ${window.innerHeight}px; width: ${window.innerWidth}px;`,
-    });
-    this.gallery = el(".gallery", {
-      style: `height: ${window.innerHeight}px; width: ${window.innerWidth}px;`,
-    });
-
-    // this.constructCircle(0.7);
-    this.constructCircle(0.3);
-    this.constructCircle(0.1);
+    this.crosshairs = el(".crosshairs", {style: `height: ${window.innerHeight}px; width: 100%;`});
+    // this.gallery = el(".gallery", {
+    //   style: `height: ${window.innerHeight}px; width: 100%;`,
+    // });
 
     mount(this.container, this.crosshairs);
+
+    this.constructCircle(0.7);
+    this.constructCircle(0.3);
+    this.constructCircle(0.1);
 
     this.verticalCrosshair = el(".crosshair.vertical");
     mount(this.crosshairs, this.verticalCrosshair);
@@ -33,26 +31,31 @@ class Projects {
     this.horizontalCrosshair = el(".crosshair.horizontal");
     mount(this.crosshairs, this.horizontalCrosshair);
     this.drawDashes();
-    mount(this.container, this.gallery);
-    this.drawGrid(this.gallery);
+    // mount(this.container, this.gallery);
+    // this.drawGrid(this.gallery);
   }
 
   constructCircle(scale) {
     let circle = el(".circle", {
-        innerHTML: circleSVG,
-        style: {transform: `rotateZ(${randInt(0,360)}deg)`}
+      innerHTML: circleSVG,
+      style: {transform: `rotateZ(${randInt(0,360)}deg)`}
     });
 
-    circle.querySelector("#orbit-circle-1").setAttribute("transform",`translate(50,50) scale(${scale})`);
-    mount(this.container, circle);
+    circle
+      .querySelector(".circle-group")
+      .setAttribute("transform", `translate(50,50) scale(${scale})`);
+    mount(this.crosshairs, circle);
 
-    let {width: circleW, height: circleH} = circle.querySelector(".page").getBBox();
-    circle.querySelector("svg").style.width = `${circleW+100}px`;
-    circle.querySelector("svg").style.height = `${circleH+100}px`;
-    // circle.querySelector("svg").style.scale = (scale || 0.5);
-    circle.style.left = `calc(50% - ${(circleW+100)/2}px)`;
-    circle.style.top = `calc(50% - ${(circleH+100)/2}px)`;
+    let { width: circleW, height: circleH } = circle
+      .querySelector(".page")
+      .getBBox();
+
+    circle.querySelector("svg").style.width = `${circleW + 100}px`;
+    circle.querySelector("svg").style.height = `${circleH + 100}px`;
+    circle.style.left = `calc(50% - ${(circleW + 100) / 2}px)`;
+    circle.style.top = `calc(50% - ${(circleH + 100) / 2}px)`;
   }
+
   getGridOptions() {
     let {
       height: verticalHeight,
@@ -66,58 +69,50 @@ class Projects {
     let h = verticalHeight / 2;
     let w = horizontalWidth / 2;
 
-    return {verticalHeight, horizontalWidth, dashInterval, h, w};
+    return { verticalHeight, horizontalWidth, dashInterval, h, w };
   }
-  drawGrid(container) {
-    let o = this.getGridOptions();
-    for (let i = 0; i < 6; i++) {
-        let x1 = o.w + o.dashInterval * i;
-        let y1 = o.h + o.dashInterval * i;
-        let x2 = o.w - o.dashInterval * i;
-        let y2 = o.h - o.dashInterval * i;
-        [
-            el(".big-dash.vertical.thin", { style: `left:${x1}px;` }),
-            el(".big-dash.horizontal.thin", { style: `top:${y1}px` }),
-            el(".big-dash.vertical.thin", { style: `left:${x2}px;` }),
-            el(".big-dash.horizontal.thin", { style: `top:${y2}px` }),
-          ].forEach((el) => {
-            mount(container, el);
-          });
+  drawGrid(container, spread) {
+    spread = spread || 4;
+    for (let i = 0; i < spread; i++) {
+      const bigOffset = (i * 100) / spread;
+      [
+        el(".big-dash.vertical.thin", { style: `left:${bigOffset}%;` }),
+        el(".big-dash.horizontal.thin", { style: `top:${bigOffset}%` }),
+      ].forEach((el) => {
+        mount(container, el);
+      });
     }
   }
-  drawDashes() {
-    let o = this.getGridOptions();
-    this.verticalCrosshair.style.left = `${o.horizontalWidth / 2}px`;
-    this.horizontalCrosshair.style.top = `${o.verticalHeight / 2}px`;
-    this.drawGrid(this.crosshairs);
-    for (let i = 0; i < 6; i++) {
-      let x1 = o.w + o.dashInterval * i;
-      let y1 = o.h + o.dashInterval * i;
-      let x2 = o.w - o.dashInterval * i;
-      let y2 = o.h - o.dashInterval * i;
+  drawDashes(spread) {
+    spread = spread || 5;
+    this.drawGrid(this.crosshairs, spread);
+    for (let i = 0; i < spread; i++) {
+      const bigOffset = (i * 100) / spread;
       [
-        el(".big-dash.vertical", { style: `left:${x1}px;top:${o.h - 15}px` }),
-        el(".big-dash.horizontal", { style: `left:${o.w - 15}px;top:${y1}px` }),
-        el(".big-dash.vertical", { style: `left:${x2}px;top:${o.h - 15}px` }),
-        el(".big-dash.horizontal", { style: `left:${o.w - 15}px;top:${y2}px` }),
+        el(".big-dash.vertical", {
+          style: `left:${bigOffset}%;top:calc(50% - 15px)`,
+        }),
+        el(".big-dash.horizontal", {
+          style: `left:calc(50% - 15px);top:${bigOffset}%`,
+        }),
       ].forEach((el) => {
         mount(this.crosshairs, el);
       });
 
       for (let j = 1; j < 5; j++) {
-        let xs1 = x1 + (o.dashInterval / 5) * j;
-        let ys1 = y1 + (o.dashInterval / 5) * j;
-        let xs2 = x2 - (o.dashInterval / 5) * j;
-        let ys2 = y2 - (o.dashInterval / 5) * j;
-
+        const smallOffset = ((100 / spread) * j) / 5;
         [
-          el(".small-dash.vertical", { style: `left:${xs1}px;top:${o.h - 5}px` }),
-          el(".small-dash.horizontal", {
-            style: `left:${o.w - 5}px;top:${ys1}px`,
+          el(".small-dash.vertical", {
+            style: `
+                left: calc(${bigOffset}% + ${smallOffset}%);
+                top: calc(50% - 5px);
+            `,
           }),
-          el(".small-dash.vertical", { style: `left:${xs2}px;top:${o.h - 5}px` }),
           el(".small-dash.horizontal", {
-            style: `left:${o.w - 5}px;top:${ys2}px`,
+            style: `
+                left: calc(50% - 5px);
+                top: calc(${bigOffset}% + ${smallOffset}%);
+            `,
           }),
         ].forEach((el) => {
           mount(this.crosshairs, el);
