@@ -1,8 +1,18 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "particles.scss";
 @import "navbar.scss";
-@import "header.scss";
-@import "vision.scss";
+@import "home.scss";
+@import "team.scss";
+
+$break-small: 538px;
+$break-large: 1200px;
+$navbar-bleed: 30px;
+:root {
+  --neon-text-color: #f40;
+  --neon-border-color: rgba(241, 167, 20, 0.9);
+  --neon-border-color-alt: rgba(255, 255, 255, 0.6);
+}
+
 
 @font-face {
   font-family: "ConcertOne";
@@ -25,352 +35,96 @@ body {
   overflow-y: auto;
 }
 
-$break-small: 538px;
-$break-large: 1200px;
-$navbar-bleed: 30px;
 
-.big-button {
-  width: fit-content;
-  font-family: "NoricanRegular";
-  font-size: 28px;
-  padding: 10px 20px;
-  border-radius: 4px;
-  background: #f1a614;
-  position: relative;
-  color: white;
-  &:hover {
-    background: #c98b10;
-    cursor: pointer;
-  }
-}
+// --neon-text-color: #f40;
+// --neon-border-color: #08f;
 
-.contact-container {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  .contact-left {
+.projects {
+  background: black;
+  .circle {
     position: absolute;
-    width: 50%;
-    left: $navbar-bleed;
-    padding-right: $navbar-bleed;
+    height: max-content;
+    width: max-content;
     top: 0px;
-
-    h1 {
-      font-family: "ConcertOne";
-      font-size: 60px;
-    }
-
-    h2 {
-      font-size: 19px;
-      text-align: justify;
-      color: black;
-    }
-  }
-
-  .contact-right {
-    top: 0px;
-    left: calc(50% + #{$navbar-bleed});
-    position: absolute;
-    width: calc(50% - #{$navbar-bleed * 2});
-    border-top: 15px solid orange;
-    padding: 30px 0px;
-    h3 {
-      font-family: "ConcertOne";
-      padding-bottom: 9px;
-    }
-
-    input {
-      width: 100%;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.17);
-      border: 1px solid #ebebeb;
-      border-radius: 0px;
-      &:hover {
-        border-bottom: 3px solid #ffa502;
-      }
-    }
-
-    textarea {
-      width: 100%;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.17);
-      border: 1px solid #ebebeb;
-      border-radius: 0px;
-      &:hover {
-        border-bottom: 3px solid #ffa502;
-      }
-    }
-
-    label {
-      font-size: 17px;
-      padding-bottom: 0px;
-      margin: 0;
-      color: #6d757d;
-    }
-
-    .big-button {
-      float: right;
-    }
-  }
-}
-
-.sliding {
-  position: fixed;
-  background: #f1a614;
-  width: 100%;
-  height: 100%;
-  z-index: 8;
-  top: 0px;
-  left: 0px;
-  transition: left 1s ease;
-}
-
-.home {
-  height: auto;
-  width: 100%;
-  min-height: 100%;
-}
-
-.team {
-  width: 100%;
-  min-width: 100%;
-
-  video {
-    object-fit: cover;
-    position: relative;
-  }
-
-  .video {
-    position: relative;
-
-    .overlay {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      background: #2424349c;
-    }
-
-    h1 {
-      position: absolute;
-      bottom: calc(50% - 100px);
-      color: white;
-      margin: 0 auto;
-      width: 100%;
-      text-align: center;
-      font-family: "ConcertOne";
-      font-size: 50px;
-      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    }
-  }
-
-  .member {
-    min-width: 100%;
-    min-height: 550px;
     text-align: center;
+    .page {
+      filter: url(#red-glow);
+      animation:spin 10s linear infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes spin { 100% {transform:rotate(360deg); } }
+
+  }
+
+  .crosshairs {
+    background: #310808;
+    margin: 0 auto;
+    box-shadow:  0 0.5rem rgba(36, 36, 36, 0.6), inset 0 0 0.5rem rgba(0, 0, 0, 0.6), 0 0 2rem rgba(0, 0, 0, 0.9), inset 0 0 2rem rgba(0, 0, 0, 0.9), 0 0 4rem rgba(0, 0, 0, 0.9), inset 0 0 4rem rgba(0, 0, 0, 0.9);
+  }
+  .gallery {
+    background: #00427d;
+  }
+  .crosshairs, .gallery {
     position: relative;
-    background-color: #1f1f2c;
-    * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .member-text-wrapper {
-      margin-left: 50px;
-      top: 80px;
-      margin-bottom: 110px;
-      width: 100%;
-      height: fit-content;
-      overflow: hidden;
-    }
-    
-    #lucas .member-text-wrapper {
-      margin-left: 50px;
-    }
-
-    .member-text {
-      background: #1f1f2c;
-      color: white;
-      padding: 30px;
-      min-width: 400px;
-      max-width: 400px;
-      border-radius: 5px;
-      z-index: 3;
-      @media screen and (max-width: $break-small) {
-        min-width: calc(100vw - 120px);
-        max-width: calc(100vw - 120px);
-      }
-
-      h1 {
-        border-left: 5px solid #f1a614;
-        font-family: sans-serif;
-        padding-left: 11px;
-      }
-
-      p {
-        border-radius: 0px;
-        font-size: 18px;
-        padding-left: 15px;
-        border-bottom: 3px solid #44445b;
-        padding-bottom: 20;
-        text-align: justify;
-      }
-    }
-
-    .member-background-color.cristina-background {
-      background-image: url(/assets/cristina-bw.jpeg);
-      background-position-y: 95px;
-      background-position-x: right;
-    }
-    .member-background-bw.cristina-background {
-      background-image: url(/assets/cristina-color.jpeg);
-      background-position-y: 95px;
-      background-position-x: right;
-    }
-
-    .member-background-color.lucas-background {
-      background-image: url(/assets/lucas-bw.jpeg);
-      background-position-y: 95px;
-      background-position-x: right;
-    }
-    .member-background-bw.lucas-background {
-      background-image: url(/assets/lucas-color.jpeg);
-      background-position-y: 95px;
-      background-position-x: right;
-    }
-
-    .member-background {
+    width: 100%;
+    min-height: 500px;
+    overflow: hidden;
+    .crosshair {
+      // background: #57d959;
+      box-shadow: 0 0 .5rem var(--neon-border-color-alt), inset 0 0 .5rem var(--neon-border-color-alt), 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);  
       position: absolute;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100%;
-      top: 0px;
-      z-index: 1;
-      background-attachment: fixed;
-    }
-
-    .member-background-bw {
-      // opacity: 0.5;
-      left: 87.5vw;
-      width: 1000px;
-      min-width: 100%;
-    }
-
-    .member-background-color {
-      width: 87.5vw;
-      left: 0px;
-    }
-
-
-    .slider {
-      position: absolute;
-      top: 0px;
-      left: 87.5vw;
-      width: 3px;
-      background: #f1a614;
-      height: 100%;
-      box-shadow: 0px 5px 6px 0 rgba(0, 0, 0, 0.5);
-      z-index: 3;
-      user-select: none;
-    }
-    .slider-circle {
-      background: #f1a614;
-      width: fit-content;
-      padding: 10px 12px;
-      border-radius: 10px;
-      font-size: 23px;
-      color: #44445b;
-      position: absolute;
-      left: calc(12.5% - 20px);
-      top: 50px;
-      box-shadow: 0px 5px 6px 0 rgba(0, 0, 0, 0.5);
-      z-index: 3;
-      user-select: none;
-      cursor: grab;
-    }
-
-    // Badges
-    .badges {
-      width: fit-content;
-      height: fit-content;
-      display: inline-block;
-      margin: 0 auto;
-      position: relative;
-    }
-    .circle-wrapper {
-      position: relative;
-      width: 100px;
-      height: 100px;
-
-      float: left;
-      margin: 10px;
-      text-align: center;
-      z-index: 2;
-
-      @media screen and (max-width: $break-small) {
-        width: calc(100vw/5.2);
-        min-width: max-content;
-        height: calc(100vw/5.2);
-      }
-
-      .icon {
-        position: absolute;
-        color: #fff;
-        font-size: 24px;
-        top: 12px;
-        width: 100%;
-      }
-
-      span {
-        color: white;
-        font-family: 'ConcertOne';
-        display: block;
-        justify-content: center;
-        display: flex;
-        align-content: center;
-        flex-direction: column;
-
-        font-size: 14px;
-        bottom: 63px;
-        height: calc(100% - 63px);
-
-        @media screen and (max-width: $break-small) {
-          font-size: 11px;
-          bottom: 47px;
-          height: calc(100% - 68px);
-        }
-
-      }
-
-      .circle {
-        display: block;
-        width: 100%;
+  
+      &.vertical {
+        width: 1.5px;
+        top: 0px;
+        left: calc(50% - 1.5px);
         height: 100%;
-        border-radius: 50%;
-        padding: 2.5px;
-        background-clip: content-box;
-        animation: spin 30s linear infinite;
-        background-color: rgba(31, 31, 44, 1);
-        border: 2.5px dashed rgba(31, 31, 44, 1);
       }
-
-      &:hover {
-        * {
-          color: rgba(31, 31, 44, 1);
-        }
-        .circle {
-          animation: spin 10s linear infinite;
-          background-color: #f1a614;
-          border: 2.5px dashed #f1a614;;
-        }
-
+  
+      &.horizontal {
+        width: 100%;
+        top: calc(50% - 1.5px);
+        left: 0px;
+        height: 1.5PX;
       }
-
-      @keyframes spin {
-        100% {
-          transform: rotateZ(360deg);
+    }
+    .small-dash {
+      position: absolute;
+      // background: #57d959;
+      box-shadow: 0 0 .5rem var(--neon-border-color-alt), inset 0 0 .5rem var(--neon-border-color-alt), 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);  
+  
+      &.vertical {
+        width: 0.5px;
+        height: 12px;
+      }
+      &.horizontal {
+        width: 12px;
+        height: 0.5px;
+      }      
+    }
+    .big-dash {
+      position: absolute;
+      // background: #57d959;
+      box-shadow: 0 0 .5rem var(--neon-border-color-alt), inset 0 0 .5rem var(--neon-border-color-alt), 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);  
+      &.vertical {
+        width: 1.5px;
+        height: 30px;
+        &.thin {
+          height: 100%;
+          top: 0px !important;
+          opacity: 0.2;
+        }
+      }
+      &.horizontal {
+        width: 30px;
+        height: 1.5px;
+        &.thin {
+          width: 100%;
+          left: 0px !important;
+          opacity: 0.2;
         }
       }
     }
   }
-
 }

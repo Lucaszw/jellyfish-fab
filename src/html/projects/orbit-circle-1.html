@@ -1,0 +1,36 @@
+<svg  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="red-glow" filterUnits="userSpaceOnUse"
+            x="-50%" y="-50%" width="200%" height="200%">
+       <!-- blur the text at different levels-->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50"/>
+      <!-- merge all the blurs except for the first one -->
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur10"/>
+        <feMergeNode in="blur20"/>
+        <feMergeNode in="blur30"/>
+        <feMergeNode in="blur50"/>
+      </feMerge>
+      <!-- recolour the merged blurs red-->
+      <feColorMatrix result="red-blur" in="blur-merged" type="matrix"
+                     values="0.6 0 0 0 0
+                             0 0.06 0 0 0
+                             0 0 0.44 0 0
+                             0 0 0 1 0" />
+      <feMerge>
+        <feMergeNode in="red-blur"/>       <!-- largest blurs coloured red -->
+        <feMergeNode in="blur5"/>          <!-- smallest blur left white -->
+        <feMergeNode in="SourceGraphic"/>  <!-- original white text -->
+      </feMerge>
+    </filter>
+    </defs>
+    <g class="page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="orbit-circle-1" stroke="#ffffff" stroke-width="4">
+          <path d="M208.340804,28.437891 C88.4499868,77.5614721 4,195.41856 4,333 C4,480.552615 101.134545,605.418242 234.947774,647.141019 M442.367484,643.384857 C548.885139,605.85267 630.278633,515.040895 654.548603,402.948895 M659.100779,289.131359 C637.653845,128.16975 499.827622,4 333,4" id="Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -11,29 +11,30 @@ import Navbar from './js/navbar';
 import Sliding from './js/sliding';
 import Home from './js/home';
 import Team from './js/team';
- 
+import Projects from './js/projects';
+
 const navbar = new Navbar(document.body);
 const sliding = new Sliding(document.body);
 const home = new Home(navbar);
 const team = new Team(navbar);
+const projects = new Projects(navbar);
 
-const pages = [home, team];
+const pages = [home, team, projects];
 
 function main() {
     navbar.draw();
-    team.draw();
+    projects.draw();
     navbar.onChangePage = (elem) => {
         const {page} = elem.dataset;
         sliding.easeInOut(()=>{
-            console.log({page});
             for (let page of pages) page.remove();
             if (page == "home") {
                 home.draw();
                 home.header.drawTextAnimation();
             }
             if (page == "team") team.draw();
+            if (page == "projects") projects.draw();
         });
-        console.log(home.container);
     };
     // sliding.easeOut(()=>{
     //     home.header.drawTextAnimation();

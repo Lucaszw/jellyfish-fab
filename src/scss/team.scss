@@ -1,0 +1,263 @@
+
+$break-small: 538px;
+$break-large: 1200px;
+$navbar-bleed: 30px;
+
+.team {
+    width: 100%;
+    min-width: 100%;
+  
+    video {
+      object-fit: cover;
+      position: relative;
+    }
+  
+    .video {
+      position: relative;
+  
+      .overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: #2424349c;
+      }
+  
+      h1 {
+        position: absolute;
+        bottom: calc(50% - 100px);
+        color: white;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        font-family: "ConcertOne";
+        font-size: 50px;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      }
+    }
+  
+    .member {
+      min-width: 100%;
+      min-height: 550px;
+      text-align: center;
+      position: relative;
+      background-color: #1f1f2c;
+      * {
+        position: relative;
+        z-index: 2;
+      }
+  
+      .member-text-wrapper {
+        margin-left: 50px;
+        top: 80px;
+        margin-bottom: 110px;
+        width: 100%;
+        height: fit-content;
+        overflow: hidden;
+      }
+      
+      #lucas .member-text-wrapper {
+        margin-left: 50px;
+      }
+  
+      .member-text {
+        background: #1f1f2c;
+        color: white;
+        padding: 30px;
+        min-width: 400px;
+        max-width: 400px;
+        border-radius: 5px;
+        z-index: 3;
+        @media screen and (max-width: $break-small) {
+          min-width: calc(100vw - 120px);
+          max-width: calc(100vw - 120px);
+        }
+  
+        h1 {
+          border-left: 5px solid #f1a614;
+          font-family: sans-serif;
+          padding-left: 11px;
+        }
+  
+        p {
+          border-radius: 0px;
+          font-size: 18px;
+          padding-left: 15px;
+          border-bottom: 3px solid #44445b;
+          padding-bottom: 20;
+          text-align: justify;
+        }
+      }
+  
+      .member-background-color.cristina-background {
+        background-image: url(/assets/cristina-bw.jpeg);
+        background-position-y: 95px;
+        background-position-x: right;
+      }
+      .member-background-bw.cristina-background {
+        background-image: url(/assets/cristina-color.jpeg);
+        background-position-y: 95px;
+        background-position-x: right;
+      }
+  
+      .member-background-color.lucas-background {
+        background-image: url(/assets/lucas-bw.jpeg);
+        background-position-y: 95px;
+        background-position-x: right;
+        // filter: blur(1px);
+      }
+      .member-background-bw.lucas-background {
+        background-image: url(/assets/lucas-color.jpeg);
+        background-position-y: 95px;
+        background-position-x: right;
+        // filter: blur(1px);
+      }
+  
+      .member-background-color.yue-background {
+        background-image: url(/assets/yue-bw.jpg);
+        background-position-y: 95px;
+        background-position-x: right;
+      }
+      .member-background-bw.yue-background {
+        background-image: url(/assets/yue-color.jpg);
+        background-position-y: 95px;
+        background-position-x: right;
+      }
+  
+      .member-background {
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        top: 0px;
+        z-index: 1;
+        background-attachment: fixed;
+      }
+  
+      .member-background-bw {
+        // opacity: 0.5;
+        left: 87.5vw;
+        width: 1000px;
+        min-width: 100%;
+      }
+  
+      .member-background-color {
+        width: 87.5vw;
+        left: 0px;
+      }
+  
+  
+      .slider {
+        position: absolute;
+        top: 0px;
+        left: 87.5vw;
+        width: 3px;
+        background: #f1a614;
+        height: 100%;
+        box-shadow: 0px 5px 6px 0 rgba(0, 0, 0, 0.5);
+        z-index: 3;
+        user-select: none;
+      }
+      .slider-circle {
+        background: #f1a614;
+        width: fit-content;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 23px;
+        color: #44445b;
+        position: absolute;
+        left: calc(12.5% - 20px);
+        top: 50px;
+        box-shadow: 0px 5px 6px 0 rgba(0, 0, 0, 0.5);
+        z-index: 3;
+        user-select: none;
+        cursor: grab;
+      }
+  
+      // Badges
+      .badges {
+        width: fit-content;
+        height: fit-content;
+        display: inline-block;
+        margin: 0 auto;
+        position: relative;
+      }
+      .circle-wrapper {
+        position: relative;
+        width: 100px;
+        height: 100px;
+  
+        float: left;
+        margin: 10px;
+        text-align: center;
+        z-index: 2;
+  
+        @media screen and (max-width: $break-small) {
+          width: calc(100vw/5.2);
+          min-width: max-content;
+          height: calc(100vw/5.2);
+        }
+  
+        .icon {
+          position: absolute;
+          color: #fff;
+          font-size: 24px;
+          top: 12px;
+          width: 100%;
+        }
+  
+        span {
+          color: white;
+          font-family: 'ConcertOne';
+          display: block;
+          justify-content: center;
+          display: flex;
+          align-content: center;
+          flex-direction: column;
+  
+          font-size: 14px;
+          bottom: 63px;
+          height: calc(100% - 63px);
+  
+          @media screen and (max-width: $break-small) {
+            font-size: 11px;
+            bottom: 47px;
+            height: calc(100% - 68px);
+          }
+  
+        }
+  
+        .circle {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          padding: 2.5px;
+          background-clip: content-box;
+          animation: spin 30s linear infinite;
+          background-color: rgba(31, 31, 44, 1);
+          border: 2.5px dashed rgba(31, 31, 44, 1);
+        }
+  
+        &:hover {
+          * {
+            color: rgba(31, 31, 44, 1);
+          }
+          .circle {
+            animation: spin 10s linear infinite;
+            background-color: #f1a614;
+            border: 2.5px dashed #f1a614;;
+          }
+  
+        }
+  
+        @keyframes spin {
+          100% {
+            transform: rotateZ(360deg);
+          }
+        }
+      }
+    }
+  
+  }

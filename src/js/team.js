@@ -21,6 +21,9 @@ class Team {
 
         this.lucas = new Member(this.container, "lucas");
         this.lucas.draw();
+
+        this.yue = new Member(this.container, "yue");
+        this.yue.draw();
     }
     remove() {
         if (this.container) this.container.remove();

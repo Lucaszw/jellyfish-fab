@@ -43,7 +43,7 @@ module.exports = {
         }]
       },
       {
-        test: /\.html?$/,
+        test: /\.(svg|html)?$/,
         use: 'html-loader'
       },
       {
