@@ -5,10 +5,6 @@ class Navbar {
     constructor(parentContainer) {
         this.container = null;
         this.onChangePage = () => {console.error("Implement Me")};
-
-        if (module.hot) {
-            module.hot.accept(['../html/navbar.html'], this.draw.bind(this));
-        }
     }
     draw() {
         if (this.container) this.container.remove();
