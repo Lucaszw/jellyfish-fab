@@ -1,5 +1,6 @@
+
 .header-content {
-    color: #bf891b;
+    color: $orange-color;
     top: 350px;
     position: absolute;
     left: $navbar-bleed;
@@ -18,7 +19,7 @@
       left: 0;
       height: 100%;
       width: 3px;
-      background-color: #fff;
+      background-color: $orange-color;
       transform-origin: 0 50%;
     }
     
@@ -34,12 +35,12 @@
     
     h1 {
       font-family: 'Neon';
-      font-size: 40px;
+      font-size: 8vw;
       text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     }
     h2 {
       font-family: ConcertOne;
-      font-size: 22px;
+      font-size: 5vw;
       text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     }
     .big-button {

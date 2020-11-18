@@ -12,28 +12,31 @@ $break-large: 1200px;
     height: $navbar-height;
     z-index: 10;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
-    width: calc(100% - #{$navbar-bleed * 2});
-    left: $navbar-bleed;
-    top: 30px;
-    border-radius: 5px;
+    width:  100%;
+    left: 0px;
+    top: 0px;
     user-select:none;
-  
+
+
+    &.opaque {
+      background-color: $brown-color;
+    }
     .nav-sub {
       position: absolute;
       padding: 0px;
-      background-color: #1f1f2cad;
+      background-color: $brown-color;
       left: 0px;
       width: 100%;
-      top: $navbar-height + 2px;
+      z-index: -1;
+      // padding-top: $navbar-height;
+      top:0px;
       font-size: 25px;
       display: block;
       height: auto;
       max-height: 450px;
       transition: max-height 0.3s ease-in-out;
       overflow: hidden;
-      @media screen and (min-width: $break-small) {
-          display: none !important;
-      }
+
       .navitem {
           border-bottom: 1px solid #ffffff4d;
           padding: 8px 0px;
@@ -48,6 +51,9 @@ $break-large: 1200px;
             position: relative;
             left: 10px;
           }
+      }
+      .spacer {
+        padding-top: $navbar-height;
       }
     }
   
@@ -82,9 +88,7 @@ $break-large: 1200px;
           color: white;
         }
   
-        @media screen and (max-width: $break-small) {
-          display: none;
-        }
+        display: none;
         &:last-of-type {
           &:after {
             content: "";
@@ -95,9 +99,6 @@ $break-large: 1200px;
       .navcollapse {
           color: #f1a614;
           font-size: 30px;
-          @media screen and (min-width: $break-small) {
-              display: none;
-          }
           &:hover {
               cursor: pointer;
               color: #c98b10;

@@ -75,11 +75,11 @@ $navbar-bleed: 30px;
       }
   
       .member-text {
+        
         background: #1f1f2c;
         color: white;
         padding: 30px;
-        min-width: 400px;
-        max-width: 400px;
+        width: 75vw;
         border-radius: 5px;
         z-index: 3;
         @media screen and (max-device-width: $break-small) {
@@ -201,38 +201,51 @@ $navbar-bleed: 30px;
       }
   
       // Badges
+      $max-badge-width: 140px;
+      $max-badge-margin: 5.5px;
+
       .badges {
-        width: fit-content;
-        height: fit-content;
-        display: inline-block;
-        margin: 0 auto;
-        position: relative;
+        position: absolute;
+        left: 4vw;
+        width: calc(100vw - 8vw);
+        bottom: 25vw;
+
+        @media screen and (min-device-width: $break-small) {
+          width: #{$max-badge-width*4 + $max-badge-margin*8};
+          bottom: 140px;
+          left: calc(50% - #{$max-badge-width*4 + $max-badge-margin*8}/2);
+        }
       }
       .circle-wrapper {
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: calc(25vw - 4vw);
+        height: calc(25vw - 4vw);
   
         float: left;
-        margin: 10px;
+        margin: 1vw;
         text-align: center;
         z-index: 2;
-  
-        @media screen and (max-device-width: $break-small) {
-          width: calc(100vw/5.085);
-          min-width: max-content;
-          height: calc(100vw/5.085);
+        
+        @media screen and (min-device-width: $break-small) {
+          width: $max-badge-width;
+          height: $max-badge-width;
+          margin: $max-badge-margin;
         }
+        // @media screen and (max-device-width: $break-small) {
+        //   width: calc(100vw/5.085);
+        //   min-width: max-content;
+        //   height: calc(100vw/5.085);
+        // }
   
         .icon {
           position: absolute;
           color: #fff;
-          font-size: 24px;
-          top: 12px;
+          font-size: 6vw;
+          top: 3vw;
           width: 100%;
 
-          @media screen and (max-device-width: $break-small) {
-            font-size: 20px;
+          @media screen and (min-device-width: $break-small) {
+            font-size: 45px;
           }
         }
   
@@ -240,21 +253,13 @@ $navbar-bleed: 30px;
           color: white;
           font-family: 'ConcertOne';
           display: block;
-          justify-content: center;
-          display: flex;
-          align-content: center;
-          flex-direction: column;
-  
-          font-size: 14px;
-          bottom: 63px;
-          height: calc(100% - 63px);
-  
-          @media screen and (max-device-width: $break-small) {
-            font-size: 11px;
-            bottom: 30px;
-            height: calc(100% - 68px);
+          font-size: 2vw;
+          bottom: 9vw;
+
+          @media screen and (min-device-width: $break-small) {
+            font-size: 13px;
+            bottom: 62px;
           }
-  
         }
   
         .circle {

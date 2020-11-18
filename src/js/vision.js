@@ -19,11 +19,13 @@ class Vision {
     // h2.style.transform = "scale(0.9)";
 
     // Wrap every letter in a span
-    var textWrapper = document.querySelector(".ml14 .letters");
-    textWrapper.innerHTML = textWrapper.textContent.replace(
+    for (let wrapper of this.container.querySelectorAll(".ml14 .letters")) {
+      wrapper.innerHTML = wrapper.textContent.replace(
         /\S/g,
         "<span class='letter'>$&</span>"
-    );
+      );
+    }
+
     
     appear({
       elements: () => [h1],

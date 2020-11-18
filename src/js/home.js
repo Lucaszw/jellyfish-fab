@@ -48,8 +48,8 @@ class Home {
       this.navbar.container,
       this.header.container
     );
-    if (!overlapping) this.navbar.container.style.backgroundColor = "#1f1f2c";
-    if (overlapping) this.navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
+    if (!overlapping) this.navbar.container.classList.add('opaque');
+    if (overlapping) this.navbar.container.classList.remove('opaque');
   }
 }
 

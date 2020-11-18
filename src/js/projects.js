@@ -40,9 +40,8 @@ class Projects {
   onScroll() {
     if (!this.container) return;
     let overlapping = isOverlapping(this.navbar.container, this.gallery.container);
-    if (!overlapping)
-      this.navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
-    if (overlapping) this.navbar.container.style.backgroundColor = "#2d2d2d";
+    if (!overlapping) this.navbar.container.classList.remove("opaque");
+    if (overlapping) this.navbar.container.classList.add("opaque");
   }
 }
 export default Projects;
