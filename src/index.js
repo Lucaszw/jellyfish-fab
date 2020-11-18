@@ -23,8 +23,9 @@ const pages = [home, team, projects];
 
 function main() {
     navbar.draw();
-    projects.draw();
-    navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
+    home.draw();
+    // projects.draw();
+    // navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
     navbar.onChangePage = (elem) => {
         const {page} = elem.dataset;
         sliding.easeInOut(()=>{
@@ -42,9 +43,9 @@ function main() {
             }
         });
     };
-    // sliding.easeOut(()=>{
-    //     home.header.drawTextAnimation();
-    // });
+    sliding.easeOut(()=>{
+        home.header.drawTextAnimation();
+    });
 
     
 }
