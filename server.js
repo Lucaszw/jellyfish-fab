@@ -1,12 +1,6 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const path = require("path");
-const webpack = require("webpack");
-const webpackDevMiddleware = require("webpack-dev-middleware");
-const webpackHotMiddleware = require('webpack-hot-middleware');
-
-const config = require("./webpack.config.js");
-
 if (process.env.NODE_ENV != "production") dotenv.config();
 
 const app = express();
@@ -18,6 +12,11 @@ console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV == "production") {
   app.use("/", express.static(path.resolve() + "/dist"));
 } else {
+  const webpack = require("webpack");
+  const webpackDevMiddleware = require("webpack-dev-middleware");
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+
+  const config = require("./webpack.config.js");
   const compiler = webpack(config);
   app.use(
     webpackDevMiddleware(compiler, {
@@ -25,7 +24,6 @@ if (process.env.NODE_ENV == "production") {
     })
   );
   app.use(webpackHotMiddleware(compiler));
-
 }
 
 app.get("/api/*", (req, res) => {
