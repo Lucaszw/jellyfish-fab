@@ -10,7 +10,6 @@ $break-large: 1200px;
     position: fixed;
     width: 100%;
     height: $navbar-height;
-    background-color: #1f1f2cad;
     z-index: 10;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
     width: calc(100% - #{$navbar-bleed * 2});
@@ -58,7 +57,7 @@ $break-large: 1200px;
       font-size: 30px;
       cursor: pointer;
       width: auto;
-      color: #fddea0;
+      color: #bf891b;
       * {
         display: inline;
       }

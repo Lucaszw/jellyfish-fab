@@ -49,7 +49,7 @@ class Home {
       this.header.container
     );
     if (!overlapping) this.navbar.container.style.backgroundColor = "#1f1f2c";
-    if (overlapping) this.navbar.container.style.backgroundColor = "#1f1f2cad";
+    if (overlapping) this.navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
   }
 }
 
