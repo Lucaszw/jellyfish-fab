@@ -17,6 +17,14 @@ class Projects {
         trailing: true,
       })
     );
+
+    if (module.hot) {
+      module.hot.accept([
+        '../html/projects/orbit-circle-1.html', 
+        '../html/projects/header.html'
+      ], this.draw.bind(this));
+  }
+
     // window.addEventListener("resize", _.debounce(this.draw.bind(this), 500));
   }
   draw() {

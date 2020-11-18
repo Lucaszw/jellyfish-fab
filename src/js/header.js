@@ -25,7 +25,7 @@ class Header {
       innerHTML: '<div id="particles-js"></div>',
     });
     let height = window.innerHeight;
-    console.log({height});
+
     this.container.style.height = `${height}px`;
 
     mount(this.parent, this.container);

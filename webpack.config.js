@@ -1,7 +1,13 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
+  entry: [
+    './src',
+    'webpack-hot-middleware/client?reload=true'
+  ],
+  mode: 'development',
   module: {
     rules: [
       {
@@ -64,11 +70,20 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src", "index.html")
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: path.join(__dirname, 'assets'),
     contentBasePublicPath: '/assets',
-    disableHostCheck: true
+    disableHostCheck: true,
+    hot: false,
+    hotOnly: false,
+    liveReload: true
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   }
 };

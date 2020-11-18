@@ -47,7 +47,6 @@ class Team {
       this.navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
     if (!overlapping)
         this.navbar.container.style.backgroundColor = "#2d2d2d";
-    console.log(overlapping);
   }
 }
 export default Team;
