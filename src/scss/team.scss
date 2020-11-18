@@ -6,7 +6,7 @@ $navbar-bleed: 30px;
 .team {
     width: 100%;
     min-width: 100%;
-  
+    overflow-x: hidden;
     video {
       object-fit: cover;
       position: relative;
@@ -79,7 +79,7 @@ $navbar-bleed: 30px;
         max-width: 400px;
         border-radius: 5px;
         z-index: 3;
-        @media screen and (max-width: $break-small) {
+        @media screen and (max-device-width: $break-small) {
           min-width: calc(100vw - 120px);
           max-width: calc(100vw - 120px);
         }
@@ -103,36 +103,36 @@ $navbar-bleed: 30px;
       .member-background-color.cristina-background {
         background-image: url(/assets/cristina-bw.jpeg);
         // background-position-y: 95px;
-        background-position-x: right;
+        // background-position-x: right;
       }
       .member-background-bw.cristina-background {
         background-image: url(/assets/cristina-color.jpeg);
         // background-position-y: 95px;
-        background-position-x: right;
+        // background-position-x: right;
       }
   
       .member-background-color.lucas-background {
         background-image: url(/assets/lucas-bw.jpeg);
         // background-position-y: 95px;
-        background-position-x: right;
+        // background-position-x: right;
         // filter: blur(1px);
       }
       .member-background-bw.lucas-background {
         background-image: url(/assets/lucas-color.jpeg);
         // background-position-y: 95px;
-        background-position-x: right;
+        // background-position-x: right;
         // filter: blur(1px);
       }
   
       .member-background-color.yue-background {
         background-image: url(/assets/yue-bw.jpg);
         // background-position-y: 95px;
-        background-position-x: right;
+        // background-position-x: right;
       }
       .member-background-bw.yue-background {
         background-image: url(/assets/yue-color.jpg);
         // background-position-y: 95px;
-        background-position-x: right;
+        // background-position-x: right;
       }
   
       .member-background {
@@ -142,19 +142,30 @@ $navbar-bleed: 30px;
         height: 100%;
         top: 0px;
         z-index: 1;
-        background-attachment: fixed;
+        // background-attachment: fixed;
+        background-position: center;
       }
   
       .member-background-bw {
         // opacity: 0.5;
-        left: 87.5vw;
-        width: 1000px;
+        // left: 87.5vw;
+        left: 0px;
+        z-index: 1;
+        width: 100%;
         min-width: 100%;
       }
   
       .member-background-color {
         width: 87.5vw;
         left: 0px;
+        z-index: 2;
+      }
+
+      .sliding-background-outer {
+        position: absolute;
+        overflow: hidden;
+        width:100%;
+        height: 100%;
       }
   
   
@@ -171,7 +182,7 @@ $navbar-bleed: 30px;
       }
       .slider-circle {
         background: #f1a614;
-        width: fit-content;
+        width: 43px;
         padding: 10px 12px;
         border-radius: 10px;
         font-size: 23px;
@@ -203,10 +214,10 @@ $navbar-bleed: 30px;
         text-align: center;
         z-index: 2;
   
-        @media screen and (max-width: $break-small) {
-          width: calc(100vw/5.2);
+        @media screen and (max-device-width: $break-small) {
+          width: calc(100vw/5.085);
           min-width: max-content;
-          height: calc(100vw/5.2);
+          height: calc(100vw/5.085);
         }
   
         .icon {
@@ -215,6 +226,10 @@ $navbar-bleed: 30px;
           font-size: 24px;
           top: 12px;
           width: 100%;
+
+          @media screen and (max-device-width: $break-small) {
+            font-size: 20px;
+          }
         }
   
         span {
@@ -230,9 +245,9 @@ $navbar-bleed: 30px;
           bottom: 63px;
           height: calc(100% - 63px);
   
-          @media screen and (max-width: $break-small) {
+          @media screen and (max-device-width: $break-small) {
             font-size: 11px;
-            bottom: 47px;
+            bottom: 30px;
             height: calc(100% - 68px);
           }
   

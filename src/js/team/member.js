@@ -13,7 +13,10 @@ class Member {
         this.memberData = memberData[memberName];
 
         document.addEventListener("mousemove", this.mouseMoved.bind(this));
+        document.addEventListener("touchmove", this.mouseMoved.bind(this));
+        
         window.addEventListener("resize", this.renderBackground.bind(this, null));
+        
     }
     setupData() {
         this.container.querySelector(".member-background-color").classList.add(`${this.memberName}-background`);
@@ -36,19 +39,20 @@ class Member {
         this.bwBackground = this.container.querySelector(".member-background-bw");
         this.memberText = this.container.querySelector(".member-text");
 
-        this.sliderCircle.addEventListener("mousedown", () => {
-            this.mouseDown = true;
-        });
-        document.body.addEventListener("mouseup", () => {
-            this.mouseDown = false;
-        });
+        this.sliderCircle.addEventListener("mousedown", () => {this.mouseDown = true;});
+        this.sliderCircle.addEventListener("touchstart", () => {this.mouseDown = true;});
+
+        document.body.addEventListener("mouseup", () => {this.mouseDown = false;});
+        this.sliderCircle.addEventListener("touchend", () => {this.mouseDown = false;});
+        this.sliderCircle.addEventListener("touchcancel", () => {this.mouseDown = false;});
 
         this.renderBackground();
     }
 
     mouseMoved(e) {
+        let x = e.x || _.get(e, "touches[0].pageX")
         if (!this.mouseDown) return;
-        this.renderBackground(e.x);
+        this.renderBackground(x);
     }
 
     renderBackground(x) {
@@ -59,15 +63,15 @@ class Member {
         }
         this.slider.style.left = `${x}px`;
         this.sliderCircle.style.left = `${x-20}px`;
-        this.colorBackground.style.width = `${x}px`;
-        this.bwBackground.style.left = `${x}px`;
+        // this.colorBackground.style.width = this.bwBackground.getBoundingClientRect().width + 'px';
+        this.colorBackground.parentElement.style.width = `${x}px`;
 
         let off = this.memberText.getBoundingClientRect();
-        // this.memberText.style.background = `linear-gradient(to right, white ${x-off.x}px, rgba(0,0,0,0) ${x-off.x}px)`;
         if (x > off.x)
             this.memberText.parentElement.style.width = `${x-off.x}px`;
         if (x <= off.x)
             this.memberText.parentElement.style.width = `${x-off.x}px`;
+        
     }
 }
 

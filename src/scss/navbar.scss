@@ -21,10 +21,11 @@ $break-large: 1200px;
   
     .nav-sub {
       position: absolute;
-      background-color: #242434;
+      padding: 0px;
+      background-color: #1f1f2cad;
       left: 0px;
       width: 100%;
-      top: $navbar-height + 1;
+      top: $navbar-height + 2px;
       font-size: 25px;
       display: block;
       height: auto;
@@ -43,6 +44,10 @@ $break-large: 1200px;
           &:hover {
               color: #c98b10;
               cursor: pointer;
+          }
+          span {
+            position: relative;
+            left: 10px;
           }
       }
     }
