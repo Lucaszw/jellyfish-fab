@@ -10,7 +10,7 @@ const config = require("./webpack.config.js");
 if (process.env.NODE_ENV != "production") dotenv.config();
 
 const app = express();
-const port = 8011;
+const port = process.env.PORT || 8011;
 
 app.use("/assets", express.static(path.resolve() + "/assets"));
 console.log(process.env.NODE_ENV);
