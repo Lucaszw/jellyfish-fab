@@ -11,7 +11,7 @@ class Team {
     this.video = null;
     document.addEventListener(
       "scroll",
-      _.debounce(this.onScroll.bind(this), 20, {
+      _.debounce(this.updateNav.bind(this), 20, {
         leading: true,
         trailing: true,
       })
@@ -25,14 +25,11 @@ class Team {
     this.video = new Video(this.container);
     this.video.draw();
 
-    this.cristina = new Member(this.container, "cristina");
-    this.cristina.draw();
-
-    this.lucas = new Member(this.container, "lucas");
-    this.lucas.draw();
-
-    this.yue = new Member(this.container, "yue");
-    this.yue.draw();
+    for (let name of _.shuffle(["cristina", "lucas", "yue"])) {
+      this[name] = new Member(this.container, name);
+      this[name].draw();
+    }
+    this.updateNav();
   }
   remove() {
     if (this.container) {
@@ -40,7 +37,7 @@ class Team {
       this.container = null;
     }
   }
-  onScroll() {
+  updateNav() {
     if (!this.container) return;
     let overlapping = isOverlapping(this.navbar.container, this.video.container);
     if (overlapping)
