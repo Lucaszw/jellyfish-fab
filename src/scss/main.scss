@@ -65,11 +65,17 @@ body {
     .header {
       color: #ffe6b4;
       position: absolute;
-      bottom: 0px;
+      bottom: 30px;
       font-family: "Neon";
       padding-left: 30px;
-      padding-bottom: 100px;
-      width: 80%;
+      padding-bottom: 10px;
+      width: 100%;
+
+      
+      @media screen and (max-width: $break-small) {
+        padding-left: 0px;
+        bottom: 00px;
+      }
 
       h1 {
         font-size: 40px;
@@ -102,7 +108,14 @@ body {
         inset 0 0 0.5vw  0.2vw #ffe3aa;
         border-radius: 1.5rem;
         padding: 40px 9px;
+
+        @media screen and (max-width: $break-small) {
+          padding: 30px 30px;
+          margin: 0 auto;
+          font-size: 25px;
+        }
       }
+
       h2 {
         font-family: "ConcertOne";
         font-size: 20px;

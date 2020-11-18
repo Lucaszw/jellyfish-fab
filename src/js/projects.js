@@ -44,7 +44,7 @@ class Projects {
     mount(this.container, this.crosshairs);
     mount(this.crosshairs, this.headerInfo);
 
-    this.constructCircle(0.7);
+    this.constructCircle(0.6);
     this.constructCircle(0.3);
     this.constructCircle(0.1);
 

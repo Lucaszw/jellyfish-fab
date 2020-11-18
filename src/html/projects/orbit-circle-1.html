@@ -1,32 +1,16 @@
 <svg  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <filter id="glow" filterUnits="userSpaceOnUse"
-            x="-50%" y="-50%" width="200%" height="200%">
-       <!-- blur the text at different levels-->
-      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50"/>
-      <!-- merge all the blurs except for the first one -->
-      <feMerge result="blur-merged">
-        <feMergeNode in="blur10"/>
-        <feMergeNode in="blur20"/>
-        <feMergeNode in="blur30"/>
-        <feMergeNode in="blur50"/>
-      </feMerge>
-      <!-- recolour the merged blurs red-->
-      <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.554960664   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+    <filter id="glow"x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
       <feMerge>
-        <feMergeNode in="blur"/>       <!-- largest blurs coloured red -->
-        <feMergeNode in="blur5"/>          <!-- smallest blur left white -->
-        <feMergeNode in="SourceGraphic"/>  <!-- original white text -->
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
     </defs>
     <g class="page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g class="circle-group" stroke="rgb(253 212 135)" stroke-width="4">
+        <g class="circle-group" stroke="#bf891e" stroke-width="4">
           <path d="M204.340804,64.437891 C84.4499868,113.561472 0,231.41856 0,369 C0,408.636259 7.00914751,446.635444 19.8555827,481.825695 M52.0317711,546.640333 C93.3612319,610.945931 156.473914,659.920174 230.947774,683.141019 M438.367484,679.384857 C544.885139,641.85267 626.278633,551.040895 650.548603,438.948895 M655.100779,325.131359 C648.508108,275.652633 630.918591,229.650422 604.870221,189.662718 C600.840716,183.476893 596.608791,177.434995 592.183841,171.54642 C563.682572,133.617885 527.173282,102.050221 485.166532,79.3539902 C476.428154,74.6326477 467.451881,70.2952044 458.260312,66.3642603 C418.579875,49.3941884 374.887003,40 329,40" id="Shape"></path>
           <circle class="inner-circle" cx="265.5" cy="51.5" r="51.5"></circle>
           <circle class="inner-circle" cx="655.5" cy="381.5" r="25.5"></circle>
