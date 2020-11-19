@@ -24,8 +24,8 @@ class Header extends Grid {
     mount(this.crosshairs, this.headerInfo);
 
     this.constructCircle(0.6);
-    this.constructCircle(0.3);
-    this.constructCircle(0.1);
+    this.constructCircle(0.4);
+    this.constructCircle(0.2);
 
     this.verticalCrosshair = el(".crosshair.vertical");
     mount(this.crosshairs, this.verticalCrosshair);
