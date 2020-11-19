@@ -84,6 +84,7 @@ class Member {
   mouseMoved(e) {
     let x = e.x || _.get(e, "touches[0].pageX");
     if (!this.mouseDown) return;
+    disableScroll();
     this.renderBackground(x);
   }
 
