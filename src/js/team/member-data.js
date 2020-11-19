@@ -23,10 +23,10 @@ export default {
         fullname: "Yue Liu",
         description: "I’m Yuè (悦), a Chinese product designer from Dalian, currently based in Milan. Why “seilune”? In Italian it means “six moons” which has the same Chinese pronunciation as that of my full name. So that’s that!",
         skills: [
-            {icon: "code", text: "Software"},
-            {icon: "bolt", text: "Electronics"},
-            {icon: "brain", text: "Machine <br/> Learning"},
-            {icon: "microscope", text: "Nanotech <br/> Engineering"}
+            {icon: "pen-fancy", text: "Illustration"},
+            {icon: "cube", text: "3D <br/> Modeling"},
+            {icon: "vector-square", text: "Graphics"},
+            {icon: "utensils", text: "Food <br/> Design"}
         ]
     }
 }

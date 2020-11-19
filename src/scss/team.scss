@@ -82,9 +82,8 @@ $navbar-bleed: 30px;
         width: 75vw;
         border-radius: 5px;
         z-index: 3;
-        @media screen and (max-device-width: $break-small) {
-          min-width: calc(100vw - 120px);
-          max-width: calc(100vw - 120px);
+        @media screen and (min-width: $break-small) {
+          width: 480px;
         }
   
         h1 {
@@ -106,26 +105,26 @@ $navbar-bleed: 30px;
   
       .member-background-color.cristina-background {
         background-image: url(/assets/cristina-bw.jpeg);
-        // background-position-y: 95px;
-        // background-position-x: right;
+        background-position-x: right;
+        filter: blur(2px);
       }
       .member-background-bw.cristina-background {
         background-image: url(/assets/cristina-color.jpeg);
-        // background-position-y: 95px;
-        // background-position-x: right;
+        background-position-x: right;
+        filter: blur(2px);
       }
   
       .member-background-color.lucas-background {
         background-image: url(/assets/lucas-bw.jpeg);
         // background-position-y: 95px;
         // background-position-x: right;
-        // filter: blur(1px);
+        filter: blur(2px);
       }
       .member-background-bw.lucas-background {
         background-image: url(/assets/lucas-color.jpeg);
         // background-position-y: 95px;
         // background-position-x: right;
-        // filter: blur(1px);
+        filter: blur(2px);
       }
   
       .member-background-color.yue-background {
@@ -210,7 +209,7 @@ $navbar-bleed: 30px;
         width: calc(100vw - 8vw);
         bottom: 25vw;
 
-        @media screen and (min-device-width: $break-small) {
+        @media screen and (min-width: $break-small) {
           width: #{$max-badge-width*4 + $max-badge-margin*8};
           bottom: 140px;
           left: calc(50% - #{$max-badge-width*4 + $max-badge-margin*8}/2);
@@ -226,7 +225,7 @@ $navbar-bleed: 30px;
         text-align: center;
         z-index: 2;
         
-        @media screen and (min-device-width: $break-small) {
+        @media screen and (min-width: $break-small) {
           width: $max-badge-width;
           height: $max-badge-width;
           margin: $max-badge-margin;
@@ -244,7 +243,7 @@ $navbar-bleed: 30px;
           top: 3vw;
           width: 100%;
 
-          @media screen and (min-device-width: $break-small) {
+          @media screen and (min-width: $break-small) {
             font-size: 45px;
           }
         }
@@ -256,7 +255,7 @@ $navbar-bleed: 30px;
           font-size: 2vw;
           bottom: 9vw;
 
-          @media screen and (min-device-width: $break-small) {
+          @media screen and (min-width: $break-small) {
             font-size: 13px;
             bottom: 62px;
           }
