@@ -23,9 +23,9 @@ class Header extends Grid {
     mount(this.parent, this.crosshairs);
     mount(this.crosshairs, this.headerInfo);
 
-    this.constructCircle(0.6);
-    this.constructCircle(0.4);
-    this.constructCircle(0.2);
+    this.constructCircle(0.71, 40);
+    setTimeout(() => this.constructCircle(0.4, 20), 400);
+    setTimeout(() => this.constructCircle(0.2, 18), 700);
 
     this.verticalCrosshair = el(".crosshair.vertical");
     mount(this.crosshairs, this.verticalCrosshair);
@@ -35,7 +35,7 @@ class Header extends Grid {
     this.drawDashes();
   }
 
-  constructCircle(scale) {
+  constructCircle(scale, speed) {
     let circle = el(".circle", {
       innerHTML: circleSVG,
     });
@@ -64,7 +64,8 @@ class Header extends Grid {
     circle.querySelector("svg").style.height = `${circleH}px`;
     circle.style.left = `calc(50% - ${circleW / 2}px)`;
     circle.style.top = `calc(50% - ${circleH / 2}px)`;
-    circle.style.transform = `rotateZ(${randInt(0, 360)}deg)`;
+    // circle.style.transform = `rotateZ(${randInt(0, 360)}deg)`;
+    circle.style.animation = `spin ${speed}s linear infinite`;
   }
 
   drawDashes(spread) {
