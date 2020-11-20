@@ -204,6 +204,9 @@ $navbar-bleed: 30px;
 
 
       @mixin project-glow() {
+        z-index: 1;
+        position: relative;
+
         box-shadow: 0 0 0.1rem var(--neon-border-color-alt),
         inset 0 0 0.1rem var(--neon-border-color-alt),
         0 0 1rem var(--neon-border-color),

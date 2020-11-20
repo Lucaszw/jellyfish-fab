@@ -11,13 +11,10 @@ class Gallery extends Grid {
         super();
         this.parent = parent;
         this.projects = [];
-        document.addEventListener(
-            "scroll",
-            _.debounce(this.onScroll.bind(this), 20, {
-              leading: true,
-              trailing: true,
-            })
-          );
+
+        let hFcn = _.debounce(this.highlight.bind(this), 20, {leading: true, trailing: true});
+        document.addEventListener("scroll",hFcn);
+        window.addEventListener("resize", hFcn);
     }
 
     draw() {
@@ -28,7 +25,7 @@ class Gallery extends Grid {
         this.randomlyGenerateProjects();
         // this.drawGrid(this.container);
     }
-    onScroll() {
+    highlight() {
         for (let project of this.projects) project.classList.remove("glow");
 
         for (let project of this.projects) {
