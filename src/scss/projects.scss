@@ -181,9 +181,88 @@ $navbar-bleed: 30px;
   .gallery {
     // background: #4f4f4f;
     background: #310808;
-
+    display: inline;
     .big-dash {
       background: rgb(46, 46, 46);
+    }
+
+    .project {
+      display: inline-block;
+      border: 1px solid $brown-color;
+      text-align: center;
+      width: calc(100%/3);
+      height: calc(100%/3);
+      background: $brown-color;
+      box-shadow: inset 0px 0px 254px -2px rgba(0, 0, 0, 0.75);
+      color: rgba($orange-color, 0.5);
+
+      @media screen and (max-width: $break-small) {
+        // margin: 0 auto;
+        width: calc(100%);
+        height: calc(50%);
+      }
+
+
+      @mixin project-glow() {
+        box-shadow: 0 0 0.1rem var(--neon-border-color-alt),
+        inset 0 0 0.1rem var(--neon-border-color-alt),
+        0 0 1rem var(--neon-border-color),
+        inset 0 0 0.5rem var(--neon-border-color),
+        0 0 1rem var(--neon-border-color),
+        inset 0 0 1rem var(--neon-border-color);
+        
+        color: rgba($orange-color, 1);
+        text-shadow: 0 0 3px $orange-color;
+
+        svg {
+          filter:drop-shadow(0px 0px 3px $orange-color);
+          path {
+            stroke: $orange-color;
+          }
+        }
+      }
+
+      @media screen and (min-width: $break-small) {
+        &:hover {
+          @include project-glow();
+        }
+      }
+
+      @media screen and (max-width: $break-small) {
+        &.glow {
+          @include project-glow();
+        }
+      }
+
+      h1 {
+        font-family: Neon;
+        font-size: 2vw;
+        top: 2vw;
+        position: relative;
+        @media screen and (max-width: $break-small) {
+          font-size: 6vw;
+          top: 6vw;
+        }
+
+      }
+
+      svg {
+        font-size: 7vw;
+        top: 11px;
+        position: relative;
+
+        @media screen and (max-width: $break-small) {
+          font-size: 20vw;
+          top: 3vw;
+        }
+
+        path {
+          stroke: rgba($orange-color, 0.5);
+          stroke-width: 10;
+          fill: none;
+          // box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        }
+      }
     }
   }
 }
