@@ -24,7 +24,7 @@ class Sliding {
         }, 1200);
 
         setTimeout(()=>{callback1();}, 1100);
-        setTimeout(()=>{callback2();}, 3300);
+        setTimeout(()=>{callback2();}, 2300);
     }
 
     easeOut(callback1=_.noop) {

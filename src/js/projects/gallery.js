@@ -69,6 +69,7 @@ class Gallery extends Grid {
         expandedNode.style.width = `${bbox.width}px`;
         setTimeout(()=>{
             enableScroll();
+            this.onExitFullScreen();
             expandedNode.classList.remove("expanded");
             expandedNode.remove();
             project.expandedNode = null;

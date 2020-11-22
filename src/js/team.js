@@ -29,7 +29,7 @@ class Team {
       this[name] = new Member(this.container, name);
       this[name].draw();
     }
-    this.updateNav();
+    // this.updateNav();
   }
   remove() {
     if (this.container) {

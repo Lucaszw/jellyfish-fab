@@ -9,7 +9,6 @@ const focusPoints = [
     {width: "250%", right: "150%"}
 ];
 
-const minWidth = 800;
 
 class Video {
     constructor(parent) {

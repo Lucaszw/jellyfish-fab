@@ -46,8 +46,81 @@ body {
   background: #270000;
   width: 100%;
   height: 100%;
-  z-index: 11;
+  z-index: 12;
   top: 0px;
   left: 0px;
   transition: left 1s ease;
+}
+
+.workshops {
+
+  // background: black;
+  background: linear-gradient(-179deg, #3B2744 3%, #8E4E8B 62%, #B27F95 81%, #E3A3B7 100%);
+  .outer-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  #backdrop-container {
+    svg {
+      transform: scale(1.2);
+      #sky {
+        fill: none;
+      }
+    }
+  }
+  .ocean-filler {
+    position: absolute;
+    top: 347.899px;
+    width: 100%;
+    // height: fill-available;
+    height: 250px;
+    background-image: linear-gradient(-180deg, #A063EB 0%, #362B93 100%);
+  }
+  .header-text {
+    // top: 50%;
+    // left: 50%;
+    color: white;
+    z-index: 10;
+    position: absolute;
+    font-family: 'Neon';
+    width: 100%;
+    text-align: center;
+    h1 {
+      font-size: 50px;
+    }
+  }
+
+  .window-divider{
+    position: absolute;
+    width: 30px;
+    background: lightgrey;
+    height: 100%;
+    top: 0px;
+    z-index: 1;
+
+    &.left {
+      left: calc(25% - 1.5px);
+      transform: rotateZ(5deg);
+    }
+
+    &.right {
+      left: calc(75% - 1.5px);
+      transform: rotateZ(-5deg);
+    }
+  }
+
+  .workshop-filler {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background: lightgray;
+  }
+}
+
+#workshop-container {
+  position: relative;
+  bottom: 0px;
+  z-index: 2;
 }

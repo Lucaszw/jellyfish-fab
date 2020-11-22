@@ -17,15 +17,16 @@ $break-large: 1200px;
     left: 0px;
     top: 0px;
     user-select:none;
-
+    backdrop-filter: blur(10px);
+    transition: height 300ms ease;
     &.hidden {
       height: 0px;
-      transition: height 300ms ease;
+      // transition: height 300ms ease;
       overflow: hidden;
     }
 
     &.opaque {
-      background-color: $brown-color;
+      // background-color: rgba($brown-color, 0.9);
     }
     .nav-sub {
       position: absolute;

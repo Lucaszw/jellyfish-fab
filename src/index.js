@@ -12,14 +12,16 @@ import Sliding from './js/sliding';
 import Home from './js/home';
 import Team from './js/team';
 import Projects from './js/projects';
+import Workshops from './js/workshops';
 
 const navbar = new Navbar(document.body);
 const sliding = new Sliding(document.body);
 const home = new Home(navbar);
 const team = new Team(navbar);
 const projects = new Projects(navbar);
+const workshops = new Workshops(navbar);
 
-const pages = [home, team, projects];
+const pages = [home, team, projects, workshops];
 
 function main() {
     navbar.draw();
@@ -28,19 +30,20 @@ function main() {
     // navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
     navbar.onChangePage = (elem) => {
         const {page} = elem.dataset;
+        navbar.container.classList.add("hidden");
         sliding.easeInOut(()=>{
             for (let page of pages) page.remove();
-            navbar.container.style.backgroundColor = "";
+            // navbar.container.style.backgroundColor = "";
 
             if (page == "home") {
                 home.draw();
                 home.header.drawTextAnimation();
             }
             if (page == "team") team.draw();
-            if (page == "projects"){
-                projects.draw();
-                navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
-            }
+            if (page == "projects") projects.draw();
+            if (page == "workshops") workshops.draw();
+        }, () => {
+            navbar.container.classList.remove("hidden");
         });
     };
     sliding.easeOut(()=>{
