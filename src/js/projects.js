@@ -28,6 +28,15 @@ class Projects {
 
     this.gallery = new Gallery(this.container);
     this.gallery.draw();
+
+    this.gallery.onEnterFullScreen = () => {
+      this.navbar.container.classList.add("hidden");
+    }
+
+    this.gallery.onExitFullScreen = () => {
+      this.navbar.container.classList.remove("hidden");
+    }
+
   }
 
 

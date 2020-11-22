@@ -7,6 +7,7 @@ $break-large: 1200px;
 // @media screen and (min-width: $break-large) {}
 
 .navbar {
+    padding: 0px;
     position: fixed;
     width: 100%;
     height: $navbar-height;
@@ -17,6 +18,11 @@ $break-large: 1200px;
     top: 0px;
     user-select:none;
 
+    &.hidden {
+      height: 0px;
+      transition: height 300ms ease;
+      overflow: hidden;
+    }
 
     &.opaque {
       background-color: $brown-color;
@@ -64,6 +70,7 @@ $break-large: 1200px;
       cursor: pointer;
       width: auto;
       color: #bf891b;
+      margin-left: 2rem;
       * {
         display: inline;
       }
@@ -75,6 +82,7 @@ $break-large: 1200px;
       width: auto;
       font-size: 13px;
       font-family: Neon;
+      margin-right: 2rem;
       .navitem {
         display: inline;
         &:hover {

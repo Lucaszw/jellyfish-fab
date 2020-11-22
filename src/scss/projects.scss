@@ -99,7 +99,7 @@ $navbar-bleed: 30px;
 
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     .crosshair {
       // background: #57d959;
       box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
@@ -179,9 +179,8 @@ $navbar-bleed: 30px;
   }
 
   .gallery {
-    // background: #4f4f4f;
     background: #310808;
-    display: inline;
+    height: auto;
     .big-dash {
       background: rgb(46, 46, 46);
     }
@@ -195,7 +194,7 @@ $navbar-bleed: 30px;
       background: $brown-color;
       box-shadow: inset 0px 0px 254px -2px rgba(0, 0, 0, 0.75);
       color: rgba($orange-color, 0.5);
-
+      cursor: pointer;
       @media screen and (max-width: $break-small) {
         // margin: 0 auto;
         width: calc(100%);
@@ -222,6 +221,22 @@ $navbar-bleed: 30px;
           path {
             stroke: $orange-color;
           }
+        }
+      }
+
+      &.expanded {
+        transition: 1s;
+        @include project-glow();
+        position: fixed !important;
+        cursor: unset;
+        z-index: 2;
+        .close-icon {
+          display: block;
+          cursor: pointer;
+          position: absolute;
+          top: 15;
+          right: 15;
+          font-size: 50;
         }
       }
 
@@ -265,6 +280,11 @@ $navbar-bleed: 30px;
           fill: none;
           // box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
         }
+      }
+
+      .close-icon {
+        display: none;
+        font-size: 20;
       }
     }
   }
