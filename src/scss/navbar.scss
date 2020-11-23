@@ -84,15 +84,27 @@ $title-size: 6vw;
         background-position: center;
         background-repeat: no-repeat;
         height: 100%;
-        width: 75px;
+        width: 12vw;
         display: inline-block;
         filter: invert(1);
+
+        @media screen and (min-width: $break-small) {
+          width: 100px;
+          font-size: 13px;
+        }
+
       }
 
       .logo-text {
         display: inline-block;
         position: absolute;
         top: calc(50% - #{$title-size}/2);
+
+        @media screen and (min-width: $break-small) {
+          font-size: 30px;
+          top: calc(50% - 15px);
+        }
+
       }
       // color: #bf891b;
       // color: rgb(77, 77, 77);
@@ -140,6 +152,9 @@ $title-size: 6vw;
           // color: #a7a7a7;
           color: white;
           font-size: $title-size;
+          @media screen and (min-width: $break-small) {
+            font-size: 30px;
+          }
           &:hover {
               cursor: pointer;
               color: white;
