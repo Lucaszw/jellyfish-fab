@@ -46,6 +46,7 @@ class Workshops {
 
 
     drawHeader() {
+        if (!this.container) return;
         if (this.header) this.header.remove();
         this.header = el(".header", {innerHTML: headerHTML, style: `height: ${window.innerHeight}px`});
         mount(this.container, this.header);
