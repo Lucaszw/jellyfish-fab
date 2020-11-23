@@ -71,7 +71,7 @@ $title-size: 6vw;
     }
   
     .nav-left {
-      display: inline-block;
+      display: inline;
       font-family: Neon;
       font-size:$title-size;
       cursor: pointer;
@@ -84,15 +84,10 @@ $title-size: 6vw;
       }
 
       .logo-text {
-        display: inline-block;
         position: absolute;
-        top: calc(50% - #{$title-size}/2);
-
-        @media screen and (min-width: $break-small) {
-          font-size: 30px;
-          top: calc(50% - 15px);
-        }
-
+        left: 75px;
+        top: calc(50% - 10px);
+        font-size: 20px;
       }
       // color: #bf891b;
       // color: rgb(77, 77, 77);
@@ -100,7 +95,7 @@ $title-size: 6vw;
       color: white;
       margin-left: 1rem;
       * {
-        display: inline;
+        display: inline-block;
       }
     }
   
