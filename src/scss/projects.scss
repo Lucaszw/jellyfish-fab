@@ -70,14 +70,14 @@ $navbar-bleed: 30px;
       text-align: center;
       z-index: 5;
       animation: spin 20s linear infinite;
-      filter: url(#glow);
-      // filter: url(#filter-2);
       transform-origin: center center;
       pointer-events: none;
 
       .circle-group {
         stroke: $orange-color;
         stroke-width: 6px;
+        filter: url(#glow);
+
       }
       .inner-circle {
         display: none;

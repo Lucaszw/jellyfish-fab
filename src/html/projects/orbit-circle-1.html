@@ -12,7 +12,7 @@
       </feMerge>
     </filter> -->
 
-    <filter xmlns="http://www.w3.org/2000/svg" id="glow" height="130%">
+    <filter xmlns="http://www.w3.org/2000/svg" id="glow" height="180%" y="-40%" color-interpolation-filters="sRGB">
       <feGaussianBlur in="SourceGraphic" stdDeviation="8"></feGaussianBlur>
       <feOffset dx="0" dy="0" result="offsetblur"></feOffset>
       <feComponentTransfer>
@@ -20,8 +20,7 @@
       </feComponentTransfer>
       <feMerge>
         <feMergeNode></feMergeNode>
-        <feMergeNode in="coloredBlur"></feMergeNode>
-
+        <!-- <feMergeNode in="coloredBlur"></feMergeNode> -->
         <feMergeNode in="SourceGraphic"></feMergeNode>
       </feMerge>
     </filter>
