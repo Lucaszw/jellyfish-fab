@@ -49,7 +49,7 @@ class Gallery extends Grid {
         expandedNode.style.position = "absolute";
         expandedNode.style.top = `${bbox.top}px`;
         expandedNode.style.left = `${bbox.left}px`;
-        expandedNode.style.zIndex = 2;
+        expandedNode.style.zIndex = 11;
         mount(this.container, expandedNode);
         setTimeout(()=>{
             expandedNode.style.left = "0px";

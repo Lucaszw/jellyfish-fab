@@ -39,11 +39,11 @@ class Team {
   }
   updateNav() {
     if (!this.container) return;
-    let overlapping = isOverlapping(this.navbar.container, this.video.container);
-    if (overlapping)
-      this.navbar.container.classList.remove("opaque");
-    if (!overlapping)
-        this.navbar.container.classList.add("opaque");
+    // let overlapping = isOverlapping(this.navbar.container, this.video.container);
+    // if (overlapping)
+    //   this.navbar.container.classList.remove("opaque");
+    // if (!overlapping)
+    //     this.navbar.container.classList.add("opaque");
   }
 }
 export default Team;

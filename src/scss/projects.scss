@@ -9,7 +9,8 @@ $navbar-bleed: 30px;
 
   .crosshairs {
     overflow: hidden;
-    background: #310808;
+    // background: #310808;
+    background: $light-purple-color;
     margin: 0 auto;
     // box-shadow: 0 0.5rem rgba(36, 36, 36, 0.6),
     // inset 0 0 0.5rem rgba(0, 0, 0, 0.6), 0 0 2rem rgba(0, 0, 0, 0.9),
@@ -18,12 +19,13 @@ $navbar-bleed: 30px;
     box-shadow: inset 0px 0px 254px -2px rgba(0, 0, 0, 0.75);
 
     .header {
-      color: $orange-color;
+      // color: $orange-color;
+      color: white;
       position: absolute;
       top: calc(50% - 8vw);
       font-family: "Neon";
       width: 100%;
-      text-shadow: 0 0 3px $orange-color;
+      text-shadow: 0 0 3px white;
 
       @media screen and (min-width: $break-small) {
         top: calc(50% - 62px);
@@ -74,7 +76,8 @@ $navbar-bleed: 30px;
       pointer-events: none;
 
       .circle-group {
-        stroke: $orange-color;
+        // stroke: $orange-color;
+        stroke: white;
         stroke-width: 6px;
         filter: url(#glow);
 
@@ -128,7 +131,8 @@ $navbar-bleed: 30px;
     }
     .small-dash {
       position: absolute;
-      background: rgb(246, 213, 152);
+      // background: rgb(246, 213, 152);
+      background: white;
       opacity: 0.4;
 
       box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
@@ -149,7 +153,8 @@ $navbar-bleed: 30px;
     }
     .big-dash {
       position: absolute;
-      background: rgb(246, 213, 152);
+      // background: rgb(246, 213, 152);
+      background: white;
       opacity: 0.4;
       box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
         inset 0 0 0.5rem var(--neon-border-color-alt),
@@ -179,21 +184,24 @@ $navbar-bleed: 30px;
   }
 
   .gallery {
-    background: #310808;
+    // background: #310808;
+    background: rgb(0,140,255);
     height: auto;
     .big-dash {
-      background: rgb(46, 46, 46);
+      background: rgba(white, 0.5);
     }
 
     .project {
       display: inline-block;
-      border: 1px solid $brown-color;
+      border: 0.5px solid $pink-color;
       text-align: center;
       width: calc(100%/3);
       height: calc(100%/3);
-      background: $brown-color;
-      box-shadow: inset 0px 0px 254px -2px rgba(0, 0, 0, 0.75);
-      color: rgba($orange-color, 0.5);
+      // background: $brown-color;
+      // background: rgb(76, 155, 219);
+      background: $light-purple-color;
+      box-shadow: inset 0px 0px 254px -2px rgba(rgb(68, 68, 68), 0.75);
+      color: rgba(white, 0.5);
       cursor: pointer;
       @media screen and (max-width: $break-small) {
         // margin: 0 auto;
@@ -206,20 +214,15 @@ $navbar-bleed: 30px;
         z-index: 1;
         position: relative;
 
-        box-shadow: 0 0 0.1rem var(--neon-border-color-alt),
-        inset 0 0 0.1rem var(--neon-border-color-alt),
-        0 0 1rem var(--neon-border-color),
-        inset 0 0 0.5rem var(--neon-border-color),
-        0 0 1rem var(--neon-border-color),
-        inset 0 0 1rem var(--neon-border-color);
+        box-shadow: inset 0px 0px 254px -2px rgba(white, 0.75);
         
-        color: rgba($orange-color, 1);
-        text-shadow: 0 0 3px $orange-color;
+        color: rgba(white, 1);
+        // text-shadow: 0 0 3px white;
 
         svg {
-          filter:drop-shadow(0px 0px 3px $orange-color);
+          filter:drop-shadow(0px 0px 3px white);
           path {
-            stroke: $orange-color;
+            stroke: white;
           }
         }
       }
@@ -229,7 +232,7 @@ $navbar-bleed: 30px;
         @include project-glow();
         position: fixed !important;
         cursor: unset;
-        z-index: 2;
+        z-index: 11;
         .close-icon {
           display: block;
           cursor: pointer;
@@ -275,7 +278,7 @@ $navbar-bleed: 30px;
         }
 
         path {
-          stroke: rgba($orange-color, 0.5);
+          stroke: rgba(white, 0.5);
           stroke-width: 10;
           fill: none;
           // box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;

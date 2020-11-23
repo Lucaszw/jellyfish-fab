@@ -3,6 +3,8 @@ $navbar-height: 100px;
 $break-small: 538px;
 $break-large: 1200px;
 
+
+$title-size: 6vw;
 // @media screen and (max-width: $break-small) {}
 // @media screen and (min-width: $break-large) {}
 
@@ -19,6 +21,7 @@ $break-large: 1200px;
     user-select:none;
     backdrop-filter: blur(10px);
     transition: height 300ms ease;
+    background-color: rgba($purple-color,0.8);
     &.hidden {
       height: 0px;
       // transition: height 300ms ease;
@@ -31,7 +34,8 @@ $break-large: 1200px;
     .nav-sub {
       position: absolute;
       padding: 0px;
-      background-color: $brown-color;
+      // background-color: $brown-color;
+      background-color: $purple-color;
       left: 0px;
       width: 100%;
       z-index: -1;
@@ -47,11 +51,13 @@ $break-large: 1200px;
       .navitem {
           border-bottom: 1px solid #ffffff4d;
           padding: 8px 0px;
-          color: #f1a614;
+          // color: #f1a614;
+          // color: rgb(77, 77, 77);
+          color: white;
           font-family: Neon;
           &:last-of-type {border: none}
           &:hover {
-              color: #c98b10;
+              color: white;
               cursor: pointer;
           }
           span {
@@ -67,11 +73,32 @@ $break-large: 1200px;
     .nav-left {
       display: inline-block;
       font-family: Neon;
-      font-size: 30px;
+      font-size:$title-size;
       cursor: pointer;
       width: auto;
-      color: #bf891b;
-      margin-left: 2rem;
+
+      .navbar-logo {
+        background-image: url(/assets/navbar-icon.png);
+        background-size: contain;
+        filter: invert(1);
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 75px;
+        display: inline-block;
+        filter: invert(1);
+      }
+
+      .logo-text {
+        display: inline-block;
+        position: absolute;
+        top: calc(50% - #{$title-size}/2);
+      }
+      // color: #bf891b;
+      // color: rgb(77, 77, 77);
+      // color: #a7a7a7;
+      color: white;
+      margin-left: 1rem;
       * {
         display: inline;
       }
@@ -79,15 +106,17 @@ $break-large: 1200px;
   
     .nav-right {
       display: inline-block;
+      // color: rgb(77, 77, 77);
+      // color: #a7a7a7;
       color: white;
       width: auto;
-      font-size: 13px;
+      font-size: $title-size;
       font-family: Neon;
-      margin-right: 2rem;
+      margin-right: 1rem;
       .navitem {
         display: inline;
         &:hover {
-          color: #f1a614;
+          color: white;
           cursor: pointer;
         }
         &::after {
@@ -106,11 +135,14 @@ $break-large: 1200px;
       }
   
       .navcollapse {
-          color: #f1a614;
-          font-size: 30px;
+          // color: #f1a614;
+          // color: rgb(77, 77, 77);
+          // color: #a7a7a7;
+          color: white;
+          font-size: $title-size;
           &:hover {
               cursor: pointer;
-              color: #c98b10;
+              color: white;
           }
       }
     }

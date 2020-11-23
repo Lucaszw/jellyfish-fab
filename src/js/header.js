@@ -9,12 +9,12 @@ class Header {
     this.headerContent = null;
     this.parent = parent;
     this.particleColors = [
-      "#fb000f",
-      "#fc3242",
-      "#fc4708",
+      "#bc7df1",
+      "#8332fc",
+      "#08fcea",
       "#ffffff",
-      "#fec409",
-      "#ffff0b",
+      "#4683ea",
+      "#b9f7ff",
     ];
   }
 
@@ -103,29 +103,25 @@ class Header {
   drawParticles() {
     particlesJS("particles-js", {
       particles: {
-        number: { value: 100, density: { enable: false, value_area: 100 } },
+        number: { value: 50, density: { enable: false, value_area: 100 } },
         color: { value: this.particleColors },
-        shape: {
-          type: "edge",
-          stroke: { width: 0, color: "#000000" },
-          polygon: { nb_sides: 100 },
-        },
+        // shape: {
+        //   type: "edge",
+        //   stroke: { width: 0, color: "#000000" },
+        //   polygon: { nb_sides: 100 },
+        // },
         opacity: {
           value: 0.5,
           random: true,
           anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
         },
         size: {
-          value: 8,
+          value: 15,
           random: true,
           anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
         },
         line_linked: {
-          enable: true,
-          distance: 100,
-          color: "#fc3242",
-          opacity: 0.3,
-          width: 2,
+          enable: false
         },
         move: {
           enable: true,

@@ -22,14 +22,14 @@ $navbar-bleed: 30px;
         width: 100%;
         height: 100%;
         // background: #2424349c;
-        background: #2c0900d6;
+        background: rgba($purple-color,0.7);
         box-shadow: inset 0px 0px 254px -2px rgba(0,0,0,0.75);
       }
   
       h1 {
         position: absolute;
         bottom: calc(50% - 100px);
-        color: #bf891b;
+        color: white;
         margin: 0 auto;
         width: 100%;
         text-align: center;
@@ -76,7 +76,7 @@ $navbar-bleed: 30px;
   
       .member-text {
         
-        background: #1f1f2c;
+        background: $purple-color;
         color: white;
         padding: 30px;
         width: 75vw;
@@ -97,7 +97,7 @@ $navbar-bleed: 30px;
           border-radius: 0px;
           font-size: 13px;
           padding-left: 15px;
-          border-bottom: 3px solid #44445b;
+          border-bottom: 3px solid #f1a614;
           padding-bottom: 20;
           text-align: justify;
         }
@@ -269,8 +269,8 @@ $navbar-bleed: 30px;
           padding: 2.5px;
           background-clip: content-box;
           animation: spin 30s linear infinite;
-          background-color: rgba(31, 31, 44, 1);
-          border: 2.5px dashed rgba(31, 31, 44, 1);
+          background-color: $purple-color;
+          border: 2.5px dashed $purple-color;
         }
   
         &:hover {
