@@ -2,7 +2,7 @@ import { el, mount } from "redom";
 
 import Video from "./team/video";
 import Member from "./team/member";
-import isOverlapping from "./utils/overlap";
+import Arrow from "./arrow";
 import _ from "lodash";
 
 class Team {
@@ -29,6 +29,8 @@ class Team {
       this[name] = new Member(this.container, name);
       this[name].draw();
     }
+    this.arrow = new Arrow();
+    this.arrow.draw();
     // this.updateNav();
   }
   remove() {
@@ -36,6 +38,7 @@ class Team {
       this.container.remove();
       this.container = null;
     }
+    if(this.arrow) this.arrow.remove();
   }
   updateNav() {
     if (!this.container) return;

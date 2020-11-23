@@ -4,6 +4,7 @@ import _ from "lodash";
 import Header from "./header";
 import Vision from "./vision";
 import Contact from "./contact";
+import Arrow from "./arrow";
 
 import isOverlapping from "./utils/overlap";
 
@@ -28,10 +29,12 @@ class Home {
     this.header = new Header(this.container);
     this.vision = new Vision(this.container);
     this.contact = new Contact(this.container);
+    this.arrow = new Arrow();
 
     this.header.draw();
     this.vision.draw();
     this.contact.draw();
+    this.arrow.draw();
   }
 
   remove() {
@@ -39,6 +42,7 @@ class Home {
       this.container.remove();
       this.container = null;
     }
+    if (this.arrow) this.arrow.remove();
   }
 
   onScroll() {

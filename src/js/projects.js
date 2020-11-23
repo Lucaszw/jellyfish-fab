@@ -5,6 +5,7 @@ import randInt from "random-int";
 import isOverlapping from "./utils/overlap";
 import Header from "./projects/header";
 import Gallery from "./projects/gallery";
+import Arrow from "./arrow";
 
 class Projects {
   constructor(navbar) {
@@ -37,6 +38,8 @@ class Projects {
       this.navbar.container.classList.remove("hidden");
     }
 
+    this.arrow = new Arrow();
+    this.arrow.draw();
   }
 
 
@@ -45,6 +48,7 @@ class Projects {
       this.container.remove();
       this.container = null;
     }
+    if (this.arrow) this.arrow.remove();
   }
   onScroll() {
     if (!this.container) return;

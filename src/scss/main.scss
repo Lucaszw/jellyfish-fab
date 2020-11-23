@@ -41,6 +41,38 @@ body {
   overflow-y: auto;
 }
 
+.down-arrow {
+  position: absolute;
+  left: calc(50% - 15px);
+  font-size: 50px;
+  color: white;
+  bottom: 0px;
+  z-index: 9;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+  min-height: 30px;
+  min-width: 30px;
+  filter: drop-shadow(0px -2px 5px rgba(0, 0, 0, 1));
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      filter: drop-shadow(0px -2px 5px rgba(0, 0, 0, 0.7));
+    }
+  
+    70% {
+      transform: scale(1);
+      filter: drop-shadow(0px -2px 5px rgba(0, 0, 0, 0));
+    }
+  
+    100% {
+      transform: scale(0.95);
+      filter: drop-shadow(0px -2px 5px rgba(0, 0, 0, 0));
+    }
+  }
+
+}
+
 .sliding {
   position: fixed;
   background: $light-purple-color;

@@ -3,6 +3,7 @@ import headerHTML from "../html/workshops/header.html";
 import workshopTableHTML from "../html/workshops/workshop-table.html";
 import backdropHTML from "../html/workshops/window-backdrop.html";
 import headerTexHTML from "../html/workshops/header-text.html";
+import Arrow from "./arrow";
 
 import _ from "lodash";
 
@@ -106,6 +107,9 @@ class Workshops {
         mount(document.body, this.container);
 
         this.drawHeader();
+
+        this.arrow = new Arrow();
+        this.arrow.draw();
     }
 
     remove() {
@@ -113,6 +117,7 @@ class Workshops {
 
         this.container.remove();
         this.container = null;
+        if (this.arrow) this.arrow.remove();
     }
 }
 
