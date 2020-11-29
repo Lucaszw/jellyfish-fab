@@ -8,32 +8,19 @@ let square = (e1, e2) => {
         && rect1.right >= rect2.left);
 }
 
-let circle = (e1, circleEl) => {
+let circle = (e1, circleEl, coords) => {
     let bbox = e1.getBoundingClientRect();
+    coords = coords || {x: bbox.left+bbox.width/2 , y: bbox.top + bbox.height/2};
+
     let circleBox = circleEl.getBoundingClientRect();
-
     let center = {};
-    center.x = circleBox.left + circleBox.width/2;
-    center.y = circleBox.top + circleBox.height/2;
+    center.x = (circleBox.left + circleBox.width/2);
+    center.y = (circleBox.top + circleBox.height/2);
 
-    let newX = x - bbox.width / 2;
-    let newY = y - bbox.height / 2;
-
-    let angle = Math.atan((newY - center.y)/(newX - center.x));
-    
-    let w = 0.5*circleBox.width*Math.cos(angle);
-    let h = 0.5*circleBox.width*Math.sin(angle);
-
-    let minX = center.x - w;
-    let maxX = center.x + w;
-    let minY = center.y - h;
-    let maxY = center.y + h;
-
-    let outside = true;
-    if ((newX > maxX) && (newY > maxY)) outside = false;
-    if ((newX < minX) && (newY > maxY)) outside = false;
-    if ((newX < minX) && (newY < minY)) outside = false;
-    if ((newX > maxX) && (newY < minY)) outside = false;    
+    let angle = Math.atan2((coords.y - center.y), (coords.x - center.x));
+    if (angle < 0) angle += 2 * Math.PI;
+    let overlapping = (((coords.x - center.x)**2) + ((coords.y - center.y)**2) <= (circleBox.width/2)**2)
+    return {overlapping, angle};
 }
 
 export default square;
