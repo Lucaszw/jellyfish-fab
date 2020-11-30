@@ -8,20 +8,54 @@ let square = (e1, e2) => {
         && rect1.right >= rect2.left);
 }
 
-let circle = (e1, circleEl, coords) => {
-    let bbox = e1.getBoundingClientRect();
-    coords = coords || {x: bbox.left+bbox.width/2 , y: bbox.top + bbox.height/2};
+let circlePoint = (circleEl, elem, options) => {
+    const circleBox = circleEl.getBoundingClientRect();
+    
+    let coords = options?.coords;
+    if (!coords) {
+        const bbox = elem.getBoundingClientRect();
+        coords = {x: bbox.left+bbox.width/2 , y: bbox.top + bbox.height/2};
+    }
+    
+    const linewidth = options?.linewidth || 0;
 
-    let circleBox = circleEl.getBoundingClientRect();
-    let center = {};
+    const center = {};
     center.x = (circleBox.left + circleBox.width/2);
     center.y = (circleBox.top + circleBox.height/2);
 
     let angle = Math.atan2((coords.y - center.y), (coords.x - center.x));
     if (angle < 0) angle += 2 * Math.PI;
-    let overlapping = (((coords.x - center.x)**2) + ((coords.y - center.y)**2) <= (circleBox.width/2)**2)
+
+    const R = circleBox.width/2 - linewidth;
+
+    let overlapping = (((coords.x - center.x)**2) + ((coords.y - center.y)**2) <= (R)**2)
     return {overlapping, angle};
 }
 
+let circleBox = (circleEl, elem, options) => {
+    let bbox = elem.getBoundingClientRect();
+    let points = [
+        {x: bbox.left, y: bbox.top},
+        {x: bbox.left, y: bbox.bottom},
+        {x: bbox.right, y: bbox.top},
+        {x: bbox.right, y: bbox.bottom},
+    ];
+
+    let collision = false;
+    let numCollision = 0;
+    let fullyContained = false;
+
+    for (let coords of points) {
+        options.coords = coords;
+        let {overlapping} = circlePoint(circleEl, null, options);
+        if (overlapping) {
+            collision = true;
+            numCollision ++;
+        }
+    }
+    if (numCollision == 4) fullyContained = true;
+    return {collision, fullyContained};
+}
+
 export default square;
-export {circle};
+export {square, circlePoint, circleBox};
