@@ -13,6 +13,7 @@ import Home from './js/home';
 import Team from './js/team';
 import Projects from './js/projects';
 import Workshops from './js/workshops';
+import Services from './js/services';
 
 const navbar = new Navbar(document.body);
 const sliding = new Sliding(document.body);
@@ -20,8 +21,9 @@ const home = new Home(navbar);
 const team = new Team(navbar);
 const projects = new Projects(navbar);
 const workshops = new Workshops(navbar);
+const services = new Services(navbar);
 
-const pages = [home, team, projects, workshops];
+const pages = [home, team, projects, workshops, services];
 
 function main() {
     navbar.draw();
@@ -42,6 +44,7 @@ function main() {
             if (page == "team") team.draw();
             if (page == "projects") projects.draw();
             if (page == "workshops") workshops.draw();
+            if (page == "services") services.draw();
         }, () => {
             navbar.container.classList.remove("hidden");
         });

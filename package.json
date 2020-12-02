@@ -32,7 +32,8 @@
     "pg-hstore": "^2.3.3",
     "random-int": "^2.0.1",
     "redom": "^3.27.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "three": "^0.123.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
