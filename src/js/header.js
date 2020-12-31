@@ -103,7 +103,15 @@ class Header {
   }
 
   drawCanvas() {
-    const sandbox = new GlslCanvas(this.container.querySelector("canvas"));
+    const canvas = this.container.querySelector("canvas");
+
+    // set the size of the drawingBuffer
+    var devicePixelRatio = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * devicePixelRatio;
+    canvas.height = window.innerHeight * devicePixelRatio;
+
+
+    const sandbox = new GlslCanvas(canvas);
     // // Created by inigo quilez - iq/2013
     // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -127,24 +135,24 @@ class Header {
         vec3 color = vec3(0.340+uv.y*0.764,0.532+uv.y*0.232,1.044+uv.y*3.264);
     
         // bubbles	
-      for( int i=0; i<50; i++ )
+      for( int i=0; i<12; i++ )
       {
             // bubble seeds
-        float pha =      sin(float(i)*546.434+0.896)*0.476 + 0.5;
-        float siz = pow( sin(float(i)*651.460+5.0)*0.5 + 0.5, 4.0 );
+        float pha =      sin(float(i)*546.13+1.0)*0.5 + 0.5;
+        float siz =      pow( sin(float(i)*651.74+5.0)*0.5 + 0.5, 3.0 );
         float pox =      sin(float(i)*321.55+4.1) * u_resolution.x / u_resolution.y;
     
             // buble size, position and color
-        float rad = 0.028 + -0.020*siz;
-        vec2  pos = vec2( pox, rad + (0.916+1.864*rad)*mod(pha+0.204*u_time*(0.056+0.544*siz),1.0));
+        float rad = 0.05 + 0.1*siz;
+        vec2  pos = vec2( pox, rad + (0.916+1.864*rad)*mod(pha+0.404*u_time*(0.056+0.544*siz),1.0));
         float dis = length( uv - pos );
-        vec3  col = mix( vec3(0.230,0.136,0.218), vec3(0.290,0.325,0.006), 0.052+0.5*sin(float(i)*1.792+0.900));
-           // col+= 8.0*smoothstep( rad*0.95, rad, dis );
+        vec3  col = mix( vec3(0.94,0.3,0.3), vec3(0.1,0.4,0.8), 0.5+0.5*sin(float(i)*1.2));
+          //  col+= 8.0*smoothstep( rad*0.95, rad, dis );
         
             // render
         float f = length(uv-pos)/rad;
-        f = sqrt(clamp(0.976-f*f,0.176,0.880));
-        color -= col.zyx *(1.024-smoothstep( rad*0.890, rad, dis )) * f;
+        f = sqrt(clamp(1.0-f*f,0.0,1.));
+        color -= (col.zyx * (0.5-smoothstep( rad*0.99, rad, dis )) * f);
       }
     
         // vigneting	
