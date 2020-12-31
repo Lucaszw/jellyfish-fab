@@ -2,7 +2,7 @@ import "particles.js";
 import anime from "animejs";
 import headerHTML from "../html/header.html";
 import { el, mount } from "redom";
-import GlslCanvas from "glslcanvas";
+import GlslCanvas from "glslCanvas";
 
 class Header {
   constructor(parent) {
@@ -120,26 +120,26 @@ class Header {
     }
 
     void main() {
-      vec2 uv = -1.0 + 2.0*gl_FragCoord.xy / u_resolution.xy;
+      vec2 uv = gl_FragCoord.xy / u_resolution.xy;
       uv.x *=  u_resolution.x / u_resolution.y;
     
         // background	 
-      vec3 color = vec3(0.846,0.500,1.000);
+        vec3 color = vec3(0.340+uv.y*0.764,0.532+uv.y*0.232,1.044+uv.y*3.264);
     
         // bubbles	
-      for( int i=0; i<10; i++ )
+      for( int i=0; i<50; i++ )
       {
             // bubble seeds
-        float pha =      sin(float(i)*546.434+1.0)*0.636 + 0.5;
+        float pha =      sin(float(i)*546.434+0.896)*0.476 + 0.5;
         float siz = pow( sin(float(i)*651.460+5.0)*0.5 + 0.5, 4.0 );
         float pox =      sin(float(i)*321.55+4.1) * u_resolution.x / u_resolution.y;
     
             // buble size, position and color
-        float rad = 0.1 + 0.1*siz;
-        vec2  pos = vec2( pox, -1.0-rad + (2.0+2.0*rad)*mod(pha+0.1*u_time*(0.2+0.8*siz),1.0));
+        float rad = 0.028 + -0.020*siz;
+        vec2  pos = vec2( pox, rad + (0.916+1.864*rad)*mod(pha+0.204*u_time*(0.056+0.544*siz),1.0));
         float dis = length( uv - pos );
-        vec3  col = mix( vec3(0.305,0.181,0.289), vec3(0.421,0.540,0.125), 0.340+0.5*sin(float(i)*1.056+1.668));
-        //    col+= 8.0*smoothstep( rad*0.95, rad, dis );
+        vec3  col = mix( vec3(0.230,0.136,0.218), vec3(0.290,0.325,0.006), 0.052+0.5*sin(float(i)*1.792+0.900));
+           // col+= 8.0*smoothstep( rad*0.95, rad, dis );
         
             // render
         float f = length(uv-pos)/rad;
@@ -148,7 +148,7 @@ class Header {
       }
     
         // vigneting	
-      color *= sqrt(1.4-0.7*length(uv));
+      // color *= sqrt(1.4-0.7*length(uv));
     
       gl_FragColor = vec4(color,1.0);
     }`;
