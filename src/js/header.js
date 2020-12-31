@@ -2,6 +2,7 @@ import "particles.js";
 import anime from "animejs";
 import headerHTML from "../html/header.html";
 import { el, mount } from "redom";
+import GlslCanvas from "glslcanvas";
 
 class Header {
   constructor(parent) {
@@ -22,7 +23,7 @@ class Header {
     if (this.container) this.container.remove();
 
     this.container = el(".header", {
-      innerHTML: '<div id="particles-js"></div>',
+      innerHTML: '<canvas></canvas>',
     });
     let height = window.innerHeight;
 
@@ -30,7 +31,8 @@ class Header {
 
     mount(this.parent, this.container);
 
-    this.drawParticles();
+    // this.drawParticles();
+    this.drawCanvas();
   }
 
   drawTextAnimation() {
@@ -98,6 +100,60 @@ class Header {
       },
       700
     );
+  }
+
+  drawCanvas() {
+    const sandbox = new GlslCanvas(this.container.querySelector("canvas"));
+    // // Created by inigo quilez - iq/2013
+    // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+
+    var string_frag_code = `
+    #ifdef GL_ES
+    precision mediump float;
+    #endif
+
+    uniform vec2 u_resolution;
+    uniform float u_time;
+
+    float circle (vec2 p, vec2 position, float radius) {
+      return floor(distance(p, position)*10.);
+    }
+
+    void main() {
+      vec2 uv = -1.0 + 2.0*gl_FragCoord.xy / u_resolution.xy;
+      uv.x *=  u_resolution.x / u_resolution.y;
+    
+        // background	 
+      vec3 color = vec3(0.846,0.500,1.000);
+    
+        // bubbles	
+      for( int i=0; i<10; i++ )
+      {
+            // bubble seeds
+        float pha =      sin(float(i)*546.434+1.0)*0.636 + 0.5;
+        float siz = pow( sin(float(i)*651.460+5.0)*0.5 + 0.5, 4.0 );
+        float pox =      sin(float(i)*321.55+4.1) * u_resolution.x / u_resolution.y;
+    
+            // buble size, position and color
+        float rad = 0.1 + 0.1*siz;
+        vec2  pos = vec2( pox, -1.0-rad + (2.0+2.0*rad)*mod(pha+0.1*u_time*(0.2+0.8*siz),1.0));
+        float dis = length( uv - pos );
+        vec3  col = mix( vec3(0.305,0.181,0.289), vec3(0.421,0.540,0.125), 0.340+0.5*sin(float(i)*1.056+1.668));
+        //    col+= 8.0*smoothstep( rad*0.95, rad, dis );
+        
+            // render
+        float f = length(uv-pos)/rad;
+        f = sqrt(clamp(0.976-f*f,0.176,0.880));
+        color -= col.zyx *(1.024-smoothstep( rad*0.890, rad, dis )) * f;
+      }
+    
+        // vigneting	
+      color *= sqrt(1.4-0.7*length(uv));
+    
+      gl_FragColor = vec4(color,1.0);
+    }`;
+    console.log(string_frag_code);
+    sandbox.load(string_frag_code);
   }
 
   drawParticles() {

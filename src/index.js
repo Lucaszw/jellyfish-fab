@@ -28,7 +28,7 @@ const pages = [home, team, projects, workshops, services];
 function main() {
     navbar.draw();
     home.draw();
-    // projects.draw();
+    // services.draw();
     // navbar.container.style.backgroundColor = "rgba(0,0,0,0)";
     navbar.onChangePage = (elem) => {
         const {page} = elem.dataset;
