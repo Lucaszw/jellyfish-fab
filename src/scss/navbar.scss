@@ -9,143 +9,147 @@ $title-size: 6vw;
 // @media screen and (min-width: $break-large) {}
 
 .navbar {
-    padding: 0px;
-    position: fixed;
-    width: 100%;
-    height: $navbar-height;
-    z-index: 10;
-    // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
-    width:  100%;
-    left: 0px;
-    top: 0px;
-    user-select:none;
-    backdrop-filter: blur(10px);
-    transition: height 300ms ease;
-    // background-color: rgba($purple-color,0.8);
-    &.hidden {
-      width: 0px;
-      // transition: height 300ms ease;
-      overflow: hidden;
-    }
-
-    &.opaque {
-      // background-color: rgba($brown-color, 0.9);
-    }
-    .nav-sub {
-      position: fixed;
-      padding: 0px;
-      // background-color: $brown-color;
-      background-color: $purple-color;
-      right: 0px;
-      left: initial;
-      z-index: -1;
-      top:0px;
-      font-size: 25px;
-      display: block;
-      width: 100%;
-      height: 100%;
-      max-width: 160px;
-      transition: max-width 0.3s ease-in-out;
-      overflow: hidden;
-      color: black;
-      .navitem {
-          // border-bottom: 1px solid #ffffff4d;
-          padding: 8px 0px;
-          // color: #f1a614;
-          // color: rgb(77, 77, 77);
-          color: white;
-          font-family: DIN;
-          &:last-of-type {border: none}
-          &:hover {
-              color: white;
-              cursor: pointer;
-          }
-          span {
-            position: relative;
-            left: 10px;
-          }
-      }
-      .spacer {
-        padding-top: $navbar-height;
-      }
-    }
+  padding: 0px;
+  position: fixed;
+  width: 100%;
+  height: $navbar-height;
+  z-index: 10;
+  // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
+  width:  100%;
+  left: 0px;
+  top: 0px;
+  user-select:none;
+  backdrop-filter: blur(10px);
+  transition: height 300ms ease;
+  // background-color: rgba($purple-color,0.8);
+  &.hidden {
+    width: 0px;
+    // transition: height 300ms ease;
+    overflow: hidden;
+  }
   
-    .nav-left {
-      display: inline;
-      font-family: SourceCode;
-      font-size:$title-size;
+  &.opaque {
+    // background-color: rgba($brown-color, 0.9);
+  }
+  
+  .navcollapse {
+    // color: #f1a614;
+    // color: rgb(77, 77, 77);
+    // color: #a7a7a7;
+    color: white;
+    float: right;
+    padding: 10px;
+    font-size: $title-size;
+    @media screen and (min-width: $break-small) {
+      font-size: 30px;
+    }
+    &:hover {
       cursor: pointer;
-
-      .navbar-logo {
-        // filter: invert(58%) sepia(100%) saturate(1000%) hue-rotate(290deg) contrast(99%);
-        height: 45px;
-        width: 45px;
-      }
-
-      .logo-text {
-        position: absolute;
-        left: 75px;
-        top: calc(50% - 14px);
-        font-size: 22px;
-      }
-      // color: #bf891b;
-      // color: rgb(77, 77, 77);
-      // color: #a7a7a7;
-      color: black;
-      margin-left: 1rem;
-      * {
-        display: inline-block;
-      }
-    }
-  
-    .nav-right {
-      display: inline-block;
-      // color: rgb(77, 77, 77);
-      // color: #a7a7a7;
       color: white;
-      width: auto;
-      font-size: $title-size;
-      font-family: Neon;
-      margin-right: 1rem;
-      .navitem {
-        display: inline;
-        &:hover {
-          color: white;
-          cursor: pointer;
-        }
-        &::after {
-          content: " | ";
-        }
-        &:hover::after {
-          color: white;
-        }
-  
-        display: none;
-        &:last-of-type {
-          &:after {
-            content: "";
-          }
-        }
-      }
-  
-      .navcollapse {
-          // color: #f1a614;
-          // color: rgb(77, 77, 77);
-          // color: #a7a7a7;
-          color: white;
-          font-size: $title-size;
-          @media screen and (min-width: $break-small) {
-            font-size: 30px;
-          }
-          &:hover {
-              cursor: pointer;
-              color: white;
-          }
-      }
-
-      #navexpand {
-        color: $purple-color;
-      }
     }
   }
   
+  #navexpand {
+    color: $purple-color;
+  }
+
+  &.nav-sub {
+    position: fixed;
+    padding: 0px;
+    // background-color: $brown-color;
+    background-color: $purple-color;
+    right: 0px;
+    left: initial;
+    z-index: 15;
+    top:0px;
+    font-size: 25px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 160px;
+    transition: max-width 0.3s ease-in-out;
+    overflow: hidden;
+    color: black;
+    .navitem {
+      // border-bottom: 1px solid #ffffff4d;
+      padding: 8px 0px;
+      // color: #f1a614;
+      // color: rgb(77, 77, 77);
+      color: white;
+      font-family: DIN;
+      &:last-of-type {border: none}
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
+      span {
+        position: relative;
+        left: 10px;
+      }
+    }
+    .spacer {
+      padding-top: $navbar-height;
+    }
+    
+  }
+  
+  .nav-left {
+    display: inline;
+    font-family: SourceCode;
+    font-size:$title-size;
+    cursor: pointer;
+    
+    .navbar-logo {
+      // filter: invert(58%) sepia(100%) saturate(1000%) hue-rotate(290deg) contrast(99%);
+      height: 45px;
+      width: 45px;
+    }
+    
+    .logo-text {
+      position: absolute;
+      left: 75px;
+      top: calc(50% - 14px);
+      font-size: 22px;
+    }
+    // color: #bf891b;
+    // color: rgb(77, 77, 77);
+    // color: #a7a7a7;
+    color: black;
+    margin-left: 1rem;
+    * {
+      display: inline-block;
+    }
+  }
+  
+  .nav-right {
+    display: inline-block;
+    // color: rgb(77, 77, 77);
+    // color: #a7a7a7;
+    color: white;
+    width: auto;
+    font-size: $title-size;
+    font-family: Neon;
+    margin-right: 1rem;
+    .navitem {
+      display: inline;
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
+      &::after {
+        content: " | ";
+      }
+      &:hover::after {
+        color: white;
+      }
+      
+      display: none;
+      &:last-of-type {
+        &:after {
+          content: "";
+        }
+      }
+    }
+    
+  }
+}

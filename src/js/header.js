@@ -86,20 +86,6 @@ class Header {
         easing: "easeOutExpo",
         delay: 200,
       });
-
-    anime.timeline({ loop: false }).add(
-      {
-        targets: [
-          this.headerContent.querySelector("h2"),
-          this.headerContent.querySelector(".big-button"),
-        ],
-        scale: [0, 1],
-        duration: 1500,
-        elasticity: 600,
-        delay: (el, i) => 45 * (i + 1),
-      },
-      700
-    );
   }
 
   drawCanvas() {
