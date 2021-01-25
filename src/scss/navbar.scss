@@ -23,7 +23,7 @@ $title-size: 6vw;
     transition: height 300ms ease;
     // background-color: rgba($purple-color,0.8);
     &.hidden {
-      height: 0px;
+      width: 0px;
       // transition: height 300ms ease;
       overflow: hidden;
     }
@@ -32,20 +32,20 @@ $title-size: 6vw;
       // background-color: rgba($brown-color, 0.9);
     }
     .nav-sub {
-      position: absolute;
+      position: fixed;
       padding: 0px;
       // background-color: $brown-color;
       background-color: $purple-color;
-      left: 0px;
-      width: 100%;
+      right: 0px;
+      left: initial;
       z-index: -1;
-      // padding-top: $navbar-height;
       top:0px;
       font-size: 25px;
       display: block;
-      height: auto;
-      max-height: 450px;
-      transition: max-height 0.3s ease-in-out;
+      width: 100%;
+      height: 100%;
+      max-width: 160px;
+      transition: max-width 0.3s ease-in-out;
       overflow: hidden;
       color: black;
       .navitem {
@@ -53,8 +53,8 @@ $title-size: 6vw;
           padding: 8px 0px;
           // color: #f1a614;
           // color: rgb(77, 77, 77);
-          color: black;
-          font-family: Neon;
+          color: white;
+          font-family: DIN;
           &:last-of-type {border: none}
           &:hover {
               color: white;
@@ -102,7 +102,7 @@ $title-size: 6vw;
       display: inline-block;
       // color: rgb(77, 77, 77);
       // color: #a7a7a7;
-      color: #fc52a5;
+      color: white;
       width: auto;
       font-size: $title-size;
       font-family: Neon;
@@ -132,7 +132,7 @@ $title-size: 6vw;
           // color: #f1a614;
           // color: rgb(77, 77, 77);
           // color: #a7a7a7;
-          color: #fc52a5;
+          color: white;
           font-size: $title-size;
           @media screen and (min-width: $break-small) {
             font-size: 30px;
@@ -141,6 +141,10 @@ $title-size: 6vw;
               cursor: pointer;
               color: white;
           }
+      }
+
+      #navexpand {
+        color: $purple-color;
       }
     }
   }

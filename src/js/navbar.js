@@ -18,7 +18,7 @@ class Navbar {
         const expandBtn = this.container.querySelector("#navexpand");
         const collapseBtn = this.container.querySelector("#navcollapse");
 
-        subnav.style.maxHeight = "0px";
+        subnav.style.maxWidth = "0px";
         expandBtn.style.display = "block";
         collapseBtn.style.display = "none";
     }
@@ -28,7 +28,7 @@ class Navbar {
         const expandBtn = this.container.querySelector("#navexpand");
         const collapseBtn = this.container.querySelector("#navcollapse");
 
-        subnav.style.maxHeight = "450px";
+        subnav.style.maxWidth = "160px";
         expandBtn.style.display = "none";
         collapseBtn.style.display = "block";
     }
