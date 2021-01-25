@@ -35,6 +35,16 @@ $navbar-bleed: 30px;
   src: url(../fonts/neon-soft.otf) format("opentype");
 }
 
+@font-face {
+  font-family: "DIN";
+  src: url(../fonts/DIN-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SourceCode";
+  src: url(../fonts/SourceCodePro-Regular.ttf) format("opentype");
+}
+
 body {
   background: white;
   overflow-x: hidden;

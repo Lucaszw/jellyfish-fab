@@ -14,14 +14,14 @@ $title-size: 6vw;
     width: 100%;
     height: $navbar-height;
     z-index: 10;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
+    // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
     width:  100%;
     left: 0px;
     top: 0px;
     user-select:none;
     backdrop-filter: blur(10px);
     transition: height 300ms ease;
-    background-color: rgba($purple-color,0.8);
+    // background-color: rgba($purple-color,0.8);
     &.hidden {
       height: 0px;
       // transition: height 300ms ease;
@@ -47,13 +47,13 @@ $title-size: 6vw;
       max-height: 450px;
       transition: max-height 0.3s ease-in-out;
       overflow: hidden;
-
+      color: black;
       .navitem {
-          border-bottom: 1px solid #ffffff4d;
+          // border-bottom: 1px solid #ffffff4d;
           padding: 8px 0px;
           // color: #f1a614;
           // color: rgb(77, 77, 77);
-          color: white;
+          color: black;
           font-family: Neon;
           &:last-of-type {border: none}
           &:hover {
@@ -72,27 +72,26 @@ $title-size: 6vw;
   
     .nav-left {
       display: inline;
-      font-family: Neon;
+      font-family: SourceCode;
       font-size:$title-size;
       cursor: pointer;
 
       .navbar-logo {
-        filter: invert(1);
-        height: 70px;
-        width: 62px;
-        filter: invert(1);
+        // filter: invert(58%) sepia(100%) saturate(1000%) hue-rotate(290deg) contrast(99%);
+        height: 45px;
+        width: 45px;
       }
 
       .logo-text {
         position: absolute;
         left: 75px;
-        top: calc(50% - 10px);
-        font-size: 20px;
+        top: calc(50% - 14px);
+        font-size: 22px;
       }
       // color: #bf891b;
       // color: rgb(77, 77, 77);
       // color: #a7a7a7;
-      color: white;
+      color: black;
       margin-left: 1rem;
       * {
         display: inline-block;
@@ -103,7 +102,7 @@ $title-size: 6vw;
       display: inline-block;
       // color: rgb(77, 77, 77);
       // color: #a7a7a7;
-      color: white;
+      color: #fc52a5;
       width: auto;
       font-size: $title-size;
       font-family: Neon;
@@ -133,7 +132,7 @@ $title-size: 6vw;
           // color: #f1a614;
           // color: rgb(77, 77, 77);
           // color: #a7a7a7;
-          color: white;
+          color: #fc52a5;
           font-size: $title-size;
           @media screen and (min-width: $break-small) {
             font-size: 30px;

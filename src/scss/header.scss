@@ -20,7 +20,7 @@
       left: 0;
       height: 100%;
       width: 3px;
-      background-color: $orange-color;
+      background-color: $purple-color;
       transform-origin: 0 50%;
     }
     
@@ -37,12 +37,11 @@
     h1 {
       font-family: 'Neon';
       font-size: 8vw;
-      text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     }
     h2 {
-      font-family: ConcertOne;
+      font-family: DIN;
       font-size: 5vw;
-      text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+      color: black;
     }
     .big-button {
       top: 20px;

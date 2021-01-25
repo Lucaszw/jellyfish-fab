@@ -7,15 +7,15 @@ $navbar-bleed: 30px;
 
 .big-button {
   width: fit-content;
-  font-family: "NoricanRegular";
+  font-family: "DIN";
   font-size: 28px;
-  padding: 10px 20px;
+  padding: 1px 20px;
   border-radius: 4px;
-  background: #f1a614;
+  background: $purple-color;
   position: relative;
   color: white;
   &:hover {
-    background: #c98b10;
+    background: $dark-purple-color;
     cursor: pointer;
   }
 }
@@ -32,11 +32,12 @@ $navbar-bleed: 30px;
     top: 0px;
 
     h1 {
-      font-family: "ConcertOne";
+      font-family: "SourceCode";
       font-size: 60px;
     }
 
     h2 {
+      font-family: "DIN";
       font-size: 19px;
       text-align: justify;
       color: black;
@@ -48,30 +49,28 @@ $navbar-bleed: 30px;
     left: calc(50% + #{$navbar-bleed});
     position: absolute;
     width: calc(50% - #{$navbar-bleed * 2});
-    border-top: 15px solid orange;
+    border-top: 15px solid $purple-color;
     padding: 30px 0px;
     h3 {
-      font-family: "ConcertOne";
+      font-family: "DIN";
       padding-bottom: 9px;
     }
 
     input {
       width: 100%;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.17);
       border: 1px solid #ebebeb;
       border-radius: 0px;
       &:hover {
-        border-bottom: 3px solid #ffa502;
+        border-bottom: 3px solid $purple-color;
       }
     }
 
     textarea {
       width: 100%;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.17);
       border: 1px solid #ebebeb;
       border-radius: 0px;
       &:hover {
-        border-bottom: 3px solid #ffa502;
+        border-bottom: 3px solid $purple-color;
       }
     }
 
@@ -83,6 +82,7 @@ $navbar-bleed: 30px;
     }
 
     .big-button {
+      font-family: DIN;
       float: right;
     }
   }
