@@ -1,0 +1,17 @@
+
+<svg width="1120px" height="910px" viewBox="0 0 1120 910" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="66.1399041%" cy="-12.4957067%" fx="66.1399041%" fy="-12.4957067%" r="151.876843%" gradientTransform="translate(0.661399,-0.124957),scale(0.812500,1.000000),rotate(116.382836),scale(1.000000,0.864771),translate(-0.661399,0.124957)" id="radialGradient-1">
+            <stop stop-color="#FF6C6C" offset="0%"></stop>
+            <stop stop-color="#F995A6" offset="20.6241278%"></stop>
+            <stop stop-color="#FFC5D1" offset="41.2740368%"></stop>
+            <stop stop-color="#D9DCFF" offset="52.617242%"></stop>
+            <stop stop-color="#0090F1" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02_Project" transform="translate(-2710.000000, -640.000000)" fill="url(#radialGradient-1)">
+            <rect id="Rectangle" x="2710" y="640" width="1120" height="910"></rect>
+        </g>
+    </g>
+</svg>

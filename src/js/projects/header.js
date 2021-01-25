@@ -70,7 +70,7 @@ class Header extends Grid {
 
   drawDashes(spread) {
     spread = spread || 5;
-    this.drawGrid(this.crosshairs, spread);
+    // this.drawGrid(this.crosshairs, spread);
     for (let i = 0; i < spread; i++) {
       const bigOffset = (i * 100) / spread;
       [

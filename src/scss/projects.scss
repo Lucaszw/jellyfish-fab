@@ -10,22 +10,22 @@ $navbar-bleed: 30px;
   .crosshairs {
     overflow: hidden;
     // background: #310808;
-    background: $light-purple-color;
+    background: linear-gradient(0deg, rgba(211,220,255,1) 0%, rgba(254,226,240,1) 100%);
     margin: 0 auto;
     // box-shadow: 0 0.5rem rgba(36, 36, 36, 0.6),
     // inset 0 0 0.5rem rgba(0, 0, 0, 0.6), 0 0 2rem rgba(0, 0, 0, 0.9),
     // inset 0 0 2rem rgba(0, 0, 0, 0.9), 0 0 4rem rgba(0, 0, 0, 0.9),
     // inset 0 0 4rem rgba(0, 0, 0, 0.9);
-    box-shadow: inset 0px 0px 254px -2px rgba(0, 0, 0, 0.75);
+    // box-shadow: inset 0px 0px 254px -2px rgba(0, 0, 0, 0.75);
 
     .header {
       // color: $orange-color;
-      color: white;
+      color: black;
       position: absolute;
       top: calc(50% - 8vw);
       font-family: "Neon";
       width: 100%;
-      text-shadow: 0 0 3px white;
+      // text-shadow: 0 0 3px white;
 
       @media screen and (min-width: $break-small) {
         top: calc(50% - 62px);
@@ -35,24 +35,8 @@ $navbar-bleed: 30px;
         font-size: 7vw;
         text-align: center;
         width: 100%;
-        // text-shadow:
-        // .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffe3aa, .4vw 0vw .25vw #ffe3aa,
-        // .1vw 0vw   0vw  #f1a614, .2vw 0vw   0vw  #f1a614, .4vw 0vw   0vw  #f1a614,
-        // .1vw 0vw  .1vw  #f1a614, .2vw 0vw  .1vw  #f1a614, .4vw 0vw  .1vw  #f1a614,
-        // .1vw 0vw   2vw  #f1a614, .2vw 0vw   2vw  #f1a614, .4vw 0vw   2vw  #f1a614,
-        // .1vw 0vw   1vw  #ad790f, .2vw 0vw   1vw #ad790f, .4vw 0vw   5vw #ad790f,
-        // .1vw 0vw   5vw #ad790f, .2vw 0vw  20vw #ad790f, .4vw 0vw  10vw #ad790f,
-        // .1vw 0vw  10vw #ad790f, .2vw 0vw  30vw #ad790f, .4vw 0vw  10vw #ad790f;
-
-        // box-shadow:
-        // 0 0 0.1vw  0.4vw #ffe3aa,
-        // 0 0 0.4vw  0.6vw  #f1a614,
-        // 0 0   4vw  0.4vw #ad790f,
-        // inset 0 0 1.5vw  0.4vw #ad790f,
-        // inset 0 0 0.4vw  0.2vw  #f1a614,
-        // inset 0 0 0.5vw  0.2vw #ffe3aa;
-        // border-radius: 1.5rem;
-
+        position: relative;
+        z-index: 10;
         @media screen and (min-width: $break-small) {
           // margin: 0 auto;
           font-size: 52px;
@@ -79,7 +63,7 @@ $navbar-bleed: 30px;
         // stroke: $orange-color;
         stroke: white;
         stroke-width: 6px;
-        filter: url(#glow);
+        // filter: url(#glow);
 
       }
       .inner-circle {
@@ -105,12 +89,7 @@ $navbar-bleed: 30px;
     overflow-x: hidden;
     .crosshair {
       // background: #57d959;
-      box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
-        inset 0 0 0.5rem var(--neon-border-color-alt),
-        0 0 2rem var(--neon-border-color),
-        inset 0 0 2rem var(--neon-border-color),
-        0 0 4rem var(--neon-border-color),
-        inset 0 0 4rem var(--neon-border-color);
+      background: #62e5f6;
       opacity: 0.4;
 
       position: absolute;
@@ -132,15 +111,15 @@ $navbar-bleed: 30px;
     .small-dash {
       position: absolute;
       // background: rgb(246, 213, 152);
-      background: white;
+      background: #62e5f6;
       opacity: 0.4;
 
-      box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
-        inset 0 0 0.5rem var(--neon-border-color-alt),
-        0 0 2rem var(--neon-border-color),
-        inset 0 0 2rem var(--neon-border-color),
-        0 0 4rem var(--neon-border-color),
-        inset 0 0 4rem var(--neon-border-color);
+      // box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
+      //   inset 0 0 0.5rem var(--neon-border-color-alt),
+      //   0 0 2rem var(--neon-border-color),
+      //   inset 0 0 2rem var(--neon-border-color),
+      //   0 0 4rem var(--neon-border-color),
+      //   inset 0 0 4rem var(--neon-border-color);
 
       &.vertical {
         width: 0.5px;
@@ -154,14 +133,9 @@ $navbar-bleed: 30px;
     .big-dash {
       position: absolute;
       // background: rgb(246, 213, 152);
-      background: white;
+      background: #62e5f6;
       opacity: 0.4;
-      box-shadow: 0 0 0.5rem var(--neon-border-color-alt),
-        inset 0 0 0.5rem var(--neon-border-color-alt),
-        0 0 2rem var(--neon-border-color),
-        inset 0 0 2rem var(--neon-border-color),
-        0 0 4rem var(--neon-border-color),
-        inset 0 0 4rem var(--neon-border-color);
+
       &.vertical {
         width: 1.5px;
         height: 30px;
@@ -185,23 +159,33 @@ $navbar-bleed: 30px;
 
   .gallery {
     // background: #310808;
-    background: rgb(0,140,255);
+    background: white;
     height: auto;
     .big-dash {
       background: rgba(white, 0.5);
     }
 
     .project {
+      @mixin project-glow() {
+        z-index: 1;
+        position: relative;
+        box-shadow: inset 0px 0px 254px -2px rgba(rgb(0, 0, 0), 0.85);
+        color: rgba(black, 1);
+        svg {
+          filter:drop-shadow(0px 0px 3px black);
+          path {
+            stroke: black;
+          }
+        }
+      }
+
       display: inline-block;
-      border: 0.5px solid $pink-color;
       text-align: center;
       width: calc(100%/3);
       height: calc(100%/3);
-      // background: $brown-color;
-      // background: rgb(76, 155, 219);
-      background: $light-purple-color;
-      box-shadow: inset 0px 0px 254px -2px rgba(rgb(68, 68, 68), 0.75);
-      color: rgba(white, 0.5);
+      background-image: url(/assets/project-background.svg);
+      background-size: cover;
+      color: black;
       cursor: pointer;
       @media screen and (max-width: $break-small) {
         // margin: 0 auto;
@@ -209,27 +193,9 @@ $navbar-bleed: 30px;
         height: calc(50%);
       }
 
-
-      @mixin project-glow() {
-        z-index: 1;
-        position: relative;
-
-        box-shadow: inset 0px 0px 254px -2px rgba(white, 0.75);
-        
-        color: rgba(white, 1);
-        // text-shadow: 0 0 3px white;
-
-        svg {
-          filter:drop-shadow(0px 0px 3px white);
-          path {
-            stroke: white;
-          }
-        }
-      }
-
       &.expanded {
         transition: 1s;
-        @include project-glow();
+        // @include project-glow();
         position: fixed !important;
         cursor: unset;
         z-index: 11;
@@ -244,13 +210,13 @@ $navbar-bleed: 30px;
       }
 
       @media screen and (min-width: $break-small) {
-        &:hover {
+        &:not(:hover) {
           @include project-glow();
         }
       }
 
       @media screen and (max-width: $break-small) {
-        &.glow {
+        &:not(.glow) {
           @include project-glow();
         }
       }
@@ -258,7 +224,7 @@ $navbar-bleed: 30px;
       h1 {
         font-family: Neon;
         font-size: 2vw;
-        top: 2vw;
+        top: calc(50% - 2vw);
         position: relative;
         @media screen and (max-width: $break-small) {
           font-size: 6vw;
@@ -269,12 +235,12 @@ $navbar-bleed: 30px;
 
       svg {
         font-size: 7vw;
-        top: 11px;
+        top: calc(50% - 11px - 2vw);
         position: relative;
 
         @media screen and (max-width: $break-small) {
           font-size: 20vw;
-          top: 3vw;
+          top: calc(50% - 3vw - 2vw);
         }
 
         path {
