@@ -121,33 +121,31 @@ class Header {
       vec3 color = vec3(0.580+uv.y*0.664,0.68+uv.y*0.232,1.+uv.y*3.164);
     
         // bubbles	
-      for( int i=0; i<30; i++ )
+      for( int i=0; i<20; i++ )
       {
-            // bubble seeds
-        float pha =      sin(float(i)*546.434+0.896)*0.476 + 0.5;
+        // bubble seeds
+        float pha =      sin(float(i)*646.434+0.896)*0.476 + 0.25;
         float siz = pow( sin(float(i)*651.460+5.0)*0.5 + 0.5, 4.0 );
         float pox =      sin(float(i)*321.55+4.1) * u_resolution.x / u_resolution.y;
     
-            // buble size, position and color
+        // buble size, position and color
         float rad = 0.028 + -0.020*siz;
-        vec2  pos = vec2( pox, rad + (0.916+1.864*rad)*mod(pha+0.101*u_time*(0.056+0.544*siz),1.0));
+        vec2  pos = vec2( pox, rad + (0.916+1.864*rad)*mod(pha+0.201*u_time*(0.056+0.544*siz),1.0));
         float dis = length( uv - pos );
         vec3  col = mix( vec3(0.,0.136,0.118), vec3(0.190,0.225,0.), 0.052+0.5*sin(float(i)*1.792+0.900));
-           // col+= 8.0*smoothstep( rad*0.95, rad, dis );
         
-            // render
+        // render
         float f = length(uv-pos)/rad;
         f = sqrt(clamp(0.916-f,0.076,0.480));
         color -= col.zyx *(0.96-smoothstep( rad*0.70, rad, dis )) * f;
       }
     
         // vigneting	
-      // color *= sqrt(1.4-0.7*length(uv));
+      color *= sqrt(1.4-0.7*length(uv));
     
       gl_FragColor = vec4(color,1.0);
     }
     `;
-    console.log(string_frag_code);
     sandbox.load(string_frag_code);
   }
 
