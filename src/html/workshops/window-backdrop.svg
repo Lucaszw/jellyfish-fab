@@ -60,29 +60,29 @@
             <circle id="Oval" fill="#FFFFFF" opacity="0.348330543" cx="7895" cy="5211" r="80"></circle>
             <g id="Shape">
                 <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
-                <use fill="#63E5F6" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <use fill="#ECB46B" fill-rule="evenodd" xlink:href="#path-2"></use>
                 <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-2"></use>
                 <use stroke="#979797" stroke-width="1" xlink:href="#path-2"></use>
             </g>
             <path d="M8221.84519,9048 C8237.5176,7332.6781 8237.5176,6467.38479 8221.84519,6452.12008 C7927.47056,6165.40316 6051.42689,6195.94181 4461.37121,6195.94181 C2946.86015,6195.94181 395.562744,6185.70841 23.5392859,6452.12008 C-5.47768173,6472.89957 -6.99077702,7338.19288 19,9048 L8221.84519,9048 Z" id="Oval" fill="url(#linearGradient-5)"></path>
             <polygon id="Path-3" fill="#22102F" transform="translate(4122.000000, 6005.500000) scale(-1, 1) translate(-4122.000000, -6005.500000) " points="19 6479 983.463577 5532 1300.92189 5652.45988 1748.99116 6095.3816 2520.97888 6095.3816 2777.68696 6095.3816 3266.79473 5744.82242 3765.96542 5532 4559.11428 5874.54845 5028.26185 5874.54845 5656.13857 6005.5 6324.84675 5532 6818.3027 6005.5 7241.15254 5652.45988 7557.40993 6005.5 7879.21642 6095.3816 8225 6479"></polygon>
-            <polygon id="Path-3" fill="#2351FF" points="19 6478 983.463577 5630 1300.92189 5737.86693 1748.99116 6134.48532 2520.97888 6134.48532 2777.68696 6134.48532 3266.79473 5820.57383 3765.96542 5630 4559.11428 5936.73821 5028.26185 5936.73821 5656.13857 6054 6324.84675 5630 6818.3027 6054 7241.15254 5737.86693 7557.40993 6054 7879.21642 6134.48532 8225 6478"></polygon>
-            <path d="M7466.58061,4154.9169 C7466.58061,3893.53529 6759.48606,3681.64363 5887.24073,3681.64363 C5014.99539,3681.64363 4307.90084,3893.53529 4307.90084,4154.9169" id="Shape" stroke="#FF6EB4" stroke-width="100" transform="translate(5887.240726, 3918.280264) scale(-1, 1) rotate(40.000000) translate(-5887.240726, -3918.280264) "></path>
+            <polygon id="Path-3" fill="#4D206D" points="19 6478 983.463577 5630 1300.92189 5737.86693 1748.99116 6134.48532 2520.97888 6134.48532 2777.68696 6134.48532 3266.79473 5820.57383 3765.96542 5630 4559.11428 5936.73821 5028.26185 5936.73821 5656.13857 6054 6324.84675 5630 6818.3027 6054 7241.15254 5737.86693 7557.40993 6054 7879.21642 6134.48532 8225 6478"></polygon>
+            <path d="M7466.58061,4154.9169 C7466.58061,3893.53529 6759.48606,3681.64363 5887.24073,3681.64363 C5014.99539,3681.64363 4307.90084,3893.53529 4307.90084,4154.9169" id="Shape" stroke="#979797" stroke-width="100" transform="translate(5887.240726, 3918.280264) scale(-1, 1) rotate(40.000000) translate(-5887.240726, -3918.280264) "></path>
             <g id="Oval">
                 <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
-                <use fill="#FF8F28" fill-rule="evenodd" xlink:href="#path-6"></use>
+                <use fill="#C69B3B" fill-rule="evenodd" xlink:href="#path-6"></use>
                 <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-6"></use>
             </g>
-            <ellipse id="Oval" fill="#FF6EB4" cx="6256.5" cy="3806" rx="294.5" ry="295"></ellipse>
+            <ellipse id="Oval" fill="#B29045" cx="6256.5" cy="3806" rx="294.5" ry="295"></ellipse>
             <g id="Group-8" filter="url(#filter-9)" transform="translate(5017.000000, 2000.000000)">
                 <g id="Oval">
-                    <use fill="#FF8F28" fill-rule="evenodd" xlink:href="#path-10"></use>
+                    <use fill="#9B782B" fill-rule="evenodd" xlink:href="#path-10"></use>
                     <use fill="black" fill-opacity="1" filter="url(#filter-11)" xlink:href="#path-10"></use>
                 </g>
-                <circle id="Oval" fill="#FBFFCA" cx="556.602317" cy="291.397683" r="132.602317"></circle>
-                <circle id="Oval" fill="#FBFFCA" cx="295.859073" cy="518.5" r="94.5"></circle>
+                <circle id="Oval" fill="#7F662F" cx="556.602317" cy="291.397683" r="132.602317"></circle>
+                <circle id="Oval" fill="#7F662F" cx="333.96139" cy="556.602317" r="132.602317"></circle>
             </g>
-            <path d="M7767.51986,4515.82763 C7767.51986,4254.44602 7060.42531,4042.55436 6188.17998,4042.55436 C5315.93464,4042.55436 4608.84009,4254.44602 4608.84009,4515.82763" id="Shape" stroke="#FF6EB4" stroke-width="100" transform="translate(6188.179978, 4279.190996) scale(1, -1) rotate(40.000000) translate(-6188.179978, -4279.190996) "></path>
+            <path d="M7767.51986,4515.82763 C7767.51986,4254.44602 7060.42531,4042.55436 6188.17998,4042.55436 C5315.93464,4042.55436 4608.84009,4254.44602 4608.84009,4515.82763" id="Shape" stroke="#979797" stroke-width="100" transform="translate(6188.179978, 4279.190996) scale(1, -1) rotate(40.000000) translate(-6188.179978, -4279.190996) "></path>
             <g id="Group-9" opacity="0.270693824" transform="translate(368.000000, 352.000000)" fill="#FFFFFF">
                 <ellipse id="Oval" opacity="0.348330543" cx="1249.31499" cy="2152.02312" rx="80.2312378" ry="80.2504817"></ellipse>
                 <ellipse id="Oval" opacity="0.348330543" cx="2750.78529" cy="3485.16378" rx="80.2312378" ry="80.2504817"></ellipse>

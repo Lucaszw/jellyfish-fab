@@ -1,6 +1,5 @@
 import { el, mount } from "redom";
 
-import Video from "./team/video";
 import Member from "./team/member";
 import Arrow from "./arrow";
 import _ from "lodash";
@@ -8,7 +7,7 @@ import _ from "lodash";
 class Team {
   constructor(navbar) {
     this.navbar = navbar;
-    this.video = null;
+    this.teamPhoto = null;
     document.addEventListener(
       "scroll",
       _.debounce(this.updateNav.bind(this), 20, {
@@ -22,8 +21,8 @@ class Team {
     this.container = el(".team");
     mount(document.body, this.container);
 
-    this.video = new Video(this.container);
-    this.video.draw();
+    this.teamPhoto = el(".team-photo", {innerHTML: `<h1>Meet the team</h1>`});
+    mount(this.container, this.teamPhoto);
 
     for (let name of _.shuffle(["cristina", "lucas", "yue"])) {
       this[name] = new Member(this.container, name);

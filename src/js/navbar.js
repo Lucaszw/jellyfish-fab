@@ -1,5 +1,6 @@
 import { el, mount } from "redom";
 import navbarHTML from '../html/navbar.html';
+import socialHTML from "../html/social-navbar.html";
 
 const navbarSub = `
     <section class="navbar nav-sub" style="max-width: 0px">
@@ -26,6 +27,7 @@ class Navbar {
         if (this.container) this.container.remove();
         this.container = el(".navbar", {innerHTML: navbarHTML});
         this.subnav = el("div", {innerHTML: navbarSub}).children[0];
+        mount(this.subnav, el(".social", {innerHTML: socialHTML}));
         mount(document.body, this.container);
         mount(document.body, this.subnav);
         this.setupSubnav();
@@ -43,7 +45,7 @@ class Navbar {
         const expandBtn = this.container.querySelector("#navexpand");
         const collapseBtn = this.subnav.querySelector("#navcollapse");
 
-        this.subnav.style.maxWidth = "160px";
+        this.subnav.style.maxWidth = "190px";
         expandBtn.style.display = "none";
         collapseBtn.style.display = "block";
     }
@@ -69,6 +71,19 @@ class Navbar {
             _this.collapse();
             _this.onChangePage(logo);
         };
+
+        let links = {};
+        links.instagram = "https://www.instagram.com/jellyfishfab/";
+        links.facebook = "https://www.facebook.com/jellyfishfab";
+        links.linkedin = "https://www.linkedin.com/company/jellyfishfab";
+        links.youtube = "https://www.youtube.com/channel/UChsD2mI8WvD7gzc6uwOVr8Q";
+    
+        _.map(links, (link, name) => {
+            this.subnav.querySelector(`.${name}-button`).onclick = () => {
+                window.location.href = link;
+            }
+        });
+
     }
 }
 

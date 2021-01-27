@@ -56,6 +56,9 @@ class Workshops {
         this.drawBackdrop();
         this.drawWindowDivider();
         this.drawWorkbench();
+
+        this.navbar.container.style.backgroundColor = "rgb(38,38,38)";
+        this.navbar.container.querySelector(".logo-text").style.color = "white";
     }
 
     drawWindowDivider() {
@@ -71,7 +74,7 @@ class Workshops {
         const backdropPage = this.header.querySelector("#backdrop-page");
 
         this.resizeSvg(svg, backdropPage);
-        setStyle(svg.parentNode, {bottom: "100px", left: "0px"});
+        setStyle(svg.parentNode, {bottom: "50px", left: "0px"});
 
         const skyBBox = this.header.querySelector("#sky").getBoundingClientRect();
         const oceanFiller = el(".ocean-filler", {style: {top: `${skyBBox.bottom}px`}});
@@ -114,6 +117,9 @@ class Workshops {
 
     remove() {
         if (!this.container) return;
+
+        this.navbar.container.style.backgroundColor = "";
+        this.navbar.container.querySelector(".logo-text").style.color = "";
 
         this.container.remove();
         this.container = null;

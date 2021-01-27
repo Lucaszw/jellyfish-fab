@@ -36,7 +36,7 @@ $navbar-bleed: 30px;
         text-align: center;
         width: 100%;
         position: relative;
-        z-index: 10;
+        z-index: 9;
         @media screen and (min-width: $break-small) {
           // margin: 0 auto;
           font-size: 52px;
@@ -224,11 +224,12 @@ $navbar-bleed: 30px;
       h1 {
         font-family: Neon;
         font-size: 2vw;
-        top: calc(50% - 2vw);
+        top: calc(50% - 3vw);
         position: relative;
         @media screen and (max-width: $break-small) {
           font-size: 6vw;
-          top: 6vw;
+          // top: 6vw;
+          top: -7vw;
         }
 
       }
