@@ -36,14 +36,12 @@ class JellyFish {
         .setMaterials(materials)
         .load("/assets/Jellyfish.obj", (object) => {
         
-        console.log("BEFORE")
         object.traverse(function (child) {
           if (child instanceof THREE.Mesh) {
             // child.material = new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, flatShading: true } )
             child.geometry.center();
           }
         });
-        console.log("AFTER")
         res(object);
       });
     });
