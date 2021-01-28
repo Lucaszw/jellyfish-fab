@@ -1,3 +1,6 @@
+import firebase from "firebase/app";
+import "firebase/database";
+
 import { el, mount } from "redom";
 import _ from "lodash";
 
