@@ -5,7 +5,7 @@ export default {
         skills: [
             {icon: "cube", text: "Concept <br/> Generation"},
             {icon: "chess-knight", text: "Toy Design"},
-            {icon: "chair", text: "Furniture <br/> Design"},
+            {icon: "chair", text: "Furniture"},
             {icon: "pencil-alt", text: "Industrial <br/> Design"}
         ]
     },
@@ -24,8 +24,8 @@ export default {
         description: "Chinese designer with a background in Product Design. Eager to explore the potential of advanced technologies and their infinite applications. Loves to work with interactive objects, immersive experiences and digital services.",
         skills: [
             {icon: "utensils", text: "Food <br/> Design"},
-            {icon: "cube", text: "Prodct <br/> Design"},
-            {icon: "pen-fancy", text: "Prodct <br/> Management"},
+            {icon: "cube", text: "Product <br/> Design"},
+            {icon: "pen-fancy", text: "Project <br/> Management"},
             {icon: "vector-square", text: "Visual <br/> Communication"}
         ]
     }
