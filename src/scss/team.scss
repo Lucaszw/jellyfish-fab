@@ -115,27 +115,26 @@ $navbar-bleed: 30px;
       }
   
       .member-background-color.cristina-background {
-        background-image: url(/assets/cristina-bw.jpeg);
+        background-image: url(/assets/cristina-bw.jpg);
         background-position-x: right;
-        filter: blur(2px);
       }
       .member-background-bw.cristina-background {
-        background-image: url(/assets/cristina-color.jpeg);
+        background-image: url(/assets/cristina-color.jpg);
         background-position-x: right;
-        filter: blur(2px);
+        // filter: blur(0.5px);
       }
   
       .member-background-color.lucas-background {
         background-image: url(/assets/lucas-bw.jpeg);
         // background-position-y: 95px;
         // background-position-x: right;
-        filter: blur(2px);
+        // filter: blur(2px);
       }
       .member-background-bw.lucas-background {
         background-image: url(/assets/lucas-color.jpeg);
         // background-position-y: 95px;
         // background-position-x: right;
-        filter: blur(2px);
+        // filter: blur(2px);
       }
   
       .member-background-color.yue-background {

@@ -1,9 +1,9 @@
 export default {
     cristina: {
         fullname: "Cristina Osornio",
-        description: "Graduated from Industrial Design, Mexican, inclined to train new skills to gain experience in Industry and in independent Architecture and Design projects.",
+        description: "Mexican designer with a background in Industrial Design. Likes to push boundaries when it comes to technical and creative skills. Has a particular preference for developing industrial projects with a social focus.",
         skills: [
-            {icon: "cube", text: "3D <br/> Modeling"},
+            {icon: "cube", text: "Concept <br/> Generation"},
             {icon: "chess-knight", text: "Toy Design"},
             {icon: "chair", text: "Furniture <br/> Design"},
             {icon: "pencil-alt", text: "Industrial <br/> Design"}
@@ -11,7 +11,7 @@ export default {
     },
     lucas: {
         fullname: "Lucas Zeer",
-        description: "Canadian Engineer with a love for making cool things. Love working with these incredible people. ",
+        description: "Canadian engineer with a background in Nanotechnology Engineering. A futurist who is motivated to make technology more accessible to people of all demographics. Constantly explores cutting edge technologies, and has a love for sharing his findings with everyone.",
         skills: [
             {icon: "code", text: "Software"},
             {icon: "bolt", text: "Electronics"},
@@ -21,12 +21,12 @@ export default {
     },
     yue: {
         fullname: "Yue Liu",
-        description: "I’m Yuè (悦), a Chinese product designer from Dalian, currently based in Milan. Why “seilune”? In Italian it means “six moons” which has the same Chinese pronunciation as that of my full name. So that’s that!",
+        description: "Chinese designer with a background in Product Design. Eager to explore the potential of advanced technologies and their infinite applications. Loves to work with interactive objects, immersive experiences and digital services.",
         skills: [
-            {icon: "pen-fancy", text: "Illustration"},
-            {icon: "cube", text: "3D <br/> Modeling"},
-            {icon: "vector-square", text: "Graphics"},
-            {icon: "utensils", text: "Food <br/> Design"}
+            {icon: "utensils", text: "Food <br/> Design"},
+            {icon: "cube", text: "Prodct <br/> Design"},
+            {icon: "pen-fancy", text: "Prodct <br/> Management"},
+            {icon: "vector-square", text: "Visual <br/> Communication"}
         ]
     }
 }
