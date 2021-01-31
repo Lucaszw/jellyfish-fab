@@ -1,4 +1,4 @@
-import {database} from "./load-firebase.js";
+import {database, analytics} from "./load-firebase.js";
 
 import contactHTML from "../html/contact.html";
 import { el, mount } from "redom";
@@ -29,6 +29,7 @@ class Contact {
                 return;
             }
 
+            analytics.logEvent("sent_message", {email, message});
             database.ref(ref).set({
                 email, message
             });
