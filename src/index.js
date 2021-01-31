@@ -65,7 +65,7 @@ function main() {
     links.instagram = "https://www.instagram.com/jellyfishfab/";
     links.facebook = "https://www.facebook.com/jellyfishfab";
     links.linkedin = "https://www.linkedin.com/company/jellyfishfab";
-    links.youtube = "https://www.youtube.com/channel/UChsD2mI8WvD7gzc6uwOVr8Q";
+    links.youtube = "https://www.youtube.com/channel/UCASRxy5OjkMZyVIAg3Iophg";
 
     _.map(links, (link, name) => {
         footer.querySelector(`.${name}-button`).onclick = () => {
