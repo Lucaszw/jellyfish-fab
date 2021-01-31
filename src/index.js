@@ -17,6 +17,7 @@ import Workshops from './js/workshops';
 import Services from './js/services';
 import footerHTML from "./html/footer.html";
 
+import {analytics} from "./js/load-firebase.js";
 
 const navbar = new Navbar(document.body);
 const sliding = new Sliding(document.body);
@@ -40,7 +41,8 @@ function main() {
             for (let page of pages) page.remove();
             footer.remove();
             // navbar.container.style.backgroundColor = "";
-
+            analytics.setCurrentScreen(page);
+            analytics.logEvent("page_changed", {page});
             if (page == "home") {
                 home.draw();
                 home.header.drawTextAnimation();
