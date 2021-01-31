@@ -1,6 +1,7 @@
 import { el, mount } from "redom";
 import navbarHTML from '../html/navbar.html';
 import socialHTML from "../html/social-navbar.html";
+import {analytics} from "./load-firebase.js";
 
 const navbarSub = `
     <section class="navbar nav-sub" style="max-width: 0px">
@@ -80,6 +81,7 @@ class Navbar {
     
         _.map(links, (link, name) => {
             this.subnav.querySelector(`.${name}-button`).onclick = () => {
+                analytics.logEvent("social_clicked", {name});
                 window.location.href = link;
             }
         });

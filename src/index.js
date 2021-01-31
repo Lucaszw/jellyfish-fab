@@ -71,6 +71,7 @@ function main() {
 
     _.map(links, (link, name) => {
         footer.querySelector(`.${name}-button`).onclick = () => {
+            analytics.logEvent("social_clicked", {name});
             window.location.href = link;
         }
     });
