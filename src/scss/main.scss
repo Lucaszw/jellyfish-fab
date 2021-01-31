@@ -186,8 +186,8 @@ body {
   background: #262626;
   text-align: center;
   padding: 0px;
-
+  position: relative;
   svg {
-    transform: scale(0.5);
+    width: 50%;
   }
 }

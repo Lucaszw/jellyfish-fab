@@ -141,7 +141,7 @@ class Header {
       }
     
         // vigneting	
-      color *= sqrt(1.4-0.7*length(uv));
+      //color *= sqrt(1.4-0.7*length(uv));
     
       gl_FragColor = vec4(color,1.0);
     }
