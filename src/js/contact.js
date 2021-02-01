@@ -18,7 +18,11 @@ class Contact {
             const email = emailField.value;
             const message = messageField.value;
 
-            let ref = email + ' ' + (new Date()).toTimeString();
+            let d = new Date();
+            let time = d.toTimeString();
+            let day = d.toDateString();
+
+            let ref = day + '/' + email + ' ' + time;
             ref = ref.replace(/[|&;$%@".<>()+,]/g, "");
 
             emailField.value = "";
