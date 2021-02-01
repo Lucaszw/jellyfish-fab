@@ -22,20 +22,20 @@ class Contact {
             let time = d.toTimeString();
             let day = d.toDateString();
 
-            let ref = day + '/' + email + ' ' + time;
-            ref = ref.replace(/[|&;$%@".<>()+,]/g, "");
-
-            emailField.value = "";
-            messageField.value = "";
-
             if (!email || !message) {
                 alert("Must provide an email and a message");
                 return;
             }
 
+            let ref = day + '/' + email.split("@")[0];
+            ref = ref.replace(/[|&;$%@".<>()+,]/g, "");
+
+            emailField.value = "";
+            messageField.value = "";
+
             analytics.logEvent("sent_message", {email, message});
             database.ref(ref).set({
-                email, message
+                email, message, time
             });
 
             alert("Thank you for your message! We will get back shortly");
