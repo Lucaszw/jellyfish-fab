@@ -169,12 +169,14 @@ $navbar-bleed: 30px;
       @mixin project-glow() {
         z-index: 1;
         position: relative;
-        box-shadow: inset 0px 0px 254px -2px rgba(rgb(0, 0, 0), 0.85);
-        color: rgba(black, 1);
+        // box-shadow: inset 0px 0px 254px -2px rgba(rgb(0, 0, 0), 0.85);
+        color: rgba(black, 0.5);
+        border: none;
         svg {
-          filter:drop-shadow(0px 0px 3px black);
+          // filter:drop-shadow(0px 0px 3px black);
           path {
-            stroke: black;
+            stroke: rgba(black, 0.7);
+            stroke-width: 2px;
           }
         }
       }
@@ -183,19 +185,18 @@ $navbar-bleed: 30px;
       text-align: center;
       width: calc(100%/3);
       height: calc(100%/3);
-      background-image: url(/assets/project-background.svg);
       background-size: cover;
-      color: black;
+      background: white;
+      color: $purple-color;
+      border: 1px solid rgba(black, 0.1);
       cursor: pointer;
       @media screen and (max-width: $break-small) {
-        // margin: 0 auto;
         width: calc(100%);
         height: calc(50%);
       }
 
       &.expanded {
-        transition: 1s;
-        // @include project-glow();
+        transition: 1s;        
         position: fixed !important;
         cursor: unset;
         z-index: 11;
@@ -207,6 +208,15 @@ $navbar-bleed: 30px;
           right: 15;
           font-size: 50;
         }
+        svg {
+          top: 0px;
+          position: relative;
+        }
+
+        h1 {
+          top: 0px;
+        }
+
       }
 
       @media screen and (min-width: $break-small) {
@@ -222,33 +232,31 @@ $navbar-bleed: 30px;
       }
 
       h1 {
-        font-family: Neon;
+        font-family: SourceCode;
         font-size: 2vw;
-        top: calc(50% - 3vw);
+        top: 0px;
         position: relative;
         @media screen and (max-width: $break-small) {
           font-size: 6vw;
-          // top: 6vw;
-          top: -7vw;
+          // top: -7vw;
         }
 
       }
 
       svg {
         font-size: 7vw;
-        top: calc(50% - 11px - 2vw);
+        top: calc(50% - 10vw);
         position: relative;
 
         @media screen and (max-width: $break-small) {
           font-size: 20vw;
-          top: calc(50% - 3vw - 2vw);
+          top: calc(50% - 20vw);
         }
 
         path {
-          stroke: rgba(white, 0.5);
-          stroke-width: 10;
+          stroke: $purple-color;
+          stroke-width: 15px;
           fill: none;
-          // box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
         }
       }
 

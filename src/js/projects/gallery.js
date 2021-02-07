@@ -56,7 +56,7 @@ class Gallery extends Grid {
             expandedNode.style.top = "0px";
             expandedNode.style.height = "100%";
             expandedNode.style.width = "100%";
-        }, 500);
+        }, 200);
 
         project.expandedNode = expandedNode;
     }
@@ -73,7 +73,7 @@ class Gallery extends Grid {
             expandedNode.classList.remove("expanded");
             expandedNode.remove();
             project.expandedNode = null;
-        }, 1500);
+        }, 800);
     }
     randomlyGenerateProjects() {
         for (let project of this.projects) project.remove();
@@ -84,8 +84,8 @@ class Gallery extends Grid {
             const title2 = loremIpsum({count: 2, units: "words"});
 
             const project = el(".project", {innerHTML: `
-                <i class="fa fa-${_.sample(iconNames)}"></i>
                 <h1>${title1}<br/>${title2}</h1>
+                <i class="fa fa-${_.sample(iconNames)}"></i>
                 <i class="close-icon fas fa-times"></i>
             `});
             mount(this.container, project);
