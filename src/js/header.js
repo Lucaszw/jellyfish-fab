@@ -2,7 +2,6 @@ import "particles.js";
 import anime from "animejs";
 import headerHTML from "../html/header.html";
 import { el, mount } from "redom";
-import GlslCanvas from "glslCanvas";
 
 class Header {
   constructor(parent) {
@@ -16,6 +15,7 @@ class Header {
       "#ffffff",
       "#4683ea",
       "#b9f7ff",
+      "#fc52a5"
     ];
   }
 
@@ -23,7 +23,7 @@ class Header {
     if (this.container) this.container.remove();
 
     this.container = el(".header", {
-      innerHTML: '<canvas></canvas>',
+      innerHTML: '<div id="particles-js"></div>',
     });
     let height = window.innerHeight;
 
@@ -31,8 +31,8 @@ class Header {
 
     mount(this.parent, this.container);
 
-    // this.drawParticles();
-    this.drawCanvas();
+    this.drawParticles();
+    // this.drawBubbly();
   }
 
   drawTextAnimation() {
@@ -88,71 +88,10 @@ class Header {
       });
   }
 
-  drawCanvas() {
-    const canvas = this.container.querySelector("canvas");
-
-    // set the size of the drawingBuffer
-    var devicePixelRatio = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * devicePixelRatio;
-    canvas.height = window.innerHeight * devicePixelRatio;
-
-
-    const sandbox = new GlslCanvas(canvas);
-    // // Created by inigo quilez - iq/2013
-    // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-
-    var string_frag_code = `
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
-
-    uniform vec2 u_resolution;
-    uniform float u_time;
-
-    float circle (vec2 p, vec2 position, float radius) {
-      return floor(distance(p, position)*10.);
-    }
-
-    void main() {
-      vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-      uv.x *=  u_resolution.x / u_resolution.y;
-    
-        // background	 
-      vec3 color = vec3(0.580+uv.y*0.664,0.68+uv.y*0.232,1.+uv.y*3.164);
-    
-        // bubbles	
-      for( int i=0; i<20; i++ )
-      {
-        // bubble seeds
-        float pha =      sin(float(i)*646.434+0.896)*0.476 + 0.25;
-        float siz = pow( sin(float(i)*651.460+5.0)*0.5 + 0.5, 4.0 );
-        float pox =      sin(float(i)*321.55+4.1) * u_resolution.x / u_resolution.y;
-    
-        // buble size, position and color
-        float rad = 0.028 + -0.020*siz;
-        vec2  pos = vec2( pox, rad + (0.916+1.864*rad)*mod(pha+0.201*u_time*(0.056+0.544*siz),1.0));
-        float dis = length( uv - pos );
-        vec3  col = mix( vec3(0.,0.136,0.118), vec3(0.190,0.225,0.), 0.052+0.5*sin(float(i)*1.792+0.900));
-        
-        // render
-        float f = length(uv-pos)/rad;
-        f = sqrt(clamp(0.916-f,0.076,0.480));
-        color -= col.zyx *(0.96-smoothstep( rad*0.70, rad, dis )) * f;
-      }
-    
-        // vigneting	
-      //color *= sqrt(1.4-0.7*length(uv));
-    
-      gl_FragColor = vec4(color,1.0);
-    }
-    `;
-    sandbox.load(string_frag_code);
-  }
-
   drawParticles() {
     particlesJS("particles-js", {
       particles: {
-        number: { value: 50, density: { enable: false, value_area: 100 } },
+        number: { value: 15, density: { enable: false, value_area: 100 } },
         color: { value: this.particleColors },
         // shape: {
         //   type: "edge",
@@ -160,21 +99,21 @@ class Header {
         //   polygon: { nb_sides: 100 },
         // },
         opacity: {
-          value: 0.5,
+          value: 1,
           random: true,
           anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
         },
         size: {
           value: 15,
           random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+          anim: { enable: false, speed: 20, size_min: 0.1, sync: true },
         },
         line_linked: {
           enable: false
         },
         move: {
           enable: true,
-          speed: 2,
+          speed: 1,
           direction: "top",
           random: true,
           straight: false,
@@ -191,7 +130,7 @@ class Header {
           resize: true,
         },
         modes: {
-          grab: { distance: 400, line_linked: { opacity: 0.5 } },
+          grab: { distance: 100, line_linked: { opacity: 0.5 } },
           bubble: {
             distance: 400,
             size: 4,

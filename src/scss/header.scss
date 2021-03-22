@@ -1,7 +1,8 @@
 
 .header-content {
     // color: $orange-color;
-    color: white;
+    // color: $purple-color;
+    color: black;
     top: 350px;
     position: absolute;
     left: $navbar-bleed;
@@ -40,8 +41,10 @@
     }
     h2 {
       font-family: DIN;
-      font-size: 5vw;
-      color: black;
+      font-size: 4vw;
+      // color: black;
+      // color: $purple-color;
+      color: #8332fc;
     }
     .big-button {
       top: 20px;
