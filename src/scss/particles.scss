@@ -10,12 +10,15 @@ canvas {
   height: 100%;
 } /* ---- particles.js container ---- */
 
+
 #particles-js {
   position: absolute;
   width: 100%;
   // height: 420px;
-  height: 100%;
-  background: white;
+  height: 240%;
+  background: none;
+  z-index: 100;
+  pointer-events: none;
   // background-image: linear-gradient(-180deg, #f6d8b3 0%, #A063EB 30%, #362B93 100%);
   // background-repeat: no-repeat;
   // background-size: cover;

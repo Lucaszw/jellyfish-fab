@@ -12,8 +12,6 @@ class Header {
       "#bc7df1",
       "#8332fc",
       "#08fcea",
-      "#ffffff",
-      "#4683ea",
       "#b9f7ff",
       "#fc52a5"
     ];
@@ -91,18 +89,13 @@ class Header {
   drawParticles() {
     particlesJS("particles-js", {
       particles: {
-        number: { value: 15, density: { enable: false, value_area: 100 } },
+        number: { value: 20, density: { enable: false, value_area: 100 } },
         color: { value: this.particleColors },
         // shape: {
         //   type: "edge",
         //   stroke: { width: 0, color: "#000000" },
         //   polygon: { nb_sides: 100 },
         // },
-        opacity: {
-          value: 1,
-          random: true,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
-        },
         size: {
           value: 15,
           random: true,

@@ -6,9 +6,19 @@
   .offerings {
     span {
       display: inline-block;
-      background: rgb(98, 229, 246);
-      width: 20vw;
-      height: 20vw;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.5);
+        border: 3px solid white;
+        color: $purple-color;
+      }
+      transition: all 0.5s;
+
+      // background: rgb(98, 229, 246);
+      width: 16vw;
+      height: 16vw;
+      margin: 2vw;
+      color: #8332fc;
       border-radius: 1000px;
       position: relative;
       font-family: DIN;
