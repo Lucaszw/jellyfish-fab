@@ -4,9 +4,10 @@ import "appear/dist/appear";
 import anime from "animejs";
 
 class Vision {
-  constructor(parent) {
+  constructor(parent, navbar) {
     this.contianer = null;
     this.parent = parent;
+    this.navbar = navbar;
   }
 
   draw() {
@@ -24,6 +25,13 @@ class Vision {
         /\S/g,
         "<span class='letter'>$&</span>"
       );
+    }
+
+    const offerings = this.container.querySelectorAll(".offering");
+    for (let offering of offerings) {
+      offering.onclick = () => {
+        setTimeout(()=>(this.navbar.onChangePage({dataset: {page: "services"}})), 300);
+      }
     }
   }
 }

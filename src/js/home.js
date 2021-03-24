@@ -27,7 +27,7 @@ class Home {
     this.container = el(".home");
     mount(document.body, this.container);
     this.header = new Header(this.container);
-    this.vision = new Vision(this.container);
+    this.vision = new Vision(this.container, this.navbar);
     this.contact = new Contact(this.container);
     this.arrow = new Arrow();
 

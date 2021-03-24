@@ -35,7 +35,13 @@
         top: calc(50% + 2px);
         width: 100%;
         text-align: center;
-        font-size: 14px;
+
+        @media screen and (min-width: $break-small) {
+          font-size: 14px;
+        }
+
+        font-size: 3vw;
+
       }
     }
   }
