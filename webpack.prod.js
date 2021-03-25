@@ -3,8 +3,16 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+function allNodeModulesExcept (exceptions) {
+  var _e = exceptions.join('|')
+  return new RegExp('node_modules/(?!(' + _e + ')/).*')
+}
+
 module.exports = {
-  entry: ["./src"],
+  entry: {
+    main: "./src", 
+    "pdf.worker": "pdfjs-dist/build/pdf.worker.entry"
+  },
   mode: "production",
   module: {
     rules: [
@@ -65,6 +73,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /pdf\.worker(\.min)?\.js$/,
+        loader: 'file-loader'
+      }
     ],
   },
   devtool: "eval",
