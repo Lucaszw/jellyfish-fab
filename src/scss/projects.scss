@@ -37,7 +37,7 @@ $navbar-bleed: 30px;
     height: 100%;
     overflow: auto;
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.5s ease-in;
   }
 
  .open-project-wrapper canvas {
