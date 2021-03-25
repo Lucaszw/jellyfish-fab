@@ -5,10 +5,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
-// const smp = new SpeedMeasurePlugin();
+function allNodeModulesExcept (exceptions) {
+  var _e = exceptions.join('|')
+  return new RegExp('node_modules/(?!(' + _e + ')/).*')
+}
 
 module.exports = {
-  entry: ["./src", "webpack-hot-middleware/client?reload=true"],
+  entry: {
+    main: "./src", 
+    middleware: "webpack-hot-middleware/client?reload=true",
+    "pdf.worker": "pdfjs-dist/build/pdf.worker.entry"
+  },
   mode: "development",
   module: {
     rules: [
@@ -39,7 +46,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: allNodeModulesExcept([]),
         use: [{loader: "babel-loader", options: {cacheDirectory: true}}]
       },
       {
@@ -68,6 +75,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /pdf\.worker(\.min)?\.js$/,
+        loader: 'file-loader'
       }
     ],
   },

@@ -39,42 +39,6 @@ class Gallery extends Grid {
             }
         }
     }
-    expandProject(project) {
-        disableScroll();
-        this.onEnterFullScreen();
-        let bbox = project.getBoundingClientRect();
-        let expandedNode = project.cloneNode(true);
-        expandedNode.querySelector(".close-icon").onclick = this.collapseProject.bind(this, project);
-        expandedNode.classList.add("expanded");
-        expandedNode.style.position = "absolute";
-        expandedNode.style.top = `${bbox.top}px`;
-        expandedNode.style.left = `${bbox.left}px`;
-        expandedNode.style.zIndex = 11;
-        mount(this.container, expandedNode);
-        setTimeout(()=>{
-            expandedNode.style.left = "0px";
-            expandedNode.style.top = "0px";
-            expandedNode.style.height = "100%";
-            expandedNode.style.width = "100%";
-        }, 200);
-
-        project.expandedNode = expandedNode;
-    }
-    collapseProject(project) {
-        let expandedNode = project.expandedNode;
-        let bbox = project.getBoundingClientRect();
-        expandedNode.style.left = `${bbox.left}px`;
-        expandedNode.style.top = `${bbox.top}px`;
-        expandedNode.style.height = `${bbox.height}px`;
-        expandedNode.style.width = `${bbox.width}px`;
-        setTimeout(()=>{
-            enableScroll();
-            this.onExitFullScreen();
-            expandedNode.classList.remove("expanded");
-            expandedNode.remove();
-            project.expandedNode = null;
-        }, 800);
-    }
     randomlyGenerateProjects() {
         for (let project of this.projects) project.remove();
         this.projects = [];
@@ -84,13 +48,15 @@ class Gallery extends Grid {
             const title2 = loremIpsum({count: 2, units: "words"});
 
             const project = el(".project", {innerHTML: `
+                <br/>
                 <h1>${title1}<br/>${title2}</h1>
                 <i class="fa fa-${_.sample(iconNames)}"></i>
                 <i class="close-icon fas fa-times"></i>
             `});
             mount(this.container, project);
             this.projects.push(project);
-            project.onclick =  this.expandProject.bind(this, project);
+
+            project.onclick = this.onEnterFullScreen.bind(this, project);
         }
     }
 }
