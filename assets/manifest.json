@@ -1,0 +1,21 @@
+{
+    "name": "Jellyfish Fab.",
+    "short_name": "Jellyfish Fab.",
+    "theme_color": "#fc52a5",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "description": "Milan Based Design and Engineering Team",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "https://jellyfishfab.com/assets/navbar-logo.svg",
+            "sizes": "1024x1024"
+        },
+        {
+            "src": "https://jellyfishfab.com/assets/navbar-logo.svg",
+            "sizes": "16x16"
+        }
+    ]
+}
