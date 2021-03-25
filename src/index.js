@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 if (!navigator.serviceWorker.controller) {
-    navigator.serviceWorker.register("/assets/sw.js").then(function(reg) {
+    navigator.serviceWorker.register("/sw.js").then(function(reg) {
         console.log("Service worker has been registered for scope: " + reg.scope);
     });
 }
