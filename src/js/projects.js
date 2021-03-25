@@ -85,7 +85,7 @@ class Projects {
     for (let page = 0; page < pages; page ++) {
       const canvas = el("canvas");
       mount(this.openProjectWrapper, canvas);
-      this.renderPage(page+1, canvas, doc);
+      await this.renderPage(page+1, canvas, doc);
     }
 
   }
