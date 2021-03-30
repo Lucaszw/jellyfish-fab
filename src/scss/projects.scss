@@ -5,9 +5,20 @@ $break-large: 1200px;
 $navbar-bleed: 30px;
 
 .projects {
-  background: black;
+  background: white;
 
-  
+  .project-icon {
+    width: 75%;
+    height: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+
+    &:hover {
+      filter: invert(58%) sepia(100%) saturate(1000%) hue-rotate(290deg) contrast(99%);
+    }
+  }
+
   .close-btn {
     &:after {
       content: '×';
@@ -112,10 +123,6 @@ $navbar-bleed: 30px;
         overflow: visible;
         // background: red;
       }
-
-      .page {
-        // transform-origin: center center;
-      }
     }
   }
   .crosshairs,
@@ -217,14 +224,16 @@ $navbar-bleed: 30px;
 
       display: inline-block;
       text-align: center;
-      width: calc(100%/3);
-      height: calc(100%/3);
+      width: calc(100%/3 - 20px);
+      height: calc(100%/3 - 20px);
+      margin: 10px;
       background: white;
       color: $purple-color;
+      
       cursor: pointer;
       @media screen and (max-width: $break-small) {
-        width: calc(100%);
-        height: calc(50%);
+        width: calc(100% - 20px);
+        height: calc(50% - 20px);
       }
 
       @media screen and (min-width: $break-small) {

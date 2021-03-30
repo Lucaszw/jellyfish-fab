@@ -2,8 +2,6 @@ const path = require("path");
 
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 function allNodeModulesExcept (exceptions) {
   var _e = exceptions.join('|')
@@ -87,8 +85,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src", "index.html"),
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new HardSourceWebpackPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: "[name].bundle.js",

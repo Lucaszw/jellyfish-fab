@@ -11,7 +11,6 @@ import PDFJSWorker from 'pdfjs-dist/build/pdf.worker.min';
 
 const SAMPLE_PDF = '/assets/glow-worm.pdf';
 pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJSWorker;
-let docPromise = pdfjsLib.getDocument(SAMPLE_PDF).promise;
 
 class Projects {
   constructor(navbar) {
@@ -35,9 +34,10 @@ class Projects {
 
     this.gallery = new Gallery(this.container);
 
-    this.gallery.onEnterFullScreen = () => {
-      // this.navbar.container.classList.add("hidden");
-      this.loadPDF();
+    this.gallery.onEnterFullScreen = async (project, details) => {
+      this.openProjectWrapper.classList.add("isOpen");
+      let doc = await pdfjsLib.getDocument(details.url).promise;
+      this.loadPDF(doc);
     }
 
     this.gallery.onExitFullScreen = () => {
@@ -76,16 +76,13 @@ class Projects {
     if (overlapping) this.navbar.container.classList.add("opaque");
   }
 
-  async loadPDF() {
-    this.openProjectWrapper.classList.add("isOpen");
-    let doc = await docPromise;
-
+  async loadPDF(doc) {
     const pages = doc._pdfInfo.numPages;
 
     for (let page = 0; page < pages; page ++) {
       const canvas = el("canvas");
       mount(this.openProjectWrapper, canvas);
-      await this.renderPage(page+1, canvas, doc);
+      this.renderPage(page+1, canvas, doc);
     }
 
   }
