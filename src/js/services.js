@@ -1,9 +1,7 @@
 import { el, mount, setStyle } from "redom";
 import Arrow from "./arrow";
-
-import Jellyfish from "./services/jellyfish";
-
 import _ from "lodash";
+import serviceHTML from "../html/services/header.html";
 
 
 class Services {
@@ -13,10 +11,12 @@ class Services {
 
     draw() {
         this.remove();
-        this.container = el(".services");
-        this.jellyfish = new Jellyfish(this.container);
+        this.container = el(".services", {innerHTML: serviceHTML});
         mount(document.body, this.container);
-        this.jellyfish.draw();
+
+        this.arrow = new Arrow();
+        this.arrow.draw();
+        
     }
 
     remove() {

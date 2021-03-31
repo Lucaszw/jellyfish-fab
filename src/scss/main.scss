@@ -94,6 +94,46 @@ body {
   transition: left 1s ease;
 }
 
+.services {
+  background: #262626;
+
+  .header {
+    background: #262626;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/services-background.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .printer {
+      background-image: url(/assets/3dprinter.svg);
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .content {
+    width: fit-content;
+    margin: 0 auto;
+
+    color: white;
+    font-family: 'SourceCode';
+    font-size: 21px;
+    padding: 50px;
+    text-align: justify;
+
+    h1 {
+      font-size: 25px;
+      color: #fc52a5;
+      
+    }
+  }
+}
+
 .workshops {
   .content {
     padding: 100px 50px;
