@@ -95,7 +95,17 @@ body {
 }
 
 .workshops {
+  .content {
+    padding: 100px 50px;
+    background: #262626;
+    color: white;
+    font-family: "DIN";
+    text-align: center;
 
+    h4 {
+      text-align: justify;
+    }
+  }
   &:before {
     content: "";
     width: 100%;
