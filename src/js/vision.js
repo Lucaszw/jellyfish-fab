@@ -29,8 +29,11 @@ class Vision {
 
     const offerings = this.container.querySelectorAll(".offering");
     for (let offering of offerings) {
+      let page = "services"
+      if (offering.classList.contains("page-workshops")) page = "workshops";
+
       offering.onclick = () => {
-        setTimeout(()=>(this.navbar.onChangePage({dataset: {page: "services"}})), 300);
+        setTimeout(()=>(this.navbar.onChangePage({dataset: {page}})), 300);
       }
     }
   }

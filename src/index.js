@@ -39,6 +39,9 @@ function main() {
         navbar.container.classList.add("hidden");
         sliding.easeInOut(()=>{
             for (let page of pages) page.remove();
+
+            window.scrollTo(0,0);
+            
             footer.remove();
             // navbar.container.style.backgroundColor = "";
             analytics.setCurrentScreen(page);
