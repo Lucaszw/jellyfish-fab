@@ -85,3 +85,17 @@ $navbar-bleed: 30px;
   width: 100%;
   min-height: 100%;
 }
+
+.clients {
+  display: flex;
+  .client-icon {
+    width: 19vw;
+    height: 19vw;
+    margin: 1vw;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    border-radius: 16px;
+    flex: 1;
+  }
+}
