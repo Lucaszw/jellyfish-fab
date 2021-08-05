@@ -20,6 +20,11 @@ class Home {
         trailing: true,
       })
     );
+
+    window.addEventListener("resize", _.debounce(this.onResize.bind(this), 200, {
+      leading: false,
+      trailing: true
+    }));
   }
 
   draw() {
@@ -35,6 +40,7 @@ class Home {
     this.vision.draw();
     this.contact.draw();
     this.arrow.draw();
+    this.onResize();
   }
 
   remove() {
@@ -54,6 +60,16 @@ class Home {
     );
     if (!overlapping) this.navbar.container.classList.add('opaque');
     if (overlapping) this.navbar.container.classList.remove('opaque');
+  }
+
+  onResize() {
+    let hwRatio = 450/800;
+
+    let iframe = this.container.querySelector("iframe");
+    let bbox = document.body.getBoundingClientRect();
+
+    iframe.setAttribute("width", bbox.width);
+    iframe.setAttribute("height", bbox.width * hwRatio);
   }
 }
 
